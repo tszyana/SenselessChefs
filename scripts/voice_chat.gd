@@ -35,6 +35,8 @@ func _ready() -> void:
 	playback_playback = playback_player.get_stream_playback()
 
 	print("Voice playback initialized")
+	print("Playing: ", playback_player.playing)
+	print("Playback object: ", playback_playback)
 	
 func process_microphone() -> void:
 	if capture == null:
@@ -107,3 +109,11 @@ func play_voice_samples(samples: Array[float]) -> void:
 	for sample in samples:
 		var frame := Vector2(sample, sample)
 		playback_playback.push_frame(frame)
+
+func test_sound() -> void:
+	if playback_playback == null:
+		return
+
+	for i in range(4800):
+		var sample := sin(float(i) * 0.1)
+		playback_playback.push_frame(Vector2(sample, sample))
