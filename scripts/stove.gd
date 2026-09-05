@@ -11,6 +11,7 @@ func _ready() -> void:
 
 func _on_interact():
 	var player = get_tree().get_first_node_in_group("player_blind")
+	var item = player.get_item()
 	
 	if not player.carrying_item:
 		print("Not holding anything u dummy")

@@ -7,7 +7,7 @@ extends PlayerMovement
 enum State { MOVE, HOLD, CHOP, STIR}
 var state = State.MOVE
 var carrying_item: bool = false
-
+var held_item: Pickable = null
 
 func _physics_process(delta: float) -> void:
 	process_movement()
@@ -27,6 +27,9 @@ func update_action_sprite() -> void:
 		State.STIR:
 			pass
 
+func get_item() -> Pickable:
+	return held_item
+
 func update_vision() -> void:
 	pass # for the blind thing
 
@@ -35,17 +38,19 @@ func pickup_object() -> void:
 		if carrying_item:
 			drop_item()
 		elif is_in_range and target_object:
-			target_object.reparent(hand_position)
-			target_object.position = Vector2.ZERO
+			held_item = target_object
+			held_item.reparent(hand_position)
+			held_item.position = Vector2.ZERO
 			carrying_item = true
 			is_in_range = false
 			
 
 func drop_item() -> void:
-	var dropped_position = global_position
-	target_object.reparent(kitchen)
-	target_object.global_position = dropped_position
+	held_item.reparent(kitchen)
+	held_item.global_position = global_position
 	carrying_item = false
+	held_item = null
+	
 	
 
 func delete_item() -> void:
