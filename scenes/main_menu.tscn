@@ -14,10 +14,10 @@ metadata/_edit_lock_ = true
 
 [node name="LineEdit" type="LineEdit" parent="." unique_id=995277565]
 layout_mode = 0
-offset_left = 417.0
-offset_top = 493.0
-offset_right = 712.0
-offset_bottom = 531.0
+offset_left = 448.0
+offset_top = 500.0
+offset_right = 743.0
+offset_bottom = 538.0
 placeholder_text = "Enter a nickname"
 max_length = 15
 
