@@ -19,6 +19,7 @@ func setup(microphone_player: AudioStreamPlayer) -> void:
 	var idx := AudioServer.get_bus_index("MicInput")
 	capture = AudioServer.get_bus_effect(idx, 0)
 
+	AudioServer.set_bus_mute(idx, true)
 	mic.play()
 	
 	print("VoiceChat initialized")
@@ -72,7 +73,13 @@ func process_microphone() -> void:
 			#print("Created audio chunk: ", chunk.size(), " frames")
 			#print("PCM size: ", pcm_data.size(), " bytes")
 
-			NetworkManager.send_voice_data.rpc(pcm_data)
+			if multiplayer.is_server():
+				NetworkManager.relay_voice_data(
+				multiplayer.get_unique_id(),
+				pcm_data
+			)
+			else:
+				NetworkManager.send_voice_data.rpc(pcm_data)
 
 
 func audio_chunk_to_pcm(chunk: Array[Vector2]) -> PackedByteArray:
@@ -116,7 +123,9 @@ func pcm_to_audio_samples(pcm_data: PackedByteArray) -> PackedFloat32Array:
 
 	return samples
 	
-func play_voice_samples(samples: Array[float]) -> void:
+
+	
+func play_voice_samples(samples: PackedFloat32Array) -> void:
 	if playback_playback == null:
 		return
 
