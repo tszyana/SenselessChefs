@@ -12,6 +12,7 @@ func _physics_process(delta: float) -> void:
 		update_action_sprite()
 	
 	move_and_slide()
+	update_vision()
 
 func update_action_sprite() -> void:
 	match state:
@@ -21,3 +22,6 @@ func update_action_sprite() -> void:
 			pass
 		State.STIR:
 			pass
+
+func update_vision() -> void:
+	pass
