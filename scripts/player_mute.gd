@@ -26,7 +26,6 @@ func update_gesture_sprite() -> void:
 		State.FOUR:
 			pass
 
-#func _ready():
-	#if is_multiplayer_authority():
-		#$RecipeButton.show()
+func _ready():
+	$RecipeButton.show()
 	
