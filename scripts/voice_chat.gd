@@ -11,6 +11,7 @@ var capture: AudioEffectCapture
 var chunk_size := int(AudioServer.get_mix_rate() * CHUNK_DURATION)
 
 var audio_buffer: Array[Vector2] = []
+var voice_buffer: Array[float] = []
 
 
 func setup(microphone_player: AudioStreamPlayer) -> void:
@@ -34,7 +35,7 @@ func _ready() -> void:
 	add_child(playback_player)
 
 	playback_stream.mix_rate = AudioServer.get_mix_rate()
-	playback_stream.buffer_length = 0.2
+	playback_stream.buffer_length = 0.1
 
 	playback_player.stream = playback_stream
 	playback_player.play()
@@ -44,6 +45,24 @@ func _ready() -> void:
 	print("Voice playback initialized")
 	print("Playing: ", playback_player.playing)
 	print("Playback object: ", playback_playback)
+	
+func _process(_delta: float) -> void:
+	if playback_playback == null:
+		return
+
+	var available := playback_playback.get_frames_available()
+	
+	if Engine.get_process_frames() % 60 == 0:
+		print("Voice buffer: ", voice_buffer.size(), " samples")
+
+	while available > 0 and voice_buffer.size() > 0:
+		var sample: float = voice_buffer.pop_front()
+
+		playback_playback.push_frame(
+			Vector2(sample, sample)
+		)
+
+		available -= 1
 	
 func process_microphone() -> void:
 	if capture == null:
@@ -64,14 +83,9 @@ func process_microphone() -> void:
 				max_amplitude = max(max_amplitude, abs(sample.x))
 				max_amplitude = max(max_amplitude, abs(sample.y))
 
-			print("Max amplitude: ", max_amplitude)
-
 			audio_buffer = audio_buffer.slice(chunk_size)
 
 			var pcm_data := audio_chunk_to_pcm(chunk)
-
-			#print("Created audio chunk: ", chunk.size(), " frames")
-			#print("PCM size: ", pcm_data.size(), " bytes")
 
 			if multiplayer.is_server():
 				print("I am HOST - sending voice directly to clients")
@@ -128,12 +142,8 @@ func pcm_to_audio_samples(pcm_data: PackedByteArray) -> PackedFloat32Array:
 
 	
 func play_voice_samples(samples: PackedFloat32Array) -> void:
-	if playback_playback == null:
-		return
-
 	for sample in samples:
-		var frame := Vector2(sample, sample)
-		playback_playback.push_frame(frame)
+		voice_buffer.append(sample)
 
 func test_sound() -> void:
 	if playback_playback == null:
