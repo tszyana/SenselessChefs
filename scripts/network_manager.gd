@@ -5,6 +5,10 @@ const MAX_PLAYERS := 3
 
 var peer := ENetMultiplayerPeer.new()
 
+func _ready() -> void:
+	multiplayer.peer_connected.connect(_on_peer_connected)
+	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
+
 
 func host_game() -> void:
 	var error := peer.create_server(PORT, MAX_PLAYERS)
@@ -28,3 +32,11 @@ func join_game(ip_address: String) -> void:
 	multiplayer.multiplayer_peer = peer
 
 	print("Connecting to ", ip_address, ":", PORT)
+
+
+func _on_peer_connected(id: int) -> void:
+	print("Player connected: ", id)
+
+
+func _on_peer_disconnected(id: int) -> void:
+	print("Player disconnected: ", id)

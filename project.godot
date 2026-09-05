@@ -11,8 +11,13 @@ config_version=5
 [application]
 
 config/name="Senseless Chefs"
+run/main_scene="uid://ca11sgdjsd3vm"
 config/features=PackedStringArray("4.7", "Forward Plus")
 config/icon="res://icon.svg"
+
+[autoload]
+
+NetworkManager="*uid://bk1qt337yias5"
 
 [display]
 
