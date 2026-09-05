@@ -11,7 +11,3 @@ func _on_interact():
 	# if player is holding object
 	print("Object deleted!") # placeholder
 	interactable.is_interactable = false
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
