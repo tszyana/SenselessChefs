@@ -49,6 +49,14 @@ func send_voice_data(audio_data: PackedByteArray) -> void:
 		
 	var sender_id := multiplayer.get_remote_sender_id()
 	
+	print(
+		"SERVER RECEIVED voice from Player ",
+		sender_id,
+		": ",
+		audio_data.size(),
+		" bytes"
+	)
+	
 	relay_voice_data(sender_id, audio_data)
 
 			
