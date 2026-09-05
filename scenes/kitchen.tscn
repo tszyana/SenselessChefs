@@ -189,6 +189,6 @@ shape = SubResource("RectangleShape2D_8ixu5")
 position = Vector2(1050, 582)
 shape = SubResource("RectangleShape2D_bh1ot")
 
-[node name="TrashCan2" parent="." unique_id=1430967741 instance=ExtResource("5_v3ycp")]
+[node name="TrashCan" parent="." unique_id=1430967741 instance=ExtResource("5_v3ycp")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
