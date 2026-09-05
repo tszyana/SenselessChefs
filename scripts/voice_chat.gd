@@ -45,6 +45,8 @@ func _ready() -> void:
 	print("Voice playback initialized")
 	print("Playing: ", playback_player.playing)
 	print("Playback object: ", playback_playback)
+	print("Audio mix rate: ", AudioServer.get_mix_rate())
+	print("Playback mix rate: ", playback_stream.mix_rate)
 	
 func _process(_delta: float) -> void:
 	if playback_playback == null:
