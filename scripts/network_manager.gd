@@ -40,3 +40,15 @@ func _on_peer_connected(id: int) -> void:
 
 func _on_peer_disconnected(id: int) -> void:
 	print("Player disconnected: ", id)
+	
+@rpc("any_peer", "unreliable")
+func send_voice_data(audio_data: PackedByteArray) -> void:
+	var sender_id := multiplayer.get_remote_sender_id()
+
+	print(
+		"Received voice data from Player ",
+		sender_id,
+		": ",
+		audio_data.size(),
+	    " bytes"
+	)
