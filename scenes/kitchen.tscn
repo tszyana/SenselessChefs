@@ -89,6 +89,8 @@ offset_bottom = 641.0
 text = "RECIPE"
 
 [node name="RecipePanel" type="Panel" parent="Control" unique_id=203503883]
+layout_mode = 0
+
 [node name="TimerPopup" type="Panel" parent="Control" unique_id=638643782]
 visible = false
 layout_mode = 1
