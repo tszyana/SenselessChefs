@@ -57,36 +57,40 @@ func send_voice_data(audio_data: PackedByteArray) -> void:
 		" bytes"
 	)
 	
+	# Host plays the client's voice locally.
+	var samples := VoiceChat.pcm_to_audio_samples(audio_data)
+	VoiceChat.play_voice_samples(samples)
+	
 	relay_voice_data(sender_id, audio_data)
 
 			
 			
 @rpc("authority", "unreliable")
 func receive_voice_data(sender_id: int, audio_data: PackedByteArray) -> void:
-	print(
-		"Received voice data from Player ",
-		sender_id,
-		": ",
-		audio_data.size(),
-	    " bytes"
-	)
+	#print(
+		#"Received voice data from Player ",
+		#sender_id,
+		#": ",
+		#audio_data.size(),
+		#" bytes"
+	#)
 	
 	var samples :PackedFloat32Array = VoiceChat.pcm_to_audio_samples(audio_data)
-	print("Converted to ", samples.size(), " audio samples")
+	#print("Converted to ", samples.size(), " audio samples")
 	VoiceChat.play_voice_samples(samples)
 	
 	
 	
 func relay_voice_data(sender_id: int, audio_data: PackedByteArray) -> void:
-	print(
-		"Relaying voice from Player ",
-		sender_id,
-		": ",
-		audio_data.size(),
-		" bytes"
-	)
+	#print(
+		#"Relaying voice from Player ",
+		#sender_id,
+		#": ",
+		#audio_data.size(),
+		#" bytes"
+	#)
 
 	for peer_id in multiplayer.get_peers():
 		if peer_id != sender_id:
-			print("Sending voice to Player ", peer_id)
+			#print("Sending voice to Player ", peer_id)
 			receive_voice_data.rpc_id(peer_id, sender_id, audio_data)
