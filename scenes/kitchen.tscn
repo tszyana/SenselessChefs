@@ -5,21 +5,39 @@
 [ext_resource type="PackedScene" uid="uid://bn2k5w2cgyjes" path="res://scenes/player_blind.tscn" id="3_c621a"]
 [ext_resource type="Script" uid="uid://bqtcygqafkwk0" path="res://scripts/timer_label.gd" id="4_bems3"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_vqp8a"]
-radius = 118.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bems3"]
+size = Vector2(103, 103)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqp8a"]
+size = Vector2(244.25, 338.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25ren"]
+size = Vector2(201.25, 176.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3xp1"]
+size = Vector2(113, 130)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twnsb"]
+size = Vector2(96.5, 172.75)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ixu5"]
+size = Vector2(108.25, 152.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bh1ot"]
+size = Vector2(185, 128)
 
 [node name="Main" type="Node2D" unique_id=1947100178]
 
 [node name="Players" type="Node2D" parent="." unique_id=1408460873]
 
 [node name="MutePlayer" parent="Players" unique_id=102776357 instance=ExtResource("1_01sk3")]
-position = Vector2(639, 204)
+position = Vector2(811, 193)
 
 [node name="DeafPlayer" parent="Players" unique_id=1982512972 instance=ExtResource("2_jtesv")]
-position = Vector2(480, 190)
+position = Vector2(363, 436)
 
 [node name="BlindPlayer" parent="Players" unique_id=1426497895 instance=ExtResource("3_c621a")]
-position = Vector2(255, 185)
+position = Vector2(318, 186)
 
 [node name="Control" type="Control" parent="." unique_id=751850616]
 layout_mode = 3
@@ -48,6 +66,68 @@ autostart = true
 
 [node name="Area2D" type="Area2D" parent="TrashCan" unique_id=1850943327]
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="TrashCan/Area2D" unique_id=1897936257]
-position = Vector2(1022, 225)
-shape = SubResource("CircleShape2D_vqp8a")
+[node name="TrashCollision" type="CollisionShape2D" parent="TrashCan/Area2D" unique_id=1897936257]
+position = Vector2(1081, 96)
+shape = SubResource("RectangleShape2D_bems3")
+
+[node name="Counter" type="Node2D" parent="." unique_id=2115739603]
+
+[node name="Sprite2D" type="Sprite2D" parent="Counter" unique_id=751030044]
+
+[node name="Area2D" type="Area2D" parent="Counter" unique_id=1749665342]
+
+[node name="CounterCollision" type="CollisionShape2D" parent="Counter/Area2D" unique_id=776533585]
+position = Vector2(580, 314)
+shape = SubResource("RectangleShape2D_vqp8a")
+
+[node name="Stove" type="Node2D" parent="." unique_id=593861155]
+
+[node name="Sprite2D" type="Sprite2D" parent="Stove" unique_id=1435088941]
+
+[node name="Area2D" type="Area2D" parent="Stove/Sprite2D" unique_id=839814384]
+
+[node name="StoveCollision" type="CollisionShape2D" parent="Stove/Sprite2D/Area2D" unique_id=1179525506]
+position = Vector2(105, 430)
+shape = SubResource("RectangleShape2D_25ren")
+
+[node name="ChoppingBoard" type="Node2D" parent="." unique_id=1978225571]
+
+[node name="Sprite2D" type="Sprite2D" parent="ChoppingBoard" unique_id=1307206778]
+
+[node name="Area2D" type="Area2D" parent="ChoppingBoard" unique_id=1972647374]
+
+[node name="ChoppingCollision" type="CollisionShape2D" parent="ChoppingBoard/Area2D" unique_id=1925752975]
+position = Vector2(1087, 280)
+shape = SubResource("RectangleShape2D_r3xp1")
+
+[node name="Oven" type="Node2D" parent="." unique_id=1466359447]
+position = Vector2(1, 0)
+
+[node name="Sprite2D" type="Sprite2D" parent="Oven" unique_id=293571983]
+
+[node name="Area2D" type="Area2D" parent="Oven" unique_id=1766410360]
+position = Vector2(-1, 0)
+
+[node name="OvenCollision" type="CollisionShape2D" parent="Oven/Area2D" unique_id=2109224326]
+position = Vector2(88, 172)
+shape = SubResource("RectangleShape2D_twnsb")
+
+[node name="Sink" type="Node2D" parent="." unique_id=1988499384]
+
+[node name="Sprite2D" type="Sprite2D" parent="Sink" unique_id=1414805607]
+
+[node name="Area2D" type="Area2D" parent="Sink" unique_id=69757491]
+
+[node name="SinkCollision" type="CollisionShape2D" parent="Sink/Area2D" unique_id=1976227123]
+position = Vector2(1088, 433)
+shape = SubResource("RectangleShape2D_8ixu5")
+
+[node name="Fridge" type="Node2D" parent="." unique_id=1282882871]
+
+[node name="Sprite2D" type="Sprite2D" parent="Fridge" unique_id=1894465361]
+
+[node name="Area2D" type="Area2D" parent="Fridge" unique_id=728353075]
+
+[node name="FridgeCollision" type="CollisionShape2D" parent="Fridge/Area2D" unique_id=1575431469]
+position = Vector2(1050, 582)
+shape = SubResource("RectangleShape2D_bh1ot")

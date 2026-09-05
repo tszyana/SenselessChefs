@@ -1,6 +1,8 @@
 extends Control
 
 @onready var player_list: VBoxContainer = $PlayerList
+@onready var start_button: Button = $StartButton
+
 var is_ready := false
 var players_ready := {}
 
@@ -11,6 +13,9 @@ func _ready() -> void:
 	players_ready[multiplayer.get_unique_id()] = false
 
 	update_player_list()
+	
+	# Only let the host press the start button
+	start_button.disabled = not multiplayer.is_server()
 
 func _on_peer_connected(id: int) -> void:
 	print("Player connected: ", id)
@@ -40,10 +45,10 @@ func add_player_to_list(id: int) -> void:
 	if id == multiplayer.get_unique_id():
 		label.text += " (You)"
 		
-		if players_ready.get(id, false):
-			label.text += " - READY"
-		else:
-			label.text += " - NOT READY"
+	if players_ready.get(id, false):
+		label.text += " - READY"
+	else:
+		label.text += " - NOT READY"
 
 	player_list.add_child(label)
 
@@ -52,17 +57,54 @@ func _on_ready_button_pressed() -> void:
 	is_ready = !is_ready
 	players_ready[multiplayer.get_unique_id()] = is_ready
 
-	if is_ready:
-		$ReadyButton.text = "Unready"
+	if multiplayer.is_server():
+		players_ready[multiplayer.get_unique_id()] = is_ready
+		update_player_list()
+		sync_ready_states.rpc(players_ready)
 	else:
-		$ReadyButton.text = "Ready"
+		set_ready_on_server.rpc_id(1, is_ready)
+		
+# Returns true if all players are ready
+func all_players_ready() -> bool:
+	for id in multiplayer.get_peers():
+		if not players_ready.get(id, false):
+			return false
+
+	if not players_ready.get(multiplayer.get_unique_id(), false):
+		return false
+
+	return true
+	
+func _on_start_button_pressed() -> void:
+	if not multiplayer.is_server():
+		return
+	
+	if not all_players_ready():
+		print("Waiting for everyone to ready...")
+		return
+		
+	start_game.rpc()
+	
+
+
+@rpc("authority", "call_local", "reliable")
+func sync_ready_states(states: Dictionary) -> void:
+	players_ready = states
+	update_player_list()
+	
+@rpc("any_peer", "reliable")
+func set_ready_on_server(ready: bool) -> void:
+	if not multiplayer.is_server():
+		return
+
+	var player_id := multiplayer.get_remote_sender_id()
+
+	players_ready[player_id] = ready
 
 	update_player_list()
-	set_ready.rpc(multiplayer.get_unique_id(), is_ready)
+	sync_ready_states.rpc(players_ready)
 	
-	
-@rpc("any_peer", "call_local", "reliable", 0)
-func set_ready(player_id: int, ready: bool):
-	players_ready[player_id] = ready
-	update_player_list()
+@rpc("any_peer", "call_local", "reliable")
+func start_game() -> void:
+	get_tree().change_scene_to_file("res://scenes/kitchen.tscn")
 	
