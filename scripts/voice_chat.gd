@@ -74,11 +74,13 @@ func process_microphone() -> void:
 			#print("PCM size: ", pcm_data.size(), " bytes")
 
 			if multiplayer.is_server():
+				print("I am HOST - sending voice directly to clients")
 				NetworkManager.relay_voice_data(
 				multiplayer.get_unique_id(),
 				pcm_data
 			)
 			else:
+				print("I am CLIENT - sending voice to server")
 				NetworkManager.send_voice_data.rpc(pcm_data)
 
 
