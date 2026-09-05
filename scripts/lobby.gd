@@ -7,6 +7,8 @@ var players_ready := {}
 func _ready() -> void:
 	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
+	
+	players_ready[multiplayer.get_unique_id()] = false
 
 	update_player_list()
 
