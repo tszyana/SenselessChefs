@@ -16,7 +16,7 @@ func _ready() -> void:
 	# as an "AudioEffectCapture" resource.
 	capture = AudioServer.get_bus_effect(idx, 0)
 	
-	mic.play()
+	# mic.play()
 	
 	print("mic started")
 	print("Microphone started")
