@@ -1,6 +1,6 @@
 extends Control
 
-@onready var player_list: VBoxContainer = $PlayerList
+@onready var player_list: VBoxContainer = $VBoxContainer/PlayerList
 @onready var start_button: Button = $StartButton
 
 var is_ready := false
