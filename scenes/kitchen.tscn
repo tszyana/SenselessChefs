@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ccqr3grqb88i6"]
+[gd_scene format=3 uid="uid://bh4nx2ebsqfaq"]
 
 [ext_resource type="PackedScene" uid="uid://bkrucl6g84xoa" path="res://scenes/player_mute.tscn" id="1_01sk3"]
 [ext_resource type="PackedScene" uid="uid://de2ugp7o5yyaa" path="res://scenes/player_deaf.tscn" id="2_jtesv"]
@@ -7,16 +7,13 @@
 
 [node name="Main" type="Node2D" unique_id=1947100178]
 
-[node name="Players" type="Node2D" parent="." unique_id=1076948618]
+[node name="Players" type="Node2D" parent="." unique_id=1408460873]
 
 [node name="MutePlayer" parent="Players" unique_id=102776357 instance=ExtResource("1_01sk3")]
-position = Vector2(130, 160)
 
-[node name="DeafPlayer" parent="Players" unique_id=1240639144 instance=ExtResource("2_jtesv")]
-position = Vector2(854, 174)
+[node name="DeafPlayer" parent="Players" unique_id=1982512972 instance=ExtResource("2_jtesv")]
 
-[node name="BlindPlayer" parent="Players" unique_id=1041076819 instance=ExtResource("3_c621a")]
-position = Vector2(475, 171)
+[node name="BlindPlayer" parent="Players" unique_id=1426497895 instance=ExtResource("3_c621a")]
 
 [node name="Control" type="Control" parent="." unique_id=751850616]
 layout_mode = 3
