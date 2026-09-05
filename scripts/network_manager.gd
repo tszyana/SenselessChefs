@@ -80,4 +80,5 @@ func relay_voice_data(sender_id: int, audio_data: PackedByteArray) -> void:
 
 	for peer_id in multiplayer.get_peers():
 		if peer_id != sender_id:
+			print("Sending voice to Player ", peer_id)
 			receive_voice_data.rpc_id(peer_id, sender_id, audio_data)
