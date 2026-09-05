@@ -1,15 +1,10 @@
+class_name PlayerMovement
 extends CharacterBody2D
 
 
 const SPEED = 300.0
 
-enum State { MOVE, HOLD, CHOP, STIR}
-var state = State.MOVE
-
-func _physics_process(delta: float) -> void:
-	process_movement()
-	move_and_slide()
-
+# processes arrow keys for movement
 func process_movement() -> void:
 	# Get the input direction and handle the movement/deceleration.
 	# As good practice, you should replace UI actions with custom gameplay actions.
@@ -17,21 +12,14 @@ func process_movement() -> void:
 	
 	velocity = direction * SPEED
 	
-	update_sprite(direction)
+	update_movement_sprite(direction)
 
-func update_sprite(dir: Vector2) -> void:
-	match state:
-		State.MOVE:
-			if dir.x != 0:
-				pass # sprite.flip_h = dir.x < 0 to flip sprite left/right
-			elif dir.y < 0: 
-				pass # change sprite to up
-			elif dir.y > 0:
-				pass # change sprite
-		State.HOLD:
-			pass
-		State.CHOP:
-			pass
-		State.STIR:
-			pass
+# updates sprite to match movement
+func update_movement_sprite(dir: Vector2) -> void:
+	if dir.x != 0:
+		pass # sprite.flip_h = dir.x < 0 to flip sprite left/right
+	elif dir.y < 0: 
+		pass # change sprite to up
+	elif dir.y > 0:
+		pass # change sprite
 		
