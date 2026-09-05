@@ -1,10 +1,49 @@
 [gd_scene format=3 uid="uid://bh4nx2ebsqfaq"]
 
 [ext_resource type="PackedScene" uid="uid://bkrucl6g84xoa" path="res://scenes/player_mute.tscn" id="1_01sk3"]
+[ext_resource type="Script" uid="uid://bbv7bmwxv55uo" path="res://scripts/kitchen.gd" id="1_g3o0j"]
 [ext_resource type="PackedScene" uid="uid://de2ugp7o5yyaa" path="res://scenes/player_deaf.tscn" id="2_jtesv"]
 [ext_resource type="PackedScene" uid="uid://bn2k5w2cgyjes" path="res://scenes/player_blind.tscn" id="3_c621a"]
+<<<<<<< HEAD
 [ext_resource type="Script" uid="uid://bqtcygqafkwk0" path="res://scripts/timer_label.gd" id="4_bems3"]
 [ext_resource type="PackedScene" uid="uid://7hlc4mek7gko" path="res://scenes/trash_can.tscn" id="5_v3ycp"]
+=======
+
+[sub_resource type="GDScript" id="GDScript_bems3"]
+script/source = "extends Label
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+	
+	
+"
+
+[sub_resource type="GDScript" id="GDScript_v3ycp"]
+script/source = "extends Timer
+
+@onready var game_timer = $GameTimer
+@onready var time_label = $CanvasLayer/TimeLabel
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bems3"]
+size = Vector2(103, 103)
+>>>>>>> 48ca4cbb38cc91428dd47f4586a812689fd6cd9c
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqp8a"]
 size = Vector2(244.25, 338.75)
@@ -24,7 +63,8 @@ size = Vector2(108.25, 152.5)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bh1ot"]
 size = Vector2(185, 128)
 
-[node name="Main" type="Node2D" unique_id=1947100178]
+[node name="Kitchen" type="Node2D" unique_id=1947100178]
+script = ExtResource("1_g3o0j")
 
 [node name="Players" type="Node2D" parent="." unique_id=1408460873]
 
@@ -45,18 +85,54 @@ offset_bottom = 40.0
 
 [node name="TimerLabel" type="Label" parent="Control" unique_id=499163736]
 layout_mode = 0
-offset_left = 498.0
-offset_top = 46.0
-offset_right = 639.0
-offset_bottom = 95.0
+offset_left = 509.0
+offset_top = 53.0
+offset_right = 650.0
+offset_bottom = 102.0
 text = "Timer Placeholder
 "
-script = ExtResource("4_bems3")
+horizontal_alignment = 1
+script = SubResource("GDScript_bems3")
+
+[node name="TimerPopup" type="Panel" parent="Control" unique_id=638643782]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 3.9250002
+anchor_bottom = 1.899
+offset_left = 408.0
+offset_top = 117.0
+offset_right = 596.0
+offset_bottom = 302.04
+
+[node name="Label" type="Label" parent="Control/TimerPopup" unique_id=1562481649]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 56.0
+offset_right = 197.0
+offset_bottom = 79.0
+text = "Time up!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TimerPopup" unique_id=1247174414]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 107.0
+offset_right = 234.0
+offset_bottom = 209.0
+
+[node name="MainMenuButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=1429031911]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="RestartButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=406307531]
+layout_mode = 2
+text = "Restart"
 
 [node name="Timer" type="Timer" parent="." unique_id=1406045070]
-wait_time = 180.0
+wait_time = 11.0
 one_shot = true
 autostart = true
+script = SubResource("GDScript_v3ycp")
 
 [node name="Counter" type="Node2D" parent="." unique_id=2115739603]
 
@@ -65,7 +141,7 @@ autostart = true
 [node name="Area2D" type="Area2D" parent="Counter" unique_id=1749665342]
 
 [node name="CounterCollision" type="CollisionShape2D" parent="Counter/Area2D" unique_id=776533585]
-position = Vector2(580, 314)
+position = Vector2(580, 323)
 shape = SubResource("RectangleShape2D_vqp8a")
 
 [node name="TrashCan" parent="." unique_id=1430967741 instance=ExtResource("5_v3ycp")]
@@ -122,3 +198,5 @@ shape = SubResource("RectangleShape2D_8ixu5")
 [node name="FridgeCollision" type="CollisionShape2D" parent="Fridge/Area2D" unique_id=1575431469]
 position = Vector2(1050, 582)
 shape = SubResource("RectangleShape2D_bh1ot")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
