@@ -19,9 +19,15 @@ func setup(microphone_player: AudioStreamPlayer) -> void:
 	var idx := AudioServer.get_bus_index("MicInput")
 	capture = AudioServer.get_bus_effect(idx, 0)
 
+	mic.play()
+	
 	print("VoiceChat initialized")
 	print("Sample rate: ", AudioServer.get_mix_rate())
 	print("Chunk size: ", chunk_size)
+	print("Mic node: ", mic)
+	print("Mic stream: ", mic.stream)
+	print("Mic playing: ", mic.playing)
+	print("Mic bus: ", mic.bus)
 
 func _ready() -> void:
 	add_child(playback_player)
@@ -50,6 +56,14 @@ func process_microphone() -> void:
 
 		if audio_buffer.size() >= chunk_size:
 			var chunk: Array[Vector2] = audio_buffer.slice(0, chunk_size)
+			
+			var max_amplitude := 0.0
+
+			for sample in chunk:
+				max_amplitude = max(max_amplitude, abs(sample.x))
+				max_amplitude = max(max_amplitude, abs(sample.y))
+
+			print("Max amplitude: ", max_amplitude)
 
 			audio_buffer = audio_buffer.slice(chunk_size)
 
