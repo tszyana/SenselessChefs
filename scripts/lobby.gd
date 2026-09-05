@@ -1,6 +1,8 @@
 extends Control
 
 @onready var player_list: VBoxContainer = $PlayerList
+var is_ready := false
+var players_ready := {}
 
 func _ready() -> void:
 	multiplayer.peer_connected.connect(_on_peer_connected)
@@ -35,5 +37,30 @@ func add_player_to_list(id: int) -> void:
 
 	if id == multiplayer.get_unique_id():
 		label.text += " (You)"
+		
+		if players_ready.get(id, false):
+			label.text += " - READY"
+		else:
+			label.text += " - NOT READY"
 
 	player_list.add_child(label)
+
+
+func _on_ready_button_pressed() -> void:
+	is_ready = !is_ready
+	players_ready[multiplayer.get_unique_id()] = is_ready
+
+	if is_ready:
+		$ReadyButton.text = "Unready"
+	else:
+		$ReadyButton.text = "Ready"
+
+	update_player_list()
+	set_ready.rpc(multiplayer.get_unique_id(), is_ready)
+	
+	
+@rpc("any_peer", "call_local", "reliable", 0)
+func set_ready(player_id: int, ready: bool):
+	players_ready[player_id] = ready
+	update_player_list()
+	

@@ -46,3 +46,5 @@ offset_top = 447.0
 offset_right = 705.0
 offset_bottom = 478.0
 text = "Start"
+
+[connection signal="pressed" from="ReadyButton" to="." method="_on_ready_button_pressed"]
