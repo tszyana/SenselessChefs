@@ -25,3 +25,9 @@ scale = Vector2(6.0400004, 6.2799993)
 shape = SubResource("RectangleShape2D_gsrh2")
 
 [node name="InteractingComponent" parent="." unique_id=605448658 instance=ExtResource("3_sfju2")]
+
+[node name="HandPosition" type="Marker2D" parent="." unique_id=674018565]
+position = Vector2(0, -81)
+
+[connection signal="area_entered" from="VisionArea" to="." method="_on_vision_area_area_entered"]
+[connection signal="area_exited" from="VisionArea" to="." method="_on_vision_area_area_exited"]
