@@ -4,6 +4,9 @@ extends PlayerMovement
 enum State { POINT, HAPPY, MAD, ONE, TWO, THREE, FOUR }
 var state = null
 
+func _ready():
+	$RecipeButton.show()
+
 func _physics_process(delta: float) -> void:
 	process_movement()
 	move_and_slide()
@@ -25,7 +28,4 @@ func update_gesture_sprite() -> void:
 			pass
 		State.FOUR:
 			pass
-
-func _ready():
-	$RecipeButton.show()
 	
