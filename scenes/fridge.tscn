@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://grn3wb4xmjdy"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bh1ot"]
+size = Vector2(185, 128)
+
+[node name="Fridge" type="Node2D" unique_id=54958283]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=316820151]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=191310978]
+
+[node name="FridgeCollision" type="CollisionShape2D" parent="Area2D" unique_id=855962502]
+position = Vector2(1050, 582)
+shape = SubResource("RectangleShape2D_bh1ot")

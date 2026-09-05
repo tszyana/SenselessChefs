@@ -1,0 +1,15 @@
+[gd_scene format=3 uid="uid://c3e32iwluow42"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twnsb"]
+size = Vector2(96.5, 172.75)
+
+[node name="Oven" type="Node2D" unique_id=936247304]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1558577367]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=1622280451]
+position = Vector2(-1, 0)
+
+[node name="OvenCollision" type="CollisionShape2D" parent="Area2D" unique_id=1168381113]
+position = Vector2(88, 172)
+shape = SubResource("RectangleShape2D_twnsb")
