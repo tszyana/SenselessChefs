@@ -12,21 +12,6 @@
 [ext_resource type="PackedScene" uid="uid://bpsuiablx8xpi" path="res://scenes/sink.tscn" id="9_bs8bs"]
 [ext_resource type="PackedScene" uid="uid://grn3wb4xmjdy" path="res://scenes/fridge.tscn" id="10_88wuv"]
 
-[sub_resource type="GDScript" id="GDScript_bems3"]
-script/source = "extends Label
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
-	
-"
-
 [sub_resource type="GDScript" id="GDScript_v3ycp"]
 script/source = "extends Timer
 
@@ -44,21 +29,29 @@ func _process(delta: float) -> void:
 	pass
 "
 
+[sub_resource type="GDScript" id="GDScript_bems3"]
+script/source = "extends Label
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+	
+	
+"
+
 [node name="Kitchen" type="Node2D" unique_id=1947100178]
 script = ExtResource("1_g3o0j")
 
-[node name="Players" type="Node2D" parent="." unique_id=1408460873]
-
-[node name="MutePlayer" parent="Players" unique_id=102776357 instance=ExtResource("1_01sk3")]
-visible = false
-position = Vector2(811, 193)
-
-[node name="DeafPlayer" parent="Players" unique_id=1982512972 instance=ExtResource("2_jtesv")]
-visible = false
-position = Vector2(363, 436)
-
-[node name="BlindPlayer" parent="Players" unique_id=1426497895 instance=ExtResource("3_c621a")]
-position = Vector2(318, 186)
+[node name="Timer" type="Timer" parent="." unique_id=1406045070]
+wait_time = 11.0
+one_shot = true
+autostart = true
+script = SubResource("GDScript_v3ycp")
 
 [node name="Control" type="Control" parent="." unique_id=751850616]
 layout_mode = 3
@@ -118,6 +111,66 @@ offset_bottom = 32.0
 text = "PAUSE (LOSER)
 "
 
+[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1430156500]
+z_index = 6
+layout_mode = 0
+offset_left = 666.0
+offset_top = 1.0
+offset_right = 1148.0
+offset_bottom = 201.0
+alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=528701998]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="BlindLogoPanel" type="Panel" parent="Control/VBoxContainer/HBoxContainer2" unique_id=1962499790]
+layout_mode = 2
+
+[node name="BlindTextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer2/BlindLogoPanel" unique_id=1970121988]
+layout_mode = 0
+offset_left = 58.0
+offset_top = -96.0
+offset_right = 143.0
+offset_bottom = -4.0
+
+[node name="DeafLogoPanel" type="Panel" parent="Control/VBoxContainer/HBoxContainer2" unique_id=1028726043]
+layout_mode = 2
+
+[node name="DeafTextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer2/DeafLogoPanel" unique_id=1227447421]
+layout_mode = 0
+offset_left = 164.0
+offset_top = -94.0
+offset_right = 275.0
+offset_bottom = -2.0
+
+[node name="MuteLogoPanel" type="Panel" parent="Control/VBoxContainer/HBoxContainer2" unique_id=1590997914]
+layout_mode = 2
+
+[node name="MuteTextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer2/MuteLogoPanel" unique_id=1207524541]
+layout_mode = 0
+offset_left = 289.0
+offset_top = -74.0
+offset_right = 361.0
+offset_bottom = -1.0
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=73646218]
+layout_mode = 2
+theme_override_constants/separation = 22
+alignment = 1
+
+[node name="BlindLabel" type="Label" parent="Control/VBoxContainer/HBoxContainer" unique_id=930129085]
+layout_mode = 2
+text = "BLIND HOLDER"
+
+[node name="DeafLabel" type="Label" parent="Control/VBoxContainer/HBoxContainer" unique_id=351366206]
+layout_mode = 2
+text = "DEAF HOLDER"
+
+[node name="MuteLabel" type="Label" parent="Control/VBoxContainer/HBoxContainer" unique_id=682323665]
+layout_mode = 2
+text = "MUTE HOLDER"
+
 [node name="PausePanel" type="Panel" parent="Control" unique_id=1318508673]
 visible = false
 layout_mode = 1
@@ -161,13 +214,21 @@ process_mode = 2
 layout_mode = 2
 text = "Main Menu"
 
-[node name="Timer" type="Timer" parent="." unique_id=1406045070]
-wait_time = 11.0
-one_shot = true
-autostart = true
-script = SubResource("GDScript_v3ycp")
+[node name="Players" type="Node2D" parent="." unique_id=1408460873]
+
+[node name="MutePlayer" parent="Players" unique_id=102776357 instance=ExtResource("1_01sk3")]
+visible = false
+position = Vector2(811, 193)
+
+[node name="DeafPlayer" parent="Players" unique_id=1982512972 instance=ExtResource("2_jtesv")]
+visible = false
+position = Vector2(363, 436)
+
+[node name="BlindPlayer" parent="Players" unique_id=1426497895 instance=ExtResource("3_c621a")]
+position = Vector2(318, 186)
 
 [node name="Counter" parent="." unique_id=785632966 instance=ExtResource("5_vpxcu")]
+position = Vector2(16, -15)
 
 [node name="Stove" parent="." unique_id=1013248238 instance=ExtResource("6_k1jr4")]
 position = Vector2(123, 431)
@@ -185,10 +246,10 @@ position = Vector2(72, 232)
 [node name="TrashCan" parent="." unique_id=1430967741 instance=ExtResource("5_v3ycp")]
 position = Vector2(1076, 75)
 
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Control/PausePanel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Control/PausePanel/VBoxContainer/RestartButton2" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Control/PausePanel/VBoxContainer/MainMenuButton2" to="." method="_on_main_menu_button_pressed"]
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

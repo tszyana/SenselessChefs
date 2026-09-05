@@ -55,6 +55,49 @@ offset_right = 8.0
 offset_bottom = 8.0
 text = "BACK"
 
+[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1663495985]
+layout_mode = 0
+offset_left = 245.0
+offset_top = 291.0
+offset_right = 892.0
+offset_bottom = 559.0
+theme_override_constants/separation = 29
+alignment = 2
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2" unique_id=765452672]
+layout_mode = 2
+theme_override_constants/separation = 123
+alignment = 1
+
+[node name="BlindLabel" type="Label" parent="VBoxContainer2/HBoxContainer2" unique_id=410737504]
+layout_mode = 2
+text = "Blind holder"
+
+[node name="DeafLabel" type="Label" parent="VBoxContainer2/HBoxContainer2" unique_id=1805761885]
+layout_mode = 2
+text = "Deaf holder"
+
+[node name="MuteLabel" type="Label" parent="VBoxContainer2/HBoxContainer2" unique_id=1831099995]
+layout_mode = 2
+text = "Mute holder"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2" unique_id=892741498]
+layout_mode = 2
+theme_override_constants/separation = 173
+alignment = 1
+
+[node name="BeBlindButton" type="Button" parent="VBoxContainer2/HBoxContainer" unique_id=1710691519]
+layout_mode = 2
+text = "BLIND"
+
+[node name="BeDeafButton" type="Button" parent="VBoxContainer2/HBoxContainer" unique_id=1745104028]
+layout_mode = 2
+text = "DEAF"
+
+[node name="BeMuteButton" type="Button" parent="VBoxContainer2/HBoxContainer" unique_id=1831257890]
+layout_mode = 2
+text = "MUTE"
+
 [connection signal="pressed" from="ReadyButton" to="." method="_on_ready_button_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
