@@ -1,6 +1,8 @@
 extends Control
 
 @onready var player_list: VBoxContainer = $PlayerList
+@onready var start_button: Button = $StartButton
+
 var is_ready := false
 var players_ready := {}
 
@@ -11,6 +13,9 @@ func _ready() -> void:
 	players_ready[multiplayer.get_unique_id()] = false
 
 	update_player_list()
+	
+	# Only let the host press the start button
+	start_button.disabled = not multiplayer.is_server()
 
 func _on_peer_connected(id: int) -> void:
 	print("Player connected: ", id)
@@ -58,6 +63,29 @@ func _on_ready_button_pressed() -> void:
 		sync_ready_states.rpc(players_ready)
 	else:
 		set_ready_on_server.rpc_id(1, is_ready)
+		
+# Returns true if all players are ready
+func all_players_ready() -> bool:
+	for id in multiplayer.get_peers():
+		if not players_ready.get(id, false):
+			return false
+
+	if not players_ready.get(multiplayer.get_unique_id(), false):
+		return false
+
+	return true
+	
+func _on_start_button_pressed() -> void:
+	if not multiplayer.is_server():
+		return
+	
+	if not all_players_ready():
+		print("Waiting for everyone to ready...")
+		return
+		
+	start_game.rpc()
+	
+
 
 @rpc("authority", "call_local", "reliable")
 func sync_ready_states(states: Dictionary) -> void:
@@ -75,4 +103,8 @@ func set_ready_on_server(ready: bool) -> void:
 
 	update_player_list()
 	sync_ready_states.rpc(players_ready)
+	
+@rpc("any_peer", "call_local", "reliable")
+func start_game() -> void:
+	get_tree().change_scene_to_file("res://scenes/kitchen.tscn")
 	
