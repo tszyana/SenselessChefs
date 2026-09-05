@@ -10,8 +10,13 @@ func _ready() -> void:
 
 func _on_interact():
 	# if player is holding object??
-	print("Chopping...")
 	var player = get_tree().get_first_node_in_group("player_blind")
+	
+	if not player.carrying_item:
+		print("Not holding anything u dummy")
+		return
+	
+	print("Chopping...")
 	player.can_move = false
 	
 	interactable.is_interactable = false

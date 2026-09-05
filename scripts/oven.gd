@@ -2,7 +2,7 @@ extends Node2D
 
 @onready var interactable: Area2D = $Interactable
 
-@export var bake_time := 2.0
+@export var bake_time := 3.0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
