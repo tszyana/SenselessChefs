@@ -8,6 +8,7 @@
 size = Vector2(103, 103)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0wdwo"]
+radius = 96.0205
 
 [node name="TrashCan" type="Node2D" unique_id=1430967741]
 script = ExtResource("1_5w0rd")
@@ -23,4 +24,6 @@ shape = SubResource("RectangleShape2D_bems3")
 [node name="Interactable" parent="." unique_id=630558511 instance=ExtResource("1_e4c1l")]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=469134898]
+position = Vector2(-1, 0)
+scale = Vector2(1, 1.12)
 shape = SubResource("CircleShape2D_0wdwo")

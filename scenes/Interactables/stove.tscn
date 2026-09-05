@@ -1,14 +1,28 @@
 [gd_scene format=3 uid="uid://c4ttutrhtahdw"]
 
+[ext_resource type="PackedScene" uid="uid://cd3cbra8hqnsd" path="res://scenes/Interactables/interactable.tscn" id="1_eirmq"]
+[ext_resource type="Script" uid="uid://50i4g6oj07wk" path="res://scripts/stove.gd" id="1_t2o1f"]
+[ext_resource type="Texture2D" uid="uid://cq05kg8a0kkrb" path="res://icon.svg" id="2_oyirk"]
+
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_25ren"]
 size = Vector2(201.25, 176.5)
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_0wdwo"]
+
 [node name="Stove" type="Node2D" unique_id=1013248238]
+script = ExtResource("1_t2o1f")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1733365652]
+texture = ExtResource("2_oyirk")
 
-[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=292740010]
+[node name="Area2D" type="Area2D" parent="." unique_id=292740010]
 
-[node name="StoveCollision" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=935495750]
-position = Vector2(105, 430)
+[node name="StoveCollision" type="CollisionShape2D" parent="Area2D" unique_id=935495750]
 shape = SubResource("RectangleShape2D_25ren")
+
+[node name="Interactable" parent="." unique_id=630558511 instance=ExtResource("1_eirmq")]
+interact_name = "Stove"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1305977749]
+scale = Vector2(14.374998, 12.447372)
+shape = SubResource("CircleShape2D_0wdwo")
