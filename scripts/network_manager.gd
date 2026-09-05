@@ -5,6 +5,7 @@ const MAX_PLAYERS := 3
 
 var peer := ENetMultiplayerPeer.new()
 
+
 func _ready() -> void:
 	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
@@ -68,3 +69,6 @@ func receive_voice_data(sender_id: int, audio_data: PackedByteArray) -> void:
 		audio_data.size(),
 	    " bytes"
 	)
+	
+	var samples := VoiceChat.pcm_to_audio_samples(audio_data)
+	print("Converted to ", samples.size(), " audio samples")

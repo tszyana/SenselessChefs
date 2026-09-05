@@ -18,11 +18,13 @@ config/icon="res://icon.svg"
 
 [audio]
 
+buses/default_bus_layout="uid://ml7jmsx02ek8"
 driver/enable_input=true
 
 [autoload]
 
 NetworkManager="*uid://bk1qt337yias5"
+VoiceChat="*uid://d1gluackmwoqq"
 
 [display]
 
