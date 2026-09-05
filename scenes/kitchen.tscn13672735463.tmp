@@ -200,6 +200,7 @@ position = Vector2(1091, 277)
 
 [node name="Oven" parent="Interactables" unique_id=936247304 instance=ExtResource("8_ktc20")]
 position = Vector2(72, 232)
+chop_time = null
 
 [node name="TrashCan" parent="Interactables" unique_id=1430967741 instance=ExtResource("5_v3ycp")]
 position = Vector2(1076, 75)

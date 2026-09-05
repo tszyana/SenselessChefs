@@ -2,9 +2,11 @@
 extends PlayerMovement
 
 @onready var hand_position: Marker2D = $HandPosition
+@onready var kitchen: Node2D = $"../.."
 
 enum State { MOVE, HOLD, CHOP, STIR}
 var state = State.MOVE
+var carrying_item: bool = false
 
 func _physics_process(delta: float) -> void:
 	process_movement()
@@ -28,11 +30,22 @@ func update_vision() -> void:
 	pass # for the blind thing
 
 func pickup_object() -> void:
-	if is_in_range:
-		if Input.is_action_just_pressed("interact"):
+	if Input.is_action_just_pressed("pickup"):
+		if carrying_item:
+			drop_item()
+		elif is_in_range and target_object:
 			target_object.reparent(hand_position)
-			target_object.position = hand_position.position
+			target_object.position = Vector2.ZERO
+			carrying_item = true
+			is_in_range = false
 			
+
+func drop_item() -> void:
+	var dropped_position = global_position
+	target_object.reparent(kitchen)
+	target_object.global_position = dropped_position
+	carrying_item = false
+	
 
 func _on_vision_area_area_entered(area: Area2D) -> void:
 	if area is Pickable:
@@ -41,6 +54,6 @@ func _on_vision_area_area_entered(area: Area2D) -> void:
 
 
 func _on_vision_area_area_exited(area: Area2D) -> void:
-	if area is Pickable:
+	if area is Pickable and not carrying_item:
 		is_in_range = false
 		target_object = null

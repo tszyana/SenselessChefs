@@ -7,10 +7,11 @@
 
 [node name="Pickable" type="Area2D" unique_id=253672139]
 script = ExtResource("1_tr2q0")
+item_name = "pickable"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=356093545]
 texture = ExtResource("2_ue70n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1044167228]
-scale = Vector2(17.495508, 15.531639)
+scale = Vector2(10.479443, 9.690396)
 shape = SubResource("CircleShape2D_sqblf")

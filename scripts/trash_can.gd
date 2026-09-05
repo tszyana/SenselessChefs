@@ -8,6 +8,14 @@ func _ready() -> void:
 	interactable.interact = _on_interact
 
 func _on_interact():
-	# if player is holding object
-	print("Object deleted!") # placeholder
+	var player = get_tree().get_first_node_in_group("player_blind")
+	
+	if not player.carrying_item:
+		print("Nothing to throw u dummy")
+		return
+	else:
+		print("Tossing into da trash")
+		# get the pickable thing and delete it
+		player.carrying_item = false
+
 	interactable.is_interactable = false
