@@ -1,5 +1,7 @@
 [gd_scene format=3 uid="uid://b626g0qlg256m"]
 
+[ext_resource type="Script" uid="uid://ogrfkyg2ish5" path="res://scripts/lobby.gd" id="1_o1atq"]
+
 [node name="Lobby" type="Control" unique_id=1403267576]
 layout_mode = 3
 anchors_preset = 15
@@ -7,6 +9,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
+script = ExtResource("1_o1atq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1673287037]
 layout_mode = 0
@@ -22,3 +25,24 @@ text = "LOBBY"
 [node name="Label2" type="Label" parent="VBoxContainer" unique_id=1065773422]
 layout_mode = 2
 text = "Waiting for players..."
+
+[node name="PlayerList" type="VBoxContainer" parent="." unique_id=2135101531]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="ReadyButton" type="Button" parent="." unique_id=1778019345]
+layout_mode = 0
+offset_left = 378.0
+offset_top = 447.0
+offset_right = 434.0
+offset_bottom = 478.0
+text = "Ready"
+
+[node name="StartButton" type="Button" parent="." unique_id=1349381747]
+layout_mode = 0
+offset_left = 659.0
+offset_top = 447.0
+offset_right = 705.0
+offset_bottom = 478.0
+text = "Start"
