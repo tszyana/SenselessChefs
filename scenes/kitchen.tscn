@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bh4nx2ebsqfaq"]
+[gd_scene format=3 uid="uid://ccqr3grqb88i6"]
 
 [ext_resource type="PackedScene" uid="uid://bkrucl6g84xoa" path="res://scenes/Player/player_mute.tscn" id="1_01sk3"]
 [ext_resource type="Script" uid="uid://bbv7bmwxv55uo" path="res://scripts/kitchen.gd" id="1_g3o0j"]
@@ -70,106 +70,12 @@ text = "Timer Placeholder
 horizontal_alignment = 1
 script = SubResource("GDScript_bems3")
 
-[node name="TimerPopup" type="Panel" parent="Control" unique_id=638643782]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 3.9250002
-anchor_bottom = 1.899
-offset_left = 408.0
-offset_top = 117.0
-offset_right = 596.0
-offset_bottom = 302.04
-
-[node name="Label" type="Label" parent="Control/TimerPopup" unique_id=1562481649]
-layout_mode = 0
-offset_left = 130.0
-offset_top = 56.0
-offset_right = 197.0
-offset_bottom = 79.0
-text = "Time up!"
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/TimerPopup" unique_id=1247174414]
-layout_mode = 0
-offset_left = 101.0
-offset_top = 107.0
-offset_right = 234.0
-offset_bottom = 209.0
-
-[node name="RestartButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=406307531]
-layout_mode = 2
-text = "Restart"
-
-[node name="MainMenuButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=1429031911]
-layout_mode = 2
-text = "Main Menu"
-
 [node name="PauseButton" type="Button" parent="Control" unique_id=1093837354]
 layout_mode = 0
-offset_right = 90.0
+offset_right = 122.0
 offset_bottom = 32.0
 text = "PAUSE (LOSER)
 "
-
-[node name="VBoxContainer" type="VBoxContainer" parent="Control" unique_id=1430156500]
-z_index = 6
-layout_mode = 0
-offset_left = 666.0
-offset_top = 1.0
-offset_right = 1148.0
-offset_bottom = 201.0
-alignment = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=528701998]
-layout_mode = 2
-theme_override_constants/separation = 22
-
-[node name="BlindLogoPanel" type="Panel" parent="Control/VBoxContainer/HBoxContainer2" unique_id=1962499790]
-layout_mode = 2
-
-[node name="BlindTextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer2/BlindLogoPanel" unique_id=1970121988]
-layout_mode = 0
-offset_left = 58.0
-offset_top = -96.0
-offset_right = 143.0
-offset_bottom = -4.0
-
-[node name="DeafLogoPanel" type="Panel" parent="Control/VBoxContainer/HBoxContainer2" unique_id=1028726043]
-layout_mode = 2
-
-[node name="DeafTextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer2/DeafLogoPanel" unique_id=1227447421]
-layout_mode = 0
-offset_left = 164.0
-offset_top = -94.0
-offset_right = 275.0
-offset_bottom = -2.0
-
-[node name="MuteLogoPanel" type="Panel" parent="Control/VBoxContainer/HBoxContainer2" unique_id=1590997914]
-layout_mode = 2
-
-[node name="MuteTextureRect" type="TextureRect" parent="Control/VBoxContainer/HBoxContainer2/MuteLogoPanel" unique_id=1207524541]
-layout_mode = 0
-offset_left = 289.0
-offset_top = -74.0
-offset_right = 361.0
-offset_bottom = -1.0
-
-[node name="HBoxContainer" type="HBoxContainer" parent="Control/VBoxContainer" unique_id=73646218]
-layout_mode = 2
-theme_override_constants/separation = 22
-alignment = 1
-
-[node name="BlindLabel" type="Label" parent="Control/VBoxContainer/HBoxContainer" unique_id=930129085]
-layout_mode = 2
-text = "BLIND HOLDER"
-
-[node name="DeafLabel" type="Label" parent="Control/VBoxContainer/HBoxContainer" unique_id=351366206]
-layout_mode = 2
-text = "DEAF HOLDER"
-
-[node name="MuteLabel" type="Label" parent="Control/VBoxContainer/HBoxContainer" unique_id=682323665]
-layout_mode = 2
-text = "MUTE HOLDER"
 
 [node name="PausePanel" type="Panel" parent="Control" unique_id=1318508673]
 visible = false
@@ -214,6 +120,135 @@ process_mode = 2
 layout_mode = 2
 text = "Main Menu"
 
+[node name="TimerPopup" type="Panel" parent="Control" unique_id=638643782]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 3.9250002
+anchor_bottom = 1.899
+offset_left = 408.0
+offset_top = 117.0
+offset_right = 596.0
+offset_bottom = 302.04
+
+[node name="Label" type="Label" parent="Control/TimerPopup" unique_id=1562481649]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 56.0
+offset_right = 197.0
+offset_bottom = 79.0
+text = "Time up!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TimerPopup" unique_id=1247174414]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 107.0
+offset_right = 234.0
+offset_bottom = 209.0
+
+[node name="RestartButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=406307531]
+layout_mode = 2
+text = "Restart"
+
+[node name="MainMenuButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=1429031911]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="PlayerNamesLogos" type="VBoxContainer" parent="Control" unique_id=1430156500]
+z_index = 6
+layout_mode = 0
+offset_left = 666.0
+offset_top = 1.0
+offset_right = 1148.0
+offset_bottom = 201.0
+alignment = 2
+
+[node name="LogoContainer" type="HBoxContainer" parent="Control/PlayerNamesLogos" unique_id=528701998]
+layout_mode = 2
+theme_override_constants/separation = 22
+
+[node name="BlindLogoPanel" type="Panel" parent="Control/PlayerNamesLogos/LogoContainer" unique_id=1962499790]
+layout_mode = 2
+
+[node name="BlindTextureRect" type="TextureRect" parent="Control/PlayerNamesLogos/LogoContainer/BlindLogoPanel" unique_id=1970121988]
+layout_mode = 0
+offset_left = 58.0
+offset_top = -96.0
+offset_right = 143.0
+offset_bottom = -4.0
+
+[node name="DeafLogoPanel" type="Panel" parent="Control/PlayerNamesLogos/LogoContainer" unique_id=1028726043]
+layout_mode = 2
+
+[node name="DeafTextureRect" type="TextureRect" parent="Control/PlayerNamesLogos/LogoContainer/DeafLogoPanel" unique_id=1227447421]
+layout_mode = 0
+offset_left = 164.0
+offset_top = -94.0
+offset_right = 275.0
+offset_bottom = -2.0
+
+[node name="MuteLogoPanel" type="Panel" parent="Control/PlayerNamesLogos/LogoContainer" unique_id=1590997914]
+layout_mode = 2
+
+[node name="MuteTextureRect" type="TextureRect" parent="Control/PlayerNamesLogos/LogoContainer/MuteLogoPanel" unique_id=1207524541]
+layout_mode = 0
+offset_left = 289.0
+offset_top = -74.0
+offset_right = 361.0
+offset_bottom = -1.0
+
+[node name="LabelContainer" type="HBoxContainer" parent="Control/PlayerNamesLogos" unique_id=73646218]
+layout_mode = 2
+theme_override_constants/separation = 22
+alignment = 1
+
+[node name="BlindLabel" type="Label" parent="Control/PlayerNamesLogos/LabelContainer" unique_id=930129085]
+layout_mode = 2
+text = "BLIND HOLDER"
+
+[node name="DeafLabel" type="Label" parent="Control/PlayerNamesLogos/LabelContainer" unique_id=351366206]
+layout_mode = 2
+text = "DEAF HOLDER"
+
+[node name="MuteLabel" type="Label" parent="Control/PlayerNamesLogos/LabelContainer" unique_id=682323665]
+layout_mode = 2
+text = "MUTE HOLDER"
+
+[node name="RecipeButton" type="Button" parent="Control" unique_id=1458892778]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 610.0
+offset_right = 70.0
+offset_bottom = 641.0
+text = "RECIPE"
+
+[node name="RecipePanel" type="Panel" parent="Control" unique_id=203503883]
+z_index = 4
+layout_mode = 0
+offset_left = 207.0
+offset_top = 505.0
+offset_right = 507.0
+offset_bottom = 728.0
+
+[node name="Label" type="Label" parent="Control/RecipePanel" unique_id=1566007632]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 15.0
+offset_right = 210.0
+offset_bottom = 38.0
+text = "Apple Pie Recipe"
+
+[node name="IngredientList" type="VBoxContainer" parent="Control/RecipePanel" unique_id=90269945]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 43.0
+offset_right = 291.0
+offset_bottom = 215.0
+
+[node name="Label" type="Label" parent="Control/RecipePanel/IngredientList" unique_id=1684958274]
+layout_mode = 2
+text = "IND 1"
+
 [node name="Players" type="Node2D" parent="." unique_id=1408460873]
 
 [node name="MutePlayer" parent="Players" unique_id=102776357 instance=ExtResource("1_01sk3")]
@@ -247,9 +282,9 @@ position = Vector2(72, 232)
 position = Vector2(1076, 75)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="Control/TimerPopup/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="Control/TimerPopup/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Control/PausePanel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Control/PausePanel/VBoxContainer/RestartButton2" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Control/PausePanel/VBoxContainer/MainMenuButton2" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="Control/TimerPopup/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/TimerPopup/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
