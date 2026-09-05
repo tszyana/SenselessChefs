@@ -1,0 +1,18 @@
+[gd_scene format=3 uid="uid://blcvw5ymv0roj"]
+
+[ext_resource type="Script" uid="uid://w1qldw7tk71j" path="res://scripts/mic_test.gd" id="1_p3pwl"]
+
+[sub_resource type="AudioStreamMicrophone" id="AudioStreamMicrophone_il0su"]
+
+[node name="MicTest" type="Control" unique_id=393791460]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_p3pwl")
+
+[node name="MicrophonePlayer" type="AudioStreamPlayer" parent="." unique_id=1819671593]
+stream = SubResource("AudioStreamMicrophone_il0su")
+bus = &"MicInput"
