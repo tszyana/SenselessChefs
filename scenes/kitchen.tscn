@@ -79,18 +79,6 @@ text = "Timer Placeholder
 horizontal_alignment = 1
 script = SubResource("GDScript_bems3")
 
-[node name="RecipeButton" type="Button" parent="Control" unique_id=1458892778]
-z_index = 6
-layout_mode = 0
-offset_left = 9.0
-offset_top = 610.0
-offset_right = 70.0
-offset_bottom = 641.0
-text = "RECIPE"
-
-[node name="RecipePanel" type="Panel" parent="Control" unique_id=203503883]
-layout_mode = 0
-
 [node name="TimerPopup" type="Panel" parent="Control" unique_id=638643782]
 visible = false
 layout_mode = 1
@@ -128,8 +116,10 @@ text = "Main Menu"
 [node name="PauseButton" type="Button" parent="Control" unique_id=1093837354]
 z_index = 6
 layout_mode = 0
-offset_right = 90.0
-offset_bottom = 32.0
+offset_left = 3.0
+offset_top = 3.0
+offset_right = 125.0
+offset_bottom = 35.0
 text = "PAUSE (LOSER)
 "
 
@@ -139,10 +129,10 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = 389.0
-offset_top = 187.0
-offset_right = 756.0
-offset_bottom = 475.0
+offset_left = 397.0
+offset_top = 184.0
+offset_right = 764.0
+offset_bottom = 472.0
 
 [node name="Label" type="Label" parent="Control/PausePanel" unique_id=418832563]
 layout_mode = 0
@@ -175,6 +165,60 @@ text = "Restart"
 process_mode = 2
 layout_mode = 2
 text = "Main Menu"
+
+[node name="RecipeButton" type="Button" parent="Control" unique_id=1458892778]
+z_index = 6
+layout_mode = 0
+offset_left = 9.0
+offset_top = 610.0
+offset_right = 70.0
+offset_bottom = 641.0
+text = "RECIPE"
+
+[node name="RecipePanel" type="Panel" parent="Control" unique_id=1370434544]
+visible = false
+z_index = 6
+layout_mode = 0
+offset_left = 4.0
+offset_top = 365.0
+offset_right = 343.0
+offset_bottom = 645.0
+
+[node name="CloseButton" type="Button" parent="Control/RecipePanel" unique_id=594763563]
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 1.8830001
+anchor_bottom = 3.851
+offset_left = 4.0
+offset_top = 2.0
+offset_right = -600.33704
+offset_bottom = -1045.28
+text = "X"
+
+[node name="Label" type="Label" parent="Control/RecipePanel" unique_id=1519464164]
+layout_mode = 0
+offset_left = 77.0
+offset_top = 16.0
+offset_right = 238.0
+offset_bottom = 49.0
+text = "Apple Pie Recipe"
+horizontal_alignment = 1
+
+[node name="IngredientLabel" type="Label" parent="Control/RecipePanel" unique_id=479594431]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 46.0
+offset_right = 328.0
+offset_bottom = 277.0
+text = "Slice apples at chopping board
+Melt butter at stove
+Add flour and water to butter
+Simmer then remove pot
+Get dish and roll pastry at chopping board
+Place apples
+Place lattice
+Pour butter
+Bake"
 
 [node name="Timer" type="Timer" parent="." unique_id=1406045070]
 wait_time = 11.0
@@ -213,4 +257,6 @@ position = Vector2(860, 370)
 [connection signal="pressed" from="Control/PausePanel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Control/PausePanel/VBoxContainer/RestartButton2" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Control/PausePanel/VBoxContainer/MainMenuButton2" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="Control/RecipeButton" to="." method="_on_recipe_button_pressed"]
+[connection signal="pressed" from="Control/RecipePanel/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
