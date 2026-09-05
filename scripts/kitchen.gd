@@ -4,22 +4,22 @@ extends Node2D
 @onready var time_label = $Control/TimerLabel
 @onready var timer_popup = $Control/TimerPopup
 @onready var pause_popup = $Control/PausePanel
+@onready var recipe_popup = $Control/RecipePanel
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	pass # Replace with function body.
 
-
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta) -> void:
-	#pass
+	# Tells time
 	time_label.text = "Time left:\n" + str(int(game_timer.time_left))
 
-
+# Shows popup telling users timer ran out
 func _on_timer_timeout() -> void:
 	timer_popup.visible = true
 
-
+#  Show main menu
 func _on_main_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
 
@@ -27,12 +27,17 @@ func _on_main_menu_button_pressed() -> void:
 func _on_restart_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/kitchen.tscn")
 
-
 func _on_pause_button_pressed() -> void:
 	get_tree().paused = true
 	pause_popup.visible = true
 
-
 func _on_resume_button_pressed() -> void:
 	get_tree().paused = false
+	pause_popup.visible = false
+
+
+func _on_recipe_button_pressed() -> void:
+	pause_popup.visible = true
+
+func _on_close_button_pressed() -> void:
 	pause_popup.visible = false
