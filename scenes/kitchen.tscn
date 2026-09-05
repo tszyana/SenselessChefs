@@ -1,19 +1,22 @@
-[gd_scene format=3 uid="uid://bh4nx2ebsqfaq"]
+[gd_scene format=3 uid="uid://ccqr3grqb88i6"]
 
 [ext_resource type="PackedScene" uid="uid://bkrucl6g84xoa" path="res://scenes/player_mute.tscn" id="1_01sk3"]
 [ext_resource type="PackedScene" uid="uid://de2ugp7o5yyaa" path="res://scenes/player_deaf.tscn" id="2_jtesv"]
 [ext_resource type="PackedScene" uid="uid://bn2k5w2cgyjes" path="res://scenes/player_blind.tscn" id="3_c621a"]
 [ext_resource type="Script" uid="uid://bqtcygqafkwk0" path="res://scripts/timer_label.gd" id="4_bems3"]
 
+[sub_resource type="CircleShape2D" id="CircleShape2D_vqp8a"]
+radius = 118.0
+
 [node name="Main" type="Node2D" unique_id=1947100178]
 
 [node name="Players" type="Node2D" parent="." unique_id=1408460873]
 
 [node name="MutePlayer" parent="Players" unique_id=102776357 instance=ExtResource("1_01sk3")]
-position = Vector2(986, 172)
+position = Vector2(639, 204)
 
 [node name="DeafPlayer" parent="Players" unique_id=1982512972 instance=ExtResource("2_jtesv")]
-position = Vector2(576, 186)
+position = Vector2(480, 190)
 
 [node name="BlindPlayer" parent="Players" unique_id=1426497895 instance=ExtResource("3_c621a")]
 position = Vector2(255, 185)
@@ -26,11 +29,25 @@ offset_bottom = 40.0
 
 [node name="TimerLabel" type="Label" parent="Control" unique_id=499163736]
 layout_mode = 0
-offset_right = 40.0
-offset_bottom = 23.0
+offset_left = 498.0
+offset_top = 46.0
+offset_right = 639.0
+offset_bottom = 95.0
+text = "Timer Placeholder
+"
 script = ExtResource("4_bems3")
 
 [node name="Timer" type="Timer" parent="." unique_id=1406045070]
 wait_time = 180.0
 one_shot = true
 autostart = true
+
+[node name="TrashCan" type="Node2D" parent="." unique_id=1689136597]
+
+[node name="Sprite2D" type="Sprite2D" parent="TrashCan" unique_id=1901710742]
+
+[node name="Area2D" type="Area2D" parent="TrashCan" unique_id=1850943327]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TrashCan/Area2D" unique_id=1897936257]
+position = Vector2(1022, 225)
+shape = SubResource("CircleShape2D_vqp8a")
