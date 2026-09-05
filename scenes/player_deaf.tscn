@@ -3,8 +3,14 @@
 [ext_resource type="Texture2D" uid="uid://cq05kg8a0kkrb" path="res://icon.svg" id="1_108kv"]
 [ext_resource type="Script" uid="uid://bn102hmfj1avg" path="res://scripts/player_deaf.gd" id="1_xrjhm"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_xrjhm"]
+
 [node name="DeafPlayer" type="CharacterBody2D" unique_id=102776357]
 script = ExtResource("1_xrjhm")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1505591876]
 texture = ExtResource("1_108kv")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=965082416]
+scale = Vector2(6.0400004, 6.2799993)
+shape = SubResource("RectangleShape2D_xrjhm")

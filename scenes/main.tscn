@@ -9,7 +9,10 @@
 [node name="Players" type="Node2D" parent="." unique_id=1076948618]
 
 [node name="MutePlayer" parent="Players" unique_id=102776357 instance=ExtResource("1_sugp2")]
+position = Vector2(130, 160)
 
 [node name="DeafPlayer" parent="Players" unique_id=1240639144 instance=ExtResource("2_jyhfs")]
+position = Vector2(854, 174)
 
 [node name="BlindPlayer" parent="Players" unique_id=1041076819 instance=ExtResource("3_tbgi4")]
+position = Vector2(475, 171)

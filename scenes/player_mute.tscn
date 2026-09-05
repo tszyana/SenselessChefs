@@ -3,8 +3,14 @@
 [ext_resource type="Script" uid="uid://bkmkatvx4bi6o" path="res://scripts/player_mute.gd" id="1_oafx3"]
 [ext_resource type="Texture2D" uid="uid://cq05kg8a0kkrb" path="res://icon.svg" id="1_y173q"]
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wdwo"]
+
 [node name="MutePlayer" type="CharacterBody2D" unique_id=102776357]
 script = ExtResource("1_oafx3")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1505591876]
 texture = ExtResource("1_y173q")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1744599076]
+scale = Vector2(6.0400004, 6.2799993)
+shape = SubResource("RectangleShape2D_0wdwo")

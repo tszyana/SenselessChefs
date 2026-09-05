@@ -2,7 +2,7 @@ class_name PlayerMovement
 extends CharacterBody2D
 
 
-const SPEED = 300.0
+const SPEED = 500.0
 
 # processes arrow keys for movement
 func process_movement() -> void:
