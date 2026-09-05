@@ -4,10 +4,7 @@
 [ext_resource type="Script" uid="uid://bbv7bmwxv55uo" path="res://scripts/kitchen.gd" id="1_g3o0j"]
 [ext_resource type="PackedScene" uid="uid://de2ugp7o5yyaa" path="res://scenes/player_deaf.tscn" id="2_jtesv"]
 [ext_resource type="PackedScene" uid="uid://bn2k5w2cgyjes" path="res://scenes/player_blind.tscn" id="3_c621a"]
-<<<<<<< HEAD
-[ext_resource type="Script" uid="uid://bqtcygqafkwk0" path="res://scripts/timer_label.gd" id="4_bems3"]
 [ext_resource type="PackedScene" uid="uid://7hlc4mek7gko" path="res://scenes/trash_can.tscn" id="5_v3ycp"]
-=======
 
 [sub_resource type="GDScript" id="GDScript_bems3"]
 script/source = "extends Label
@@ -40,10 +37,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	pass
 "
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bems3"]
-size = Vector2(103, 103)
->>>>>>> 48ca4cbb38cc91428dd47f4586a812689fd6cd9c
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqp8a"]
 size = Vector2(244.25, 338.75)
@@ -144,9 +137,6 @@ script = SubResource("GDScript_v3ycp")
 position = Vector2(580, 323)
 shape = SubResource("RectangleShape2D_vqp8a")
 
-[node name="TrashCan" parent="." unique_id=1430967741 instance=ExtResource("5_v3ycp")]
-position = Vector2(1082, 82)
-
 [node name="Stove" type="Node2D" parent="." unique_id=593861155]
 
 [node name="Sprite2D" type="Sprite2D" parent="Stove" unique_id=1435088941]
@@ -198,5 +188,7 @@ shape = SubResource("RectangleShape2D_8ixu5")
 [node name="FridgeCollision" type="CollisionShape2D" parent="Fridge/Area2D" unique_id=1575431469]
 position = Vector2(1050, 582)
 shape = SubResource("RectangleShape2D_bh1ot")
+
+[node name="TrashCan2" parent="." unique_id=1430967741 instance=ExtResource("5_v3ycp")]
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
