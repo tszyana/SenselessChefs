@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://bh4nx2ebsqfaq"]
+[gd_scene format=3 uid="uid://ccqr3grqb88i6"]
 
 [ext_resource type="PackedScene" uid="uid://bkrucl6g84xoa" path="res://scenes/Player/player_mute.tscn" id="1_01sk3"]
 [ext_resource type="Script" uid="uid://bbv7bmwxv55uo" path="res://scripts/kitchen.gd" id="1_g3o0j"]
@@ -150,10 +150,12 @@ text = "Resume Game
 "
 
 [node name="RestartButton2" type="Button" parent="Control/PausePanel/VBoxContainer" unique_id=406916995]
+process_mode = 2
 layout_mode = 2
 text = "Restart"
 
 [node name="MainMenuButton2" type="Button" parent="Control/PausePanel/VBoxContainer" unique_id=1837142842]
+process_mode = 2
 layout_mode = 2
 text = "Main Menu"
 
