@@ -12,26 +12,22 @@ grow_vertical = 2
 script = ExtResource("1_l6cm7")
 metadata/_edit_lock_ = true
 
-[node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1650193594]
-layout_mode = 1
-anchors_preset = -1
-anchor_left = 0.38200003
-anchor_top = 0.31300002
-anchor_right = 0.58400005
-anchor_bottom = 0.69900006
-offset_left = -0.06402588
-offset_top = 0.17597961
-offset_right = 0.2319336
-offset_bottom = 0.047973633
+[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1293846868]
+layout_mode = 0
+offset_left = 438.0
+offset_top = 557.0
+offset_right = 681.0
+offset_bottom = 610.0
+theme_override_constants/separation = 24
 alignment = 1
 
-[node name="HostButton" type="Button" parent="VBoxContainer" unique_id=1025908368]
+[node name="HostButton" type="Button" parent="HBoxContainer" unique_id=1025908368]
 layout_mode = 2
 text = "Host Game"
 
-[node name="JoinButton" type="Button" parent="VBoxContainer" unique_id=70823392]
+[node name="JoinButton" type="Button" parent="HBoxContainer" unique_id=70823392]
 layout_mode = 2
 text = "Join Game"
 
-[connection signal="pressed" from="VBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
-[connection signal="pressed" from="VBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
