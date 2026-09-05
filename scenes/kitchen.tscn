@@ -1,12 +1,10 @@
-[gd_scene format=3 uid="uid://ccqr3grqb88i6"]
+[gd_scene format=3 uid="uid://bh4nx2ebsqfaq"]
 
 [ext_resource type="PackedScene" uid="uid://bkrucl6g84xoa" path="res://scenes/player_mute.tscn" id="1_01sk3"]
 [ext_resource type="PackedScene" uid="uid://de2ugp7o5yyaa" path="res://scenes/player_deaf.tscn" id="2_jtesv"]
 [ext_resource type="PackedScene" uid="uid://bn2k5w2cgyjes" path="res://scenes/player_blind.tscn" id="3_c621a"]
 [ext_resource type="Script" uid="uid://bqtcygqafkwk0" path="res://scripts/timer_label.gd" id="4_bems3"]
-
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_bems3"]
-size = Vector2(103, 103)
+[ext_resource type="PackedScene" uid="uid://7hlc4mek7gko" path="res://scenes/trash_can.tscn" id="5_v3ycp"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqp8a"]
 size = Vector2(244.25, 338.75)
@@ -60,16 +58,6 @@ wait_time = 180.0
 one_shot = true
 autostart = true
 
-[node name="TrashCan" type="Node2D" parent="." unique_id=1689136597]
-
-[node name="Sprite2D" type="Sprite2D" parent="TrashCan" unique_id=1901710742]
-
-[node name="Area2D" type="Area2D" parent="TrashCan" unique_id=1850943327]
-
-[node name="TrashCollision" type="CollisionShape2D" parent="TrashCan/Area2D" unique_id=1897936257]
-position = Vector2(1081, 96)
-shape = SubResource("RectangleShape2D_bems3")
-
 [node name="Counter" type="Node2D" parent="." unique_id=2115739603]
 
 [node name="Sprite2D" type="Sprite2D" parent="Counter" unique_id=751030044]
@@ -79,6 +67,9 @@ shape = SubResource("RectangleShape2D_bems3")
 [node name="CounterCollision" type="CollisionShape2D" parent="Counter/Area2D" unique_id=776533585]
 position = Vector2(580, 314)
 shape = SubResource("RectangleShape2D_vqp8a")
+
+[node name="TrashCan" parent="." unique_id=1430967741 instance=ExtResource("5_v3ycp")]
+position = Vector2(1082, 82)
 
 [node name="Stove" type="Node2D" parent="." unique_id=593861155]
 

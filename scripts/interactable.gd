@@ -1,7 +1,8 @@
+# interactable
 extends Area2D
 
 @export var interact_name: String = ""
-@export var interatable: bool = true
+@export var interactable: bool = true
 
 var interact: Callable  = func():
 	pass

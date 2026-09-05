@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://cj52ugtxgj3r5" path="res://scripts/player_blind.gd" id="1_gsrh2"]
 [ext_resource type="Texture2D" uid="uid://cq05kg8a0kkrb" path="res://icon.svg" id="1_vcg84"]
+[ext_resource type="PackedScene" uid="uid://b6wyyexfj4133" path="res://scenes/interacting_component.tscn" id="3_sfju2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0wdwo"]
 radius = 131.03435
@@ -22,3 +23,5 @@ shape = SubResource("CircleShape2D_0wdwo")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=815507105]
 scale = Vector2(6.0400004, 6.2799993)
 shape = SubResource("RectangleShape2D_gsrh2")
+
+[node name="InteractingComponent" parent="." unique_id=605448658 instance=ExtResource("3_sfju2")]
