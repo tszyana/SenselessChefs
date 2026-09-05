@@ -14,18 +14,19 @@ metadata/_edit_lock_ = true
 
 [node name="LineEdit" type="LineEdit" parent="." unique_id=995277565]
 layout_mode = 0
-offset_left = 448.0
+offset_left = 428.0
 offset_top = 500.0
-offset_right = 743.0
+offset_right = 723.0
 offset_bottom = 538.0
 placeholder_text = "Enter a nickname"
+alignment = 1
 max_length = 15
 
 [node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1293846868]
 layout_mode = 0
-offset_left = 438.0
+offset_left = 418.0
 offset_top = 557.0
-offset_right = 681.0
+offset_right = 728.0
 offset_bottom = 610.0
 theme_override_constants/separation = 24
 alignment = 1

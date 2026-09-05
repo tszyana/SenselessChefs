@@ -89,8 +89,42 @@ text = "Timer Placeholder
 horizontal_alignment = 1
 script = SubResource("GDScript_bems3")
 
+[node name="TimerPopup" type="Panel" parent="Control" unique_id=638643782]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 3.9250002
+anchor_bottom = 1.899
+offset_left = 408.0
+offset_top = 117.0
+offset_right = 596.0
+offset_bottom = 302.04
+
+[node name="Label" type="Label" parent="Control/TimerPopup" unique_id=1562481649]
+layout_mode = 0
+offset_left = 130.0
+offset_top = 56.0
+offset_right = 197.0
+offset_bottom = 79.0
+text = "Time up!"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TimerPopup" unique_id=1247174414]
+layout_mode = 0
+offset_left = 101.0
+offset_top = 107.0
+offset_right = 234.0
+offset_bottom = 209.0
+
+[node name="MainMenuButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=1429031911]
+layout_mode = 2
+text = "Main Menu"
+
+[node name="RestartButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=406307531]
+layout_mode = 2
+text = "Restart"
+
 [node name="Timer" type="Timer" parent="." unique_id=1406045070]
-wait_time = 181.0
+wait_time = 11.0
 one_shot = true
 autostart = true
 script = SubResource("GDScript_v3ycp")
@@ -112,7 +146,7 @@ shape = SubResource("RectangleShape2D_bems3")
 [node name="Area2D" type="Area2D" parent="Counter" unique_id=1749665342]
 
 [node name="CounterCollision" type="CollisionShape2D" parent="Counter/Area2D" unique_id=776533585]
-position = Vector2(580, 314)
+position = Vector2(580, 323)
 shape = SubResource("RectangleShape2D_vqp8a")
 
 [node name="Stove" type="Node2D" parent="." unique_id=593861155]
@@ -166,3 +200,5 @@ shape = SubResource("RectangleShape2D_8ixu5")
 [node name="FridgeCollision" type="CollisionShape2D" parent="Fridge/Area2D" unique_id=1575431469]
 position = Vector2(1050, 582)
 shape = SubResource("RectangleShape2D_bh1ot")
+
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]

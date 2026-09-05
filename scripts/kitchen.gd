@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var game_timer = $Timer
 @onready var time_label = $Control/TimerLabel
+@onready var panel_popup = $Control/TimerPopup
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -12,3 +13,7 @@ func _ready() -> void:
 func _process(_delta) -> void:
 	#pass
 	time_label.text = "Time left:\n" + str(int(game_timer.time_left))
+
+
+func _on_timer_timeout() -> void:
+	panel_popup.visible = true
