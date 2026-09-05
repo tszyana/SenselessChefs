@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ccqr3grqb88i6"]
+[gd_scene format=3 uid="uid://bh4nx2ebsqfaq"]
 
 [ext_resource type="PackedScene" uid="uid://bkrucl6g84xoa" path="res://scenes/Player/player_mute.tscn" id="1_01sk3"]
 [ext_resource type="Script" uid="uid://bbv7bmwxv55uo" path="res://scripts/kitchen.gd" id="1_g3o0j"]
@@ -11,6 +11,22 @@
 [ext_resource type="PackedScene" uid="uid://c3e32iwluow42" path="res://scenes/Interactables/oven.tscn" id="8_ktc20"]
 [ext_resource type="PackedScene" uid="uid://bpsuiablx8xpi" path="res://scenes/sink.tscn" id="9_bs8bs"]
 [ext_resource type="PackedScene" uid="uid://grn3wb4xmjdy" path="res://scenes/fridge.tscn" id="10_88wuv"]
+[ext_resource type="PackedScene" uid="uid://eeslpywkmiwd" path="res://scenes/pickable.tscn" id="12_k1jr4"]
+
+[sub_resource type="GDScript" id="GDScript_bems3"]
+script/source = "extends Label
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+	
+	
+"
 
 [sub_resource type="GDScript" id="GDScript_v3ycp"]
 script/source = "extends Timer
@@ -29,29 +45,21 @@ func _process(delta: float) -> void:
 	pass
 "
 
-[sub_resource type="GDScript" id="GDScript_bems3"]
-script/source = "extends Label
-
-# Called when the node enters the scene tree for the first time.
-func _ready() -> void:
-	pass # Replace with function body.
-
-
-# Called every frame. 'delta' is the elapsed time since the previous frame.
-func _process(delta: float) -> void:
-	pass
-	
-	
-"
-
 [node name="Kitchen" type="Node2D" unique_id=1947100178]
 script = ExtResource("1_g3o0j")
 
-[node name="Timer" type="Timer" parent="." unique_id=1406045070]
-wait_time = 11.0
-one_shot = true
-autostart = true
-script = SubResource("GDScript_v3ycp")
+[node name="Players" type="Node2D" parent="." unique_id=1408460873]
+
+[node name="MutePlayer" parent="Players" unique_id=102776357 instance=ExtResource("1_01sk3")]
+visible = false
+position = Vector2(811, 193)
+
+[node name="DeafPlayer" parent="Players" unique_id=1982512972 instance=ExtResource("2_jtesv")]
+visible = false
+position = Vector2(363, 436)
+
+[node name="BlindPlayer" parent="Players" unique_id=1426497895 instance=ExtResource("3_c621a")]
+position = Vector2(318, 186)
 
 [node name="Control" type="Control" parent="." unique_id=751850616]
 layout_mode = 3
@@ -60,6 +68,7 @@ offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="TimerLabel" type="Label" parent="Control" unique_id=499163736]
+z_index = 6
 layout_mode = 0
 offset_left = 509.0
 offset_top = 53.0
@@ -71,6 +80,7 @@ horizontal_alignment = 1
 script = SubResource("GDScript_bems3")
 
 [node name="RecipeButton" type="Button" parent="Control" unique_id=1458892778]
+z_index = 6
 layout_mode = 0
 offset_left = 9.0
 offset_top = 610.0
@@ -79,50 +89,44 @@ offset_bottom = 641.0
 text = "RECIPE"
 
 [node name="RecipePanel" type="Panel" parent="Control" unique_id=203503883]
+[node name="TimerPopup" type="Panel" parent="Control" unique_id=638643782]
 visible = false
-z_index = 4
-layout_mode = 0
-offset_left = 2.0
-offset_top = 360.0
-offset_right = 302.0
-offset_bottom = 644.0
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 3.9250002
+anchor_bottom = 1.899
+offset_left = 408.0
+offset_top = 117.0
+offset_right = 596.0
+offset_bottom = 302.04
 
-[node name="Label" type="Label" parent="Control/RecipePanel" unique_id=1566007632]
+[node name="Label" type="Label" parent="Control/TimerPopup" unique_id=1562481649]
 layout_mode = 0
-offset_left = 82.0
-offset_top = 15.0
-offset_right = 210.0
-offset_bottom = 38.0
-text = "Apple Pie Recipe"
+offset_left = 130.0
+offset_top = 56.0
+offset_right = 197.0
+offset_bottom = 79.0
+text = "Time up!"
 
-[node name="IngredientList" type="VBoxContainer" parent="Control/RecipePanel" unique_id=90269945]
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/TimerPopup" unique_id=1247174414]
 layout_mode = 0
-offset_left = 7.0
-offset_top = 43.0
-offset_right = 291.0
-offset_bottom = 215.0
+offset_left = 101.0
+offset_top = 107.0
+offset_right = 234.0
+offset_bottom = 209.0
 
-[node name="Label" type="Label" parent="Control/RecipePanel/IngredientList" unique_id=1684958274]
+[node name="RestartButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=406307531]
 layout_mode = 2
-text = "Slice apples at chopping board
-Melt butter at stove
-Add flour and water to butter
-Simmer then remove pot
-Get dish and pastry
-Place apples at cutting board
-Place lattice
-Pour butter
-Bake in oven"
+text = "Restart"
 
-[node name="CloseButton" type="Button" parent="Control/RecipePanel" unique_id=412891538]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Close"
+[node name="MainMenuButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=1429031911]
+layout_mode = 2
+text = "Main Menu"
 
 [node name="PauseButton" type="Button" parent="Control" unique_id=1093837354]
+z_index = 6
 layout_mode = 0
-offset_right = 122.0
+offset_right = 90.0
 offset_bottom = 32.0
 text = "PAUSE (LOSER)
 "
@@ -170,138 +174,41 @@ process_mode = 2
 layout_mode = 2
 text = "Main Menu"
 
-[node name="TimerPopup" type="Panel" parent="Control" unique_id=638643782]
-visible = false
-layout_mode = 1
-anchors_preset = -1
-anchor_right = 3.9250002
-anchor_bottom = 1.899
-offset_left = 408.0
-offset_top = 117.0
-offset_right = 596.0
-offset_bottom = 302.04
+[node name="Timer" type="Timer" parent="." unique_id=1406045070]
+wait_time = 11.0
+one_shot = true
+autostart = true
+script = SubResource("GDScript_v3ycp")
 
-[node name="Label" type="Label" parent="Control/TimerPopup" unique_id=1562481649]
-layout_mode = 0
-offset_left = 130.0
-offset_top = 56.0
-offset_right = 197.0
-offset_bottom = 79.0
-text = "Time up!"
+[node name="Island" type="Node2D" parent="." unique_id=344153715]
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Control/TimerPopup" unique_id=1247174414]
-layout_mode = 0
-offset_left = 101.0
-offset_top = 107.0
-offset_right = 234.0
-offset_bottom = 209.0
-
-[node name="RestartButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=406307531]
-layout_mode = 2
-text = "Restart"
-
-[node name="MainMenuButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=1429031911]
-layout_mode = 2
-text = "Main Menu"
-
-[node name="PlayerNamesLogos" type="VBoxContainer" parent="Control" unique_id=1430156500]
-z_index = 6
-layout_mode = 0
-offset_left = 666.0
-offset_top = 1.0
-offset_right = 1148.0
-offset_bottom = 201.0
-alignment = 2
-
-[node name="LogoContainer" type="HBoxContainer" parent="Control/PlayerNamesLogos" unique_id=528701998]
-layout_mode = 2
-theme_override_constants/separation = 22
-
-[node name="BlindLogoPanel" type="Panel" parent="Control/PlayerNamesLogos/LogoContainer" unique_id=1962499790]
-layout_mode = 2
-
-[node name="BlindTextureRect" type="TextureRect" parent="Control/PlayerNamesLogos/LogoContainer/BlindLogoPanel" unique_id=1970121988]
-layout_mode = 0
-offset_left = 58.0
-offset_top = -96.0
-offset_right = 143.0
-offset_bottom = -4.0
-
-[node name="DeafLogoPanel" type="Panel" parent="Control/PlayerNamesLogos/LogoContainer" unique_id=1028726043]
-layout_mode = 2
-
-[node name="DeafTextureRect" type="TextureRect" parent="Control/PlayerNamesLogos/LogoContainer/DeafLogoPanel" unique_id=1227447421]
-layout_mode = 0
-offset_left = 164.0
-offset_top = -94.0
-offset_right = 275.0
-offset_bottom = -2.0
-
-[node name="MuteLogoPanel" type="Panel" parent="Control/PlayerNamesLogos/LogoContainer" unique_id=1590997914]
-layout_mode = 2
-
-[node name="MuteTextureRect" type="TextureRect" parent="Control/PlayerNamesLogos/LogoContainer/MuteLogoPanel" unique_id=1207524541]
-layout_mode = 0
-offset_left = 289.0
-offset_top = -74.0
-offset_right = 361.0
-offset_bottom = -1.0
-
-[node name="LabelContainer" type="HBoxContainer" parent="Control/PlayerNamesLogos" unique_id=73646218]
-layout_mode = 2
-theme_override_constants/separation = 22
-alignment = 1
-
-[node name="BlindLabel" type="Label" parent="Control/PlayerNamesLogos/LabelContainer" unique_id=930129085]
-layout_mode = 2
-text = "BLIND HOLDER"
-
-[node name="DeafLabel" type="Label" parent="Control/PlayerNamesLogos/LabelContainer" unique_id=351366206]
-layout_mode = 2
-text = "DEAF HOLDER"
-
-[node name="MuteLabel" type="Label" parent="Control/PlayerNamesLogos/LabelContainer" unique_id=682323665]
-layout_mode = 2
-text = "MUTE HOLDER"
-
-[node name="Players" type="Node2D" parent="." unique_id=1408460873]
-
-[node name="MutePlayer" parent="Players" unique_id=102776357 instance=ExtResource("1_01sk3")]
-visible = false
-position = Vector2(811, 193)
-
-[node name="DeafPlayer" parent="Players" unique_id=1982512972 instance=ExtResource("2_jtesv")]
-visible = false
-position = Vector2(363, 436)
-
-[node name="BlindPlayer" parent="Players" unique_id=1426497895 instance=ExtResource("3_c621a")]
-position = Vector2(318, 186)
-
-[node name="Counter" parent="." unique_id=785632966 instance=ExtResource("5_vpxcu")]
-position = Vector2(16, -15)
-
-[node name="Stove" parent="." unique_id=1013248238 instance=ExtResource("6_k1jr4")]
-position = Vector2(80, 433)
-
-[node name="ChoppingBoard" parent="." unique_id=1312146754 instance=ExtResource("7_umms5")]
-position = Vector2(1091, 277)
-
-[node name="Oven" parent="." unique_id=936247304 instance=ExtResource("8_ktc20")]
-position = Vector2(72, 232)
+[node name="Counter" parent="Island" unique_id=785632966 instance=ExtResource("5_vpxcu")]
 
 [node name="Sink" parent="." unique_id=828168198 instance=ExtResource("9_bs8bs")]
 
 [node name="Fridge" parent="." unique_id=54958283 instance=ExtResource("10_88wuv")]
 
-[node name="TrashCan" parent="." unique_id=1430967741 instance=ExtResource("5_v3ycp")]
+[node name="Interactables" type="Node2D" parent="." unique_id=1134897768]
+
+[node name="Stove" parent="Interactables" unique_id=1013248238 instance=ExtResource("6_k1jr4")]
+position = Vector2(80, 433)
+
+[node name="ChoppingBoard" parent="Interactables" unique_id=1312146754 instance=ExtResource("7_umms5")]
+position = Vector2(1091, 277)
+
+[node name="Oven" parent="Interactables" unique_id=936247304 instance=ExtResource("8_ktc20")]
+position = Vector2(72, 232)
+
+[node name="TrashCan" parent="Interactables" unique_id=1430967741 instance=ExtResource("5_v3ycp")]
 position = Vector2(1076, 75)
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
-[connection signal="pressed" from="Control/RecipeButton" to="." method="_on_recipe_button_pressed"]
-[connection signal="pressed" from="Control/RecipePanel/CloseButton" to="." method="_on_close_button_pressed"]
+[node name="Pickable" parent="." unique_id=1020376432 instance=ExtResource("12_k1jr4")]
+position = Vector2(860, 370)
+
+[connection signal="pressed" from="Control/TimerPopup/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/TimerPopup/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Control/PausePanel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Control/PausePanel/VBoxContainer/RestartButton2" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Control/PausePanel/VBoxContainer/MainMenuButton2" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="Control/TimerPopup/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
-[connection signal="pressed" from="Control/TimerPopup/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
