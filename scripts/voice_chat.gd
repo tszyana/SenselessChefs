@@ -55,8 +55,8 @@ func process_microphone() -> void:
 
 			var pcm_data := audio_chunk_to_pcm(chunk)
 
-			print("Created audio chunk: ", chunk.size(), " frames")
-			print("PCM size: ", pcm_data.size(), " bytes")
+			#print("Created audio chunk: ", chunk.size(), " frames")
+			#print("PCM size: ", pcm_data.size(), " bytes")
 
 			NetworkManager.send_voice_data.rpc(pcm_data)
 
