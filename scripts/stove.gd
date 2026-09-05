@@ -8,9 +8,13 @@ func _ready() -> void:
 	interactable.interact = _on_interact
 
 func _on_interact():
-	# if player is holding ingredient??
-	print("Stirring...")
 	var player = get_tree().get_first_node_in_group("player_blind")
+	
+	if not player.carrying_item:
+		print("Not holding anything u dummy")
+		return
+	
+	print("Stirring...")
 	player.can_move = false
 	
 	interactable.is_interactable = false

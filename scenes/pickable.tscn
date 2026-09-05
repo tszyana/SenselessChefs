@@ -7,6 +7,7 @@
 
 [node name="Pickable" type="Area2D" unique_id=253672139]
 script = ExtResource("1_tr2q0")
+item_name = "pickable"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=356093545]
 texture = ExtResource("2_ue70n")
