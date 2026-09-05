@@ -70,5 +70,6 @@ func receive_voice_data(sender_id: int, audio_data: PackedByteArray) -> void:
 	    " bytes"
 	)
 	
-	var samples := VoiceChat.pcm_to_audio_samples(audio_data)
+	var samples :PackedFloat32Array = VoiceChat.pcm_to_audio_samples(audio_data)
 	print("Converted to ", samples.size(), " audio samples")
+	VoiceChat.play_voice_samples(samples)

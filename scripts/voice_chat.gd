@@ -2,6 +2,10 @@ extends Node
 
 const CHUNK_DURATION := 0.02
 
+var playback_player := AudioStreamPlayer.new()
+var playback_stream := AudioStreamGenerator.new()
+var playback_playback: AudioStreamGeneratorPlayback
+
 var mic: AudioStreamPlayer
 var capture: AudioEffectCapture
 var chunk_size := int(AudioServer.get_mix_rate() * CHUNK_DURATION)
@@ -19,7 +23,19 @@ func setup(microphone_player: AudioStreamPlayer) -> void:
 	print("Sample rate: ", AudioServer.get_mix_rate())
 	print("Chunk size: ", chunk_size)
 
+func _ready() -> void:
+	add_child(playback_player)
 
+	playback_stream.mix_rate = AudioServer.get_mix_rate()
+	playback_stream.buffer_length = 0.2
+
+	playback_player.stream = playback_stream
+	playback_player.play()
+
+	playback_playback = playback_player.get_stream_playback()
+
+	print("Voice playback initialized")
+	
 func process_microphone() -> void:
 	if capture == null:
 		return
@@ -83,3 +99,11 @@ func pcm_to_audio_samples(pcm_data: PackedByteArray) -> PackedFloat32Array:
 		samples.append(float_sample)
 
 	return samples
+	
+func play_voice_samples(samples: Array[float]) -> void:
+	if playback_playback == null:
+		return
+
+	for sample in samples:
+		var frame := Vector2(sample, sample)
+		playback_playback.push_frame(frame)
