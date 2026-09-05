@@ -1,18 +1,29 @@
 [gd_scene format=3 uid="uid://ccqr3grqb88i6"]
 
-[ext_resource type="PackedScene" uid="uid://bkrucl6g84xoa" path="res://scenes/player_mute.tscn" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://de2ugp7o5yyaa" path="res://scenes/player_deaf.tscn" id="2_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://bn2k5w2cgyjes" path="res://scenes/player_blind.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bkrucl6g84xoa" path="res://scenes/player_mute.tscn" id="1_01sk3"]
+[ext_resource type="PackedScene" uid="uid://de2ugp7o5yyaa" path="res://scenes/player_deaf.tscn" id="2_jtesv"]
+[ext_resource type="PackedScene" uid="uid://bn2k5w2cgyjes" path="res://scenes/player_blind.tscn" id="3_c621a"]
 
 [node name="Main" type="Node2D" unique_id=1947100178]
 
 [node name="Players" type="Node2D" parent="." unique_id=1076948618]
 
-[node name="MutePlayer" parent="Players" unique_id=102776357 instance=ExtResource("1_sugp2")]
+[node name="MutePlayer" parent="Players" unique_id=102776357 instance=ExtResource("1_01sk3")]
 position = Vector2(130, 160)
 
-[node name="DeafPlayer" parent="Players" unique_id=1240639144 instance=ExtResource("2_jyhfs")]
+[node name="DeafPlayer" parent="Players" unique_id=1240639144 instance=ExtResource("2_jtesv")]
 position = Vector2(854, 174)
 
-[node name="BlindPlayer" parent="Players" unique_id=1041076819 instance=ExtResource("3_tbgi4")]
+[node name="BlindPlayer" parent="Players" unique_id=1041076819 instance=ExtResource("3_c621a")]
 position = Vector2(475, 171)
+
+[node name="Control" type="Control" parent="." unique_id=751850616]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="Timer" type="Timer" parent="." unique_id=1406045070]
+wait_time = 180.0
+one_shot = true
+autostart = true
