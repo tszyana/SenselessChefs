@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://c4ttutrhtahdw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25ren"]
+size = Vector2(201.25, 176.5)
+
+[node name="Stove" type="Node2D" unique_id=1013248238]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1733365652]
+
+[node name="Area2D" type="Area2D" parent="Sprite2D" unique_id=292740010]
+
+[node name="StoveCollision" type="CollisionShape2D" parent="Sprite2D/Area2D" unique_id=935495750]
+position = Vector2(105, 430)
+shape = SubResource("RectangleShape2D_25ren")

@@ -1,0 +1,14 @@
+[gd_scene format=3 uid="uid://bpsuiablx8xpi"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ixu5"]
+size = Vector2(108.25, 152.5)
+
+[node name="Sink" type="Node2D" unique_id=828168198]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1665600382]
+
+[node name="Area2D" type="Area2D" parent="." unique_id=328784518]
+
+[node name="SinkCollision" type="CollisionShape2D" parent="Area2D" unique_id=115769824]
+position = Vector2(1088, 433)
+shape = SubResource("RectangleShape2D_8ixu5")
