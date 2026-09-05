@@ -8,6 +8,7 @@ enum State { MOVE, HOLD, CHOP, STIR}
 var state = State.MOVE
 var carrying_item: bool = false
 
+
 func _physics_process(delta: float) -> void:
 	process_movement()
 	update_action_sprite()
@@ -46,6 +47,9 @@ func drop_item() -> void:
 	target_object.global_position = dropped_position
 	carrying_item = false
 	
+
+func delete_item() -> void:
+	pass
 
 func _on_vision_area_area_entered(area: Area2D) -> void:
 	if area is Pickable:

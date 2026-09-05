@@ -3,6 +3,8 @@ extends Node2D
 @onready var interactable: Area2D = $Interactable
 @export var stir_time := 2.0
 
+var ingredients := []
+
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	interactable.interact = _on_interact
@@ -13,6 +15,7 @@ func _on_interact():
 	if not player.carrying_item:
 		print("Not holding anything u dummy")
 		return
+	
 	
 	print("Stirring...")
 	player.can_move = false
