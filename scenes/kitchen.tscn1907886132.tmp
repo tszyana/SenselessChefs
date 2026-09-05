@@ -120,13 +120,11 @@ script = SubResource("GDScript_v3ycp")
 [node name="Counter" parent="." unique_id=785632966 instance=ExtResource("5_vpxcu")]
 
 [node name="Stove" parent="." unique_id=1013248238 instance=ExtResource("6_k1jr4")]
-position = Vector2(123, 431)
 
 [node name="ChoppingBoard" parent="." unique_id=1312146754 instance=ExtResource("7_umms5")]
-position = Vector2(1091, 277)
 
 [node name="Oven" parent="." unique_id=936247304 instance=ExtResource("8_ktc20")]
-position = Vector2(72, 232)
+position = Vector2(1, 0)
 
 [node name="Sink" parent="." unique_id=828168198 instance=ExtResource("9_bs8bs")]
 
