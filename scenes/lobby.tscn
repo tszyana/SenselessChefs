@@ -13,39 +13,48 @@ script = ExtResource("1_o1atq")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1673287037]
 layout_mode = 0
-offset_left = 500.0
-offset_top = 68.0
-offset_right = 659.0
-offset_bottom = 118.0
+offset_left = 394.0
+offset_top = 31.0
+offset_right = 731.0
+offset_bottom = 203.0
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1456625464]
 layout_mode = 2
-text = "LOBBY"
+text = "Prepping the kitchen...
+"
+horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer" unique_id=1065773422]
 layout_mode = 2
 text = "Waiting for players..."
+horizontal_alignment = 1
 
-[node name="PlayerList" type="VBoxContainer" parent="." unique_id=2135101531]
-layout_mode = 0
-offset_right = 40.0
-offset_bottom = 40.0
+[node name="PlayerList" type="VBoxContainer" parent="VBoxContainer" unique_id=2135101531]
+layout_mode = 2
+alignment = 1
 
 [node name="ReadyButton" type="Button" parent="." unique_id=1778019345]
 layout_mode = 0
-offset_left = 378.0
-offset_top = 447.0
-offset_right = 434.0
-offset_bottom = 478.0
+offset_left = 483.0
+offset_top = 598.0
+offset_right = 647.0
+offset_bottom = 629.0
 text = "Ready"
 
 [node name="StartButton" type="Button" parent="." unique_id=1349381747]
 layout_mode = 0
-offset_left = 659.0
-offset_top = 447.0
-offset_right = 705.0
-offset_bottom = 478.0
+offset_left = 465.0
+offset_top = 214.0
+offset_right = 654.0
+offset_bottom = 245.0
 text = "Start"
+
+[node name="BackButton" type="Button" parent="." unique_id=1629837044]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "BACK"
 
 [connection signal="pressed" from="ReadyButton" to="." method="_on_ready_button_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
+[connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]
