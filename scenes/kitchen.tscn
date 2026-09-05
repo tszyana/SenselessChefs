@@ -3,6 +3,7 @@
 [ext_resource type="PackedScene" uid="uid://bkrucl6g84xoa" path="res://scenes/player_mute.tscn" id="1_01sk3"]
 [ext_resource type="PackedScene" uid="uid://de2ugp7o5yyaa" path="res://scenes/player_deaf.tscn" id="2_jtesv"]
 [ext_resource type="PackedScene" uid="uid://bn2k5w2cgyjes" path="res://scenes/player_blind.tscn" id="3_c621a"]
+[ext_resource type="Script" uid="uid://bqtcygqafkwk0" path="res://scripts/timer_label.gd" id="4_bems3"]
 
 [node name="Main" type="Node2D" unique_id=1947100178]
 
@@ -22,6 +23,12 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+
+[node name="TimerLabel" type="Label" parent="Control" unique_id=499163736]
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 23.0
+script = ExtResource("4_bems3")
 
 [node name="Timer" type="Timer" parent="." unique_id=1406045070]
 wait_time = 180.0
