@@ -4,6 +4,8 @@ extends CharacterBody2D
 
 const SPEED = 500.0
 var can_move := true
+var is_in_range: bool = false
+var target_object: Node2D
 
 # processes arrow keys for movement
 func process_movement() -> void:
