@@ -70,6 +70,56 @@ text = "Timer Placeholder
 horizontal_alignment = 1
 script = SubResource("GDScript_bems3")
 
+[node name="RecipeButton" type="Button" parent="Control" unique_id=1458892778]
+layout_mode = 0
+offset_left = 9.0
+offset_top = 610.0
+offset_right = 70.0
+offset_bottom = 641.0
+text = "RECIPE"
+
+[node name="RecipePanel" type="Panel" parent="Control" unique_id=203503883]
+visible = false
+z_index = 4
+layout_mode = 0
+offset_left = 2.0
+offset_top = 360.0
+offset_right = 302.0
+offset_bottom = 644.0
+
+[node name="Label" type="Label" parent="Control/RecipePanel" unique_id=1566007632]
+layout_mode = 0
+offset_left = 82.0
+offset_top = 15.0
+offset_right = 210.0
+offset_bottom = 38.0
+text = "Apple Pie Recipe"
+
+[node name="IngredientList" type="VBoxContainer" parent="Control/RecipePanel" unique_id=90269945]
+layout_mode = 0
+offset_left = 7.0
+offset_top = 43.0
+offset_right = 291.0
+offset_bottom = 215.0
+
+[node name="Label" type="Label" parent="Control/RecipePanel/IngredientList" unique_id=1684958274]
+layout_mode = 2
+text = "Slice apples at chopping board
+Melt butter at stove
+Add flour and water to butter
+Simmer then remove pot
+Get dish and pastry
+Place apples at cutting board
+Place lattice
+Pour butter
+Bake in oven"
+
+[node name="CloseButton" type="Button" parent="Control/RecipePanel" unique_id=412891538]
+layout_mode = 0
+offset_right = 8.0
+offset_bottom = 8.0
+text = "Close"
+
 [node name="PauseButton" type="Button" parent="Control" unique_id=1093837354]
 layout_mode = 0
 offset_right = 122.0
@@ -214,47 +264,6 @@ text = "DEAF HOLDER"
 layout_mode = 2
 text = "MUTE HOLDER"
 
-[node name="RecipeButton" type="Button" parent="Control" unique_id=1458892778]
-layout_mode = 0
-offset_left = 9.0
-offset_top = 610.0
-offset_right = 70.0
-offset_bottom = 641.0
-text = "RECIPE"
-
-[node name="RecipePanel" type="Panel" parent="Control" unique_id=203503883]
-z_index = 4
-layout_mode = 0
-offset_left = 237.0
-offset_top = 507.0
-offset_right = 537.0
-offset_bottom = 730.0
-
-[node name="Label" type="Label" parent="Control/RecipePanel" unique_id=1566007632]
-layout_mode = 0
-offset_left = 82.0
-offset_top = 15.0
-offset_right = 210.0
-offset_bottom = 38.0
-text = "Apple Pie Recipe"
-
-[node name="IngredientList" type="VBoxContainer" parent="Control/RecipePanel" unique_id=90269945]
-layout_mode = 0
-offset_left = 7.0
-offset_top = 43.0
-offset_right = 291.0
-offset_bottom = 215.0
-
-[node name="Label" type="Label" parent="Control/RecipePanel/IngredientList" unique_id=1684958274]
-layout_mode = 2
-text = "IND 1"
-
-[node name="CloseButton" type="Button" parent="Control/RecipePanel" unique_id=412891538]
-layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "Close"
-
 [node name="Players" type="Node2D" parent="." unique_id=1408460873]
 
 [node name="MutePlayer" parent="Players" unique_id=102776357 instance=ExtResource("1_01sk3")]
@@ -288,11 +297,11 @@ position = Vector2(72, 232)
 position = Vector2(1076, 75)
 
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[connection signal="pressed" from="Control/RecipeButton" to="." method="_on_recipe_button_pressed"]
+[connection signal="pressed" from="Control/RecipePanel/CloseButton" to="." method="_on_close_button_pressed"]
 [connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Control/PausePanel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
 [connection signal="pressed" from="Control/PausePanel/VBoxContainer/RestartButton2" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Control/PausePanel/VBoxContainer/MainMenuButton2" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
-[connection signal="pressed" from="Control/RecipeButton" to="." method="_on_recipe_button_pressed"]
-[connection signal="pressed" from="Control/RecipePanel/CloseButton" to="." method="_on_close_button_pressed"]

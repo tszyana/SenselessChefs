@@ -19,25 +19,23 @@ func _process(_delta) -> void:
 func _on_timer_timeout() -> void:
 	timer_popup.visible = true
 
-#  Show main menu
+#  Scene changes
 func _on_main_menu_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
-
-
 func _on_restart_button_pressed() -> void:
 	get_tree().change_scene_to_file("res://scenes/kitchen.tscn")
 
+# Pause button
 func _on_pause_button_pressed() -> void:
 	get_tree().paused = true
 	pause_popup.visible = true
-
+# Resume button
 func _on_resume_button_pressed() -> void:
 	get_tree().paused = false
 	pause_popup.visible = false
 
-
+# Recipe stuff
 func _on_recipe_button_pressed() -> void:
-	pause_popup.visible = true
-
+	recipe_popup.visible = true
 func _on_close_button_pressed() -> void:
-	pause_popup.visible = false
+	recipe_popup.visible = false
