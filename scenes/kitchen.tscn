@@ -115,13 +115,61 @@ offset_top = 107.0
 offset_right = 234.0
 offset_bottom = 209.0
 
+[node name="RestartButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=406307531]
+layout_mode = 2
+text = "Restart"
+
 [node name="MainMenuButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=1429031911]
 layout_mode = 2
 text = "Main Menu"
 
-[node name="RestartButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=406307531]
+[node name="PauseButton" type="Button" parent="Control" unique_id=1093837354]
+layout_mode = 0
+offset_right = 90.0
+offset_bottom = 32.0
+text = "PAUSE (LOSER)
+"
+
+[node name="PausePanel" type="Panel" parent="Control" unique_id=1318508673]
+visible = false
+layout_mode = 1
+anchors_preset = -1
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 389.0
+offset_top = 187.0
+offset_right = 756.0
+offset_bottom = 475.0
+
+[node name="Label" type="Label" parent="Control/PausePanel" unique_id=418832563]
+layout_mode = 0
+offset_left = 129.0
+offset_top = 60.0
+offset_right = 241.0
+offset_bottom = 109.0
+text = "GAME PAUSED
+"
+
+[node name="VBoxContainer" type="VBoxContainer" parent="Control/PausePanel" unique_id=353909821]
+layout_mode = 0
+offset_left = 118.0
+offset_top = 142.0
+offset_right = 261.0
+offset_bottom = 278.0
+
+[node name="ResumeButton" type="Button" parent="Control/PausePanel/VBoxContainer" unique_id=838727722]
+process_mode = 2
+layout_mode = 2
+text = "Resume Game
+"
+
+[node name="RestartButton2" type="Button" parent="Control/PausePanel/VBoxContainer" unique_id=406916995]
 layout_mode = 2
 text = "Restart"
+
+[node name="MainMenuButton2" type="Button" parent="Control/PausePanel/VBoxContainer" unique_id=1837142842]
+layout_mode = 2
+text = "Main Menu"
 
 [node name="Timer" type="Timer" parent="." unique_id=1406045070]
 wait_time = 11.0
@@ -201,4 +249,10 @@ shape = SubResource("RectangleShape2D_8ixu5")
 position = Vector2(1050, 582)
 shape = SubResource("RectangleShape2D_bh1ot")
 
+[connection signal="pressed" from="Control/TimerPopup/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/TimerPopup/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
+[connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]
+[connection signal="pressed" from="Control/PausePanel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
+[connection signal="pressed" from="Control/PausePanel/VBoxContainer/RestartButton2" to="." method="_on_restart_button_pressed"]
+[connection signal="pressed" from="Control/PausePanel/VBoxContainer/MainMenuButton2" to="." method="_on_main_menu_button_pressed"]
 [connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
