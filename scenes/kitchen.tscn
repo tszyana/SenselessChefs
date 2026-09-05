@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://ccqr3grqb88i6"]
+[gd_scene format=3 uid="uid://bh4nx2ebsqfaq"]
 
 [ext_resource type="PackedScene" uid="uid://bkrucl6g84xoa" path="res://scenes/Player/player_mute.tscn" id="1_01sk3"]
 [ext_resource type="Script" uid="uid://bbv7bmwxv55uo" path="res://scripts/kitchen.gd" id="1_g3o0j"]
@@ -170,7 +170,7 @@ script = SubResource("GDScript_v3ycp")
 [node name="Counter" parent="." unique_id=785632966 instance=ExtResource("5_vpxcu")]
 
 [node name="Stove" parent="." unique_id=1013248238 instance=ExtResource("6_k1jr4")]
-position = Vector2(123, 431)
+position = Vector2(80, 433)
 
 [node name="ChoppingBoard" parent="." unique_id=1312146754 instance=ExtResource("7_umms5")]
 position = Vector2(1091, 277)

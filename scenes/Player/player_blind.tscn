@@ -9,7 +9,7 @@ radius = 131.03435
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsrh2"]
 
-[node name="BlindPlayer" type="CharacterBody2D" unique_id=102776357]
+[node name="BlindPlayer" type="CharacterBody2D" unique_id=102776357 groups=["player_blind"]]
 script = ExtResource("1_gsrh2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1505591876]
