@@ -6,9 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://cnwv73bcvo81g" path="res://Sounds/Boiling water sound.mp3" id="4_won77"]
 [ext_resource type="AudioStream" uid="uid://6a60k16tjeuc" path="res://Sounds/Fun trash sound.mp3" id="5_p4ku3"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_25ren"]
-size = Vector2(236.625, 296)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mlgeb"]
 size = Vector2(12.220917, 7.2917614)
 
@@ -20,10 +17,6 @@ scale = Vector2(0.6148649, 0.65298504)
 texture = ExtResource("2_oyirk")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=292740010]
-
-[node name="StoveCollision" type="CollisionShape2D" parent="Area2D" unique_id=935495750]
-position = Vector2(17.6875, 13)
-shape = SubResource("RectangleShape2D_25ren")
 
 [node name="Interactable" parent="." unique_id=630558511 instance=ExtResource("1_eirmq")]
 interact_name = "Stove"

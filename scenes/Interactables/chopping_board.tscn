@@ -6,9 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://24rmedb573pg" path="res://Sounds/chopping sound.mp3" id="4_k15kk"]
 [ext_resource type="AudioStream" uid="uid://6a60k16tjeuc" path="res://Sounds/Fun trash sound.mp3" id="5_hw2ax"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3xp1"]
-size = Vector2(113, 130)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oyirk"]
 size = Vector2(16.07283, 23.964142)
 
@@ -20,9 +17,6 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_uftcw")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1378833656]
-
-[node name="ChoppingCollision" type="CollisionShape2D" parent="Area2D" unique_id=1735010365]
-shape = SubResource("RectangleShape2D_r3xp1")
 
 [node name="Interactable" parent="." unique_id=630558511 instance=ExtResource("2_1wcpl")]
 interact_name = "Chopping Board"
