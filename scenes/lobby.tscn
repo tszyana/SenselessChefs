@@ -190,7 +190,7 @@ offset_right = 397.0
 offset_bottom = 564.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_m1sns")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 text = "Blind holder"
 horizontal_alignment = 1
 
@@ -202,7 +202,7 @@ offset_right = 669.0
 offset_bottom = 560.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_m1sns")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 text = "Deaf holder"
 horizontal_alignment = 1
 
@@ -214,7 +214,7 @@ offset_right = 932.0
 offset_bottom = 563.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("10_m1sns")
-theme_override_font_sizes/font_size = 24
+theme_override_font_sizes/font_size = 20
 text = "Mute holder"
 horizontal_alignment = 1
 
