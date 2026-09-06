@@ -76,6 +76,7 @@ func add_player_to_list(id: int, name: String) -> void:
 func _on_ready_button_pressed() -> void:
 
 	is_ready = !is_ready
+	$AudioStreamPlayer.play()
 	#GameState.player_states[multiplayer.get_unique_id()] = is_ready
 
 	if multiplayer.is_server():
@@ -97,6 +98,7 @@ func all_players_ready() -> bool:
 	return true
 	
 func _on_start_button_pressed() -> void:
+	$StartAudio.play()
 	if not multiplayer.is_server():
 		return
 	
@@ -138,4 +140,6 @@ func set_ready_on_server(ready: bool) -> void:
 
 
 func _on_back_button_pressed() -> void:
+	$AudioStreamPlayer.play()
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")
+	
