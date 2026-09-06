@@ -8,30 +8,90 @@ extends Node2D
 
 var ingredients := []
 const COMBOS = {
-	"melted_butter": ["flour", "egg", "salt"],
-	"cut_apples": ["apple"]
+	"melted_butter": ["butter"],
+	"filled_bowl": ["melted_butter", "flour", "water"]
 }
+var current_combo_index := 0
+var current_ingredient_index := 0
 
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	interactable.interact = _on_interact
+	progress_bar.hide()
 
 func _on_interact():
+	if current_combo_index >= COMBOS.size():
+		print("All recipes are completed")
+		return
+		
+	# if player is holding object??
 	var player = get_tree().get_first_node_in_group("player_blind")
-	var item = player.get_item()
 	
 	if not player.carrying_item:
 		print("Not holding anything u dummy")
 		return
 	
+	var item = player.remove_item()	
 	
-	print("Stirring...")
-	player.can_move = false
+	# get current recipe
+	var combo = COMBOS.values()[current_combo_index]
+	var expected_ingredient = combo[current_ingredient_index]
 	
-	interactable.is_interactable = false
+	# wrong ingredient
+	if item.item_name != expected_ingredient:		
+		make_trash(item)
+		print("Wrong ingredient doofus")
+		return
 	
-	await get_tree().create_timer(stir_time).timeout
+	# if correct, then move item to chopping board
+	item.reparent(self)
+	item.position = Vector2.ZERO
+	ingredients.append(item)
 	
-	print("Finished chopping!")
-	player.can_move = true
-	interactable.is_interactable = true
+	current_ingredient_index += 1
+	
+	# update progress bar
+	progress_bar.max_value = combo.size()
+	progress_bar.value = current_ingredient_index
+	progress_bar.show()
+		
+	# recipe is complete!
+	if current_ingredient_index >= combo.size():
+		player.can_move = false
+		interactable.is_interactable = false
+		
+		print("Stirring", item.item_name) # placeholder for sprite change??
+		await get_tree().create_timer(stir_time).timeout
+		
+		var result_name = COMBOS.keys()[current_combo_index]
+		make_result(result_name)
+		print("Completed")
+		
+		current_combo_index += 1
+		current_ingredient_index = 0
+		progress_bar.hide()
+		
+		player.can_move = true
+		interactable.is_interactable = true
+	
+func make_trash(item: Pickable) -> void:
+	item.item_name = "trash"
+	item.update_sprite()
+	
+	item.reparent(get_parent())
+	item.position = drop_point.global_position
+	
+func make_result(result_name: String):
+	var result_item: Pickable = ingredients[0]	
+	
+	for i in range(1, ingredients.size()):
+		ingredients[i].queue_free()
+	
+	result_item.item_name = result_name
+	result_item.update_sprite()
+	
+	result_item.reparent(get_parent())
+	result_item.global_position = drop_point.global_position
+	
+	ingredients.clear()
+	ingredients.append(result_item)
