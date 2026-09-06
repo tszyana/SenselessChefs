@@ -34,8 +34,6 @@ func remove_item() -> Pickable:
 	var item = held_item
 	held_item = null
 	carrying_item = false
-	is_in_range = false
-	target_object = null
 	return item
 
 func update_vision() -> void:
@@ -43,7 +41,14 @@ func update_vision() -> void:
 
 func pickup_object() -> void:
 	if Input.is_action_just_pressed("pickup"):
-
+		print(
+			"Pickup pressed | carrying = ",
+			carrying_item,
+			" | in_range = ",
+			is_in_range,
+			" | target = ",
+			target_object
+		)
 		if carrying_item:
 			drop_item()
 		elif is_in_range and target_object:
@@ -59,18 +64,17 @@ func drop_item() -> void:
 	held_item.global_position = global_position
 	carrying_item = false
 	held_item = null
-	is_in_range = false
-	target_object = null
-	
 
 func _on_vision_area_area_entered(area: Area2D) -> void:
 	if area is Pickable:
+		print("ENTERED: ", area.item_name)
 		is_in_range = true
 		target_object = area
 
 
 func _on_vision_area_area_exited(area: Area2D) -> void:
 	if area is Pickable and not carrying_item:
+		print("EXITED: ", area.item_name)
 		is_in_range = false
 		target_object = null
 		

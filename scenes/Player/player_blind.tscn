@@ -18,6 +18,7 @@ texture = ExtResource("1_vcg84")
 [node name="VisionArea" type="Area2D" parent="." unique_id=915287116]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=48018900]
+scale = Vector2(0.7595028, 0.7979644)
 shape = SubResource("CircleShape2D_0wdwo")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=815507105]
