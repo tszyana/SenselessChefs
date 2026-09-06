@@ -45,25 +45,24 @@ func get_nickname() -> String:
 		return ""
 		
 func setup_characters(blind : CharacterBody2D, deaf : CharacterBody2D, mute : CharacterBody2D) -> void:
-	#var myId := multiplayer.get_unique_id()
-	#var myRole : int = player_states[myId]["role"]
-	#
-	#if myRole == Role.BLIND:
-		#sprite = blind
-		#print("im blind")
-		#
-	#elif myRole == Role.DEAF:
-		#sprite = deaf
-		#VoiceChat.sound_enabled = false
-#
-		#print("im deaf")
-	#
-	#elif myRole == Role.MUTE:
-		#sprite = mute
-		#VoiceChat.mic_enabled = false
-#
-		#print("im mute")
-		return
+	var myId := multiplayer.get_unique_id()
+	var myRole : int = player_states[myId]["role"]
+	
+	if myRole == Role.BLIND:
+		sprite = blind
+		print("im blind")
+		
+	elif myRole == Role.DEAF:
+		sprite = deaf
+		VoiceChat.sound_enabled = false
+
+		print("im deaf")
+	
+	elif myRole == Role.MUTE:
+		sprite = mute
+		VoiceChat.mic_enabled = false
+
+		print("im mute")
 
 
 		
