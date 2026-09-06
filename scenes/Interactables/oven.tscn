@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://c3e32iwluow42"]
 
-[ext_resource type="Texture2D" uid="uid://cq05kg8a0kkrb" path="res://icon.svg" id="1_5x4yc"]
 [ext_resource type="Script" uid="uid://wy3fap6moagq" path="res://scripts/oven.gd" id="1_mlgeb"]
 [ext_resource type="PackedScene" uid="uid://cd3cbra8hqnsd" path="res://scenes/Interactables/interactable.tscn" id="1_mpe5x"]
+[ext_resource type="Texture2D" uid="uid://cohnf42jrbwy0" path="res://scenes/Images/Kitchen/Mini oven.png" id="2_mlgeb"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twnsb"]
 size = Vector2(96.5, 172.75)
@@ -13,7 +13,7 @@ size = Vector2(96.5, 172.75)
 script = ExtResource("1_mlgeb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1558577367]
-texture = ExtResource("1_5x4yc")
+texture = ExtResource("2_mlgeb")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1622280451]
 
