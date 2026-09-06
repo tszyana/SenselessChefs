@@ -109,6 +109,11 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("7_k1cyo")
 expand_mode = 1
 
+[node name="Island" type="Node2D" parent="." unique_id=344153715]
+
+[node name="Counter" parent="Island" unique_id=785632966 instance=ExtResource("5_vpxcu")]
+position = Vector2(578, 331)
+
 [node name="Control" type="Control" parent="." unique_id=751850616]
 layout_mode = 3
 anchors_preset = 0
@@ -134,33 +139,65 @@ layout_mode = 1
 anchors_preset = -1
 anchor_right = 3.9250002
 anchor_bottom = 1.899
-offset_left = 408.0
-offset_top = 117.0
-offset_right = 596.0
-offset_bottom = 302.04
+offset_left = 409.0
+offset_top = 130.0
+offset_right = 597.0
+offset_bottom = 315.04
+
+[node name="TimerBG" type="TextureRect" parent="Control/TimerPopup" unique_id=169202092]
+layout_mode = 0
+offset_right = 346.0
+offset_bottom = 260.0
+texture = ExtResource("5_87bic")
+expand_mode = 1
+
+[node name="Restart" type="TextureRect" parent="Control/TimerPopup" unique_id=1386581209]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 118.0
+offset_right = 264.0
+offset_bottom = 160.0
+texture = ExtResource("7_k1cyo")
+expand_mode = 1
+
+[node name="Main" type="TextureRect" parent="Control/TimerPopup" unique_id=666034048]
+layout_mode = 0
+offset_left = 83.0
+offset_top = 184.0
+offset_right = 264.0
+offset_bottom = 226.0
+texture = ExtResource("7_k1cyo")
+expand_mode = 1
 
 [node name="Label" type="Label" parent="Control/TimerPopup" unique_id=1562481649]
 layout_mode = 0
-offset_left = 130.0
-offset_top = 56.0
-offset_right = 197.0
-offset_bottom = 79.0
+offset_left = 116.0
+offset_top = 55.0
+offset_right = 220.0
+offset_bottom = 90.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 25
 text = "Time up!"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/TimerPopup" unique_id=1247174414]
 layout_mode = 0
-offset_left = 101.0
-offset_top = 107.0
-offset_right = 234.0
-offset_bottom = 209.0
+offset_left = 108.0
+offset_top = 124.0
+offset_right = 241.0
+offset_bottom = 226.0
+theme_override_constants/separation = 34
 
 [node name="RestartButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=406307531]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Restart"
+flat = true
 
 [node name="MainMenuButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=1429031911]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Main Menu"
+flat = true
 
 [node name="PauseButton" type="Button" parent="Control" unique_id=1093837354]
 z_index = 6
@@ -183,14 +220,51 @@ offset_top = 184.0
 offset_right = 764.0
 offset_bottom = 472.0
 
+[node name="GamePause" type="TextureRect" parent="Control/PausePanel" unique_id=537400424]
+layout_mode = 0
+offset_left = -6.0
+offset_right = 395.0
+offset_bottom = 311.0
+texture = ExtResource("5_87bic")
+expand_mode = 1
+
 [node name="Label" type="Label" parent="Control/PausePanel" unique_id=418832563]
 layout_mode = 0
-offset_left = 129.0
-offset_top = 60.0
-offset_right = 241.0
-offset_bottom = 109.0
+offset_left = 98.0
+offset_top = 44.0
+offset_right = 293.0
+offset_bottom = 125.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
 text = "GAME PAUSED
 "
+
+[node name="Resume" type="TextureRect" parent="Control/PausePanel" unique_id=2079473307]
+layout_mode = 0
+offset_left = 97.0
+offset_top = 136.0
+offset_right = 278.0
+offset_bottom = 178.0
+texture = ExtResource("7_k1cyo")
+expand_mode = 1
+
+[node name="Restart" type="TextureRect" parent="Control/PausePanel" unique_id=849233980]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 193.0
+offset_right = 279.0
+offset_bottom = 235.0
+texture = ExtResource("7_k1cyo")
+expand_mode = 1
+
+[node name="Main" type="TextureRect" parent="Control/PausePanel" unique_id=57404824]
+layout_mode = 0
+offset_left = 98.0
+offset_top = 248.0
+offset_right = 279.0
+offset_bottom = 290.0
+texture = ExtResource("7_k1cyo")
+expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/PausePanel" unique_id=353909821]
 layout_mode = 0
@@ -198,22 +272,29 @@ offset_left = 118.0
 offset_top = 142.0
 offset_right = 261.0
 offset_bottom = 278.0
+theme_override_constants/separation = 25
 
 [node name="ResumeButton" type="Button" parent="Control/PausePanel/VBoxContainer" unique_id=838727722]
 process_mode = 2
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Resume Game
 "
+flat = true
 
 [node name="RestartButton2" type="Button" parent="Control/PausePanel/VBoxContainer" unique_id=406916995]
 process_mode = 2
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Restart"
+flat = true
 
 [node name="MainMenuButton2" type="Button" parent="Control/PausePanel/VBoxContainer" unique_id=1837142842]
 process_mode = 2
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Main Menu"
+flat = true
 
 [node name="RecipeButton" type="Button" parent="Control" unique_id=1458892778]
 z_index = 6
@@ -297,11 +378,6 @@ one_shot = true
 autostart = true
 script = SubResource("GDScript_v3ycp")
 
-[node name="Island" type="Node2D" parent="." unique_id=344153715]
-
-[node name="Counter" parent="Island" unique_id=785632966 instance=ExtResource("5_vpxcu")]
-position = Vector2(578, 331)
-
 [node name="Interactables" type="Node2D" parent="." unique_id=1134897768]
 
 [node name="Stove" parent="Interactables" unique_id=1013248238 instance=ExtResource("6_k1jr4")]
@@ -335,7 +411,7 @@ visible = false
 position = Vector2(363, 436)
 
 [node name="BlindPlayer" parent="Players" unique_id=1426497895 instance=ExtResource("3_c621a")]
-position = Vector2(387, 215)
+position = Vector2(251, 158)
 
 [node name="Egg" parent="." unique_id=253672139 instance=ExtResource("12_k1jr4")]
 position = Vector2(661, 515)
