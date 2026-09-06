@@ -38,7 +38,7 @@ func _ready() -> void:
 	add_child(playback_player)
 
 	playback_stream.mix_rate = AudioServer.get_mix_rate()
-	playback_stream.buffer_length = 0.1
+	playback_stream.buffer_length = 0.2
 
 	playback_player.stream = playback_stream
 	playback_player.play()
