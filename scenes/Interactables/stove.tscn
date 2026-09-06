@@ -5,19 +5,22 @@
 [ext_resource type="Texture2D" uid="uid://bl1mu7frshdn5" path="res://scenes/Images/Kitchen/Stove.png" id="2_oyirk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_25ren"]
-size = Vector2(201.25, 176.5)
+size = Vector2(236.625, 296)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0wdwo"]
+radius = 12.873578
 
 [node name="Stove" type="Node2D" unique_id=1013248238]
 script = ExtResource("1_t2o1f")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1733365652]
+scale = Vector2(0.6148649, 0.65298504)
 texture = ExtResource("2_oyirk")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=292740010]
 
 [node name="StoveCollision" type="CollisionShape2D" parent="Area2D" unique_id=935495750]
+position = Vector2(17.6875, 13)
 shape = SubResource("RectangleShape2D_25ren")
 
 [node name="Interactable" parent="." unique_id=630558511 instance=ExtResource("1_eirmq")]

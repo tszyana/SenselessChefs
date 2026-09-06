@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://bn2k5w2cgyjes"]
 
 [ext_resource type="Script" uid="uid://cj52ugtxgj3r5" path="res://scripts/player_blind.gd" id="1_gsrh2"]
-[ext_resource type="Texture2D" uid="uid://cq05kg8a0kkrb" path="res://icon.svg" id="1_vcg84"]
+[ext_resource type="Texture2D" uid="uid://dgoqlueoir064" path="res://scenes/Images/Kitchen/Blind potato.png" id="2_dbby7"]
 [ext_resource type="PackedScene" uid="uid://b6wyyexfj4133" path="res://scenes/Interactables/interacting_component.tscn" id="3_sfju2"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0wdwo"]
@@ -13,7 +13,8 @@ radius = 131.03435
 script = ExtResource("1_gsrh2")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1505591876]
-texture = ExtResource("1_vcg84")
+scale = Vector2(0.5989796, 0.59067357)
+texture = ExtResource("2_dbby7")
 
 [node name="VisionArea" type="Area2D" parent="." unique_id=915287116]
 
