@@ -16,6 +16,9 @@ extends PlayerMovement
 @onready var blind_world_layer: CanvasLayer = $BlindWorldLayer
 @onready var blind_world: Sprite2D = $BlindWorldLayer/BlindWorld
 
+@onready var player_layer: CanvasLayer = $PlayerVisibleLayer
+@onready var player_proxy: Sprite2D = $PlayerVisibleLayer/PlayerProxy
+
 enum State { MOVE, HOLD, CHOP, STIR, BAKE }
 var state = State.MOVE
 var carrying_item: bool = false
@@ -30,7 +33,7 @@ func _physics_process(delta: float) -> void:
 	update_action_sprite()
 	pickup_object()
 	move_and_slide()
-	update_vision()
+	update_player_proxy()
 
 func update_action_sprite() -> void:
 	match state:
@@ -55,8 +58,11 @@ func remove_item() -> Pickable:
 	state = State.MOVE
 	return item
 
-func update_vision() -> void:
-	pass # for the blind thing
+func update_player_proxy() -> void:
+	var canvas_transform := get_viewport().get_canvas_transform()
+	player_proxy.position = canvas_transform * sprite_2d.global_position
+	player_proxy.texture = sprite_2d.texture
+	player_proxy.flip_h = sprite_2d.flip_h
 
 func pickup_object() -> void:
 	if Input.is_action_just_pressed("pickup"):
@@ -109,7 +115,8 @@ func _ready():
 		darkness.player = self
 		blindness_overlay.visible = true
 		blind_world_layer.visible = true
+		player_layer.visible = true 
 	else:
 		blindness_overlay.visible = false
 		blind_world_layer.visible = false
-	print(blind_world.is_visible_in_tree())
+		player_layer.visible = false
