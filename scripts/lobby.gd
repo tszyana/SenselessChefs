@@ -138,7 +138,6 @@ func set_ready_on_server(ready: bool) -> void:
 @rpc("any_peer", "call_local", "reliable")
 func start_game() -> void:
 	get_tree().change_scene_to_file("res://scenes/kitchen.tscn")
-	
 
 
 func _on_back_button_pressed() -> void:

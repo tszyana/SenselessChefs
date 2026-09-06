@@ -50,11 +50,11 @@ script = ExtResource("1_g3o0j")
 [node name="Players" type="Node2D" parent="." unique_id=1408460873]
 
 [node name="MutePlayer" parent="Players" unique_id=102776357 instance=ExtResource("1_01sk3")]
-visible = false
+unique_name_in_owner = true
 position = Vector2(811, 193)
 
 [node name="DeafPlayer" parent="Players" unique_id=1982512972 instance=ExtResource("2_jtesv")]
-visible = false
+unique_name_in_owner = true
 position = Vector2(363, 436)
 
 [node name="BlindPlayer" parent="Players" unique_id=1426497895 instance=ExtResource("3_c621a")]
