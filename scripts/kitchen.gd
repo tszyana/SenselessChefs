@@ -30,8 +30,6 @@ func _ready() -> void:
 			GameState.Role.MUTE:
 				mute.set_multiplayer_authority(player_id)
 				
-	deaf.set_multiplayer_authority(2)
-	mute.set_multiplayer_authority(3)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta) -> void:
