@@ -60,7 +60,7 @@ func add_player_to_list(id: int) -> void:
 	elif GameState.player_states[id]["role"] == GameState.Role.MUTE:
 		label = $MuteLabel
 		
-	label.text = "Player " + str(id)
+	label.text = "Player " + str(GameState.player_order.find(id) + 1)
 
 	if id == multiplayer.get_unique_id():
 		label.text += " (You)"

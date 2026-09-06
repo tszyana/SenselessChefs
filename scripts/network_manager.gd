@@ -2,7 +2,7 @@ extends Node
 
 const PORT := 9999
 const MAX_PLAYERS := 3
-const DEFAULT_SERVER_IP := "172.16.137.228"
+const DEFAULT_SERVER_IP := "172.16.163.42"
 
 var peer := ENetMultiplayerPeer.new()
 
