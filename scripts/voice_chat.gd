@@ -35,6 +35,7 @@ func setup(microphone_player: AudioStreamPlayer) -> void:
 	print("Mic bus: ", mic.bus)
 
 func _ready() -> void:
+	
 	add_child(playback_player)
 
 	playback_stream.mix_rate = AudioServer.get_mix_rate()
@@ -60,17 +61,17 @@ func _process(_delta: float) -> void:
 		
 	var available := playback_playback.get_frames_available()
 	
-	#if Engine.get_process_frames() % 60 == 0:
-		#print("Voice buffer: ", voice_buffer.size(), " samples")
+	if Engine.get_process_frames() % 60 == 0:
+		print("Voice buffer: ", voice_buffer.size(), " samples")
 
-	while available > 0 and voice_buffer.size() > 0:
-		var sample: float = voice_buffer.pop_front()
-
-		playback_playback.push_frame(
-			Vector2(sample, sample)
-		)
-
-		available -= 1
+	#while available > 0 and voice_buffer.size() > 0:
+		#var sample: float = voice_buffer.pop_front()
+#
+		#playback_playback.push_frame(
+			#Vector2(sample, sample)
+		#)
+#
+		#available -= 1
 	
 func process_microphone() -> void:
 	if not mic_enabled:

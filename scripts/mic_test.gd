@@ -11,4 +11,5 @@ func _ready() -> void:
 
 
 func _process(_delta: float) -> void:
-	VoiceChat.process_microphone()
+	#VoiceChat.process_microphone()
+	pass
