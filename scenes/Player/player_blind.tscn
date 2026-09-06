@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cqnkam8x6jtyf" path="res://scenes/Images/Gestures/Blind potato oven.png" id="5_evyjb"]
 [ext_resource type="PackedScene" uid="uid://d4ndqv2dxs67x" path="res://scenes/message_bubble.tscn" id="8_evyjb"]
 [ext_resource type="Texture2D" uid="uid://b6t0b7ytgjnx6" path="res://scenes/Images/Kitchen/blind kitchen.png" id="9_1hl5r"]
+[ext_resource type="Script" uid="uid://d1taujg0gdgu1" path="res://scripts/darkness.gd" id="9_iulmd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hl5r"]
 size = Vector2(155.43445, 29.383886)
@@ -71,6 +72,7 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0, 0, 0, 1)
+script = ExtResource("9_iulmd")
 
 [node name="BlindWorld" type="Sprite2D" parent="." unique_id=77734226]
 visible = false
