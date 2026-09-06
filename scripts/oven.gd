@@ -112,4 +112,5 @@ func end_game() -> void:
 	print("GAME COMPLETE")
 	# show end screen... end_screen.show() or smth
 	completion_screen_.instantiate();
-	completion_screen_.show()
+	add_child(completion_screen_)
+	get_tree().change_scene_to_file("res://scenes/completion_screen.tscn")
