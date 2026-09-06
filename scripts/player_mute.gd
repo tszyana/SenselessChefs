@@ -1,18 +1,17 @@
 # mute player
 extends PlayerMovement
 
-enum State { POINT, HAPPY, MAD, ONE, TWO, THREE, FOUR }
-var state = null
+enum State { POINT, HAPPY, MAD, ONE, TWO, THREE, FOUR, MOVE }
+@export var state: State = State.MOVE
 
 func _ready():
 	# $RecipeButton.show()
 	print("auth user id: ", get_multiplayer_authority())
 
 func _physics_process(delta: float) -> void:
-	if not is_multiplayer_authority():
-		return
-	process_movement()
-	move_and_slide()
+	if is_multiplayer_authority():
+		process_movement()
+		move_and_slide()
 	update_gesture_sprite()
 	
 func _process(delta):
@@ -32,7 +31,7 @@ func _process(delta):
 		state = State.MAD
 	if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down") or Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right"):
 		$Sprite2D.texture = preload("res://scenes/Images/Kitchen/Mute potato.png")
-		state = null
+		state = State.MOVE
 
 func update_gesture_sprite() -> void:
 	match state:
@@ -57,3 +56,5 @@ func update_gesture_sprite() -> void:
 		State.FOUR:
 			#$Sprite2D.texture = preload("res://scenes/Images/four.png")
 			pass
+		State.MOVE:
+			$Sprite2D.texture = preload("res://scenes/Images/Kitchen/Mute potato.png")
