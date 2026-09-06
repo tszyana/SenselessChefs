@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://wy3fap6moagq" path="res://scripts/oven.gd" id="1_mlgeb"]
 [ext_resource type="PackedScene" uid="uid://cd3cbra8hqnsd" path="res://scenes/Interactables/interactable.tscn" id="1_mpe5x"]
 [ext_resource type="Texture2D" uid="uid://cohnf42jrbwy0" path="res://scenes/Images/Kitchen/Mini oven.png" id="2_mlgeb"]
+[ext_resource type="AudioStream" uid="uid://cjkia8t81otc" path="res://Sounds/Oven sound.mp3" id="4_lplek"]
+[ext_resource type="AudioStream" uid="uid://6a60k16tjeuc" path="res://Sounds/Fun trash sound.mp3" id="5_thfxn"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twnsb"]
 size = Vector2(96.5, 172.75)
@@ -37,3 +39,9 @@ position = Vector2(116, 31)
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=284775931]
 offset_right = 4.0
 offset_bottom = 27.0
+
+[node name="OvenAudio" type="AudioStreamPlayer" parent="." unique_id=996178405]
+stream = ExtResource("4_lplek")
+
+[node name="TrashAudio" type="AudioStreamPlayer" parent="." unique_id=912104156]
+stream = ExtResource("5_thfxn")

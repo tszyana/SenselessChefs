@@ -65,6 +65,7 @@ func _on_interact():
 		
 		#print("Stirring", item.item_name) # placeholder for sprite change??
 		player.state = player.State.STIR
+		$StoveAudio.play()
 		await get_tree().create_timer(stir_time).timeout
 		
 		var result_name = COMBOS.keys()[current_combo_index]
@@ -86,6 +87,7 @@ func _on_interact():
 func make_trash(item: Pickable) -> void:
 	item.item_name = "trash"
 	item.update_sprite()
+	$TrashAudio.play()
 	
 	item.reparent(get_parent())
 	item.position = drop_point.global_position

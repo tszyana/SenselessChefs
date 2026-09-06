@@ -60,6 +60,7 @@ func update_vision() -> void:
 
 func pickup_object() -> void:
 	if Input.is_action_just_pressed("pickup"):
+		$PickupSound.play()
 		print(
 			"Pickup pressed | carrying = ",
 			carrying_item,
