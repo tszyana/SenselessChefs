@@ -44,7 +44,7 @@ func update_player_list() -> void:
 	add_player_to_list(multiplayer.get_unique_id(), GameState.get_nickname())
 
 	# Add everyone else
-	for id in GameState.player_order:
+	for id in players:
 		add_player_to_list(id, GameState.player_states[id]["nickname"])
 
 func add_player_to_list(id: int, name: String) -> void:
