@@ -26,6 +26,7 @@ driver/enable_input=true
 NetworkManager="*uid://bk1qt337yias5"
 VoiceChat="*uid://d1gluackmwoqq"
 GameState="*uid://b10dk4888q5tg"
+Lobby2="uid://qaui0bdmto28"
 
 [display]
 
