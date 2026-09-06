@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cqnkam8x6jtyf" path="res://scenes/Images/Gestures/Blind potato oven.png" id="5_evyjb"]
 [ext_resource type="PackedScene" uid="uid://d4ndqv2dxs67x" path="res://scenes/message_bubble.tscn" id="8_evyjb"]
 [ext_resource type="Texture2D" uid="uid://b6t0b7ytgjnx6" path="res://scenes/Images/Kitchen/blind kitchen.png" id="9_1hl5r"]
+[ext_resource type="Shader" uid="uid://1d8kl54gcxyh" path="res://scripts/player_blind.gdshader" id="9_6dmtg"]
 [ext_resource type="Script" uid="uid://d1taujg0gdgu1" path="res://scripts/darkness.gd" id="9_iulmd"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hl5r"]
@@ -16,6 +17,15 @@ size = Vector2(155.43445, 29.383886)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d5da6"]
 radius = 36.0
+
+[sub_resource type="GDScript" id="GDScript_k0mf2"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_fr5pv"]
+shader = ExtResource("9_6dmtg")
+shader_parameter/light_pos_px = Vector2(400, 300)
+shader_parameter/radius_px = 120.0
+shader_parameter/feather_px = 60.0
+script = SubResource("GDScript_k0mf2")
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_evyjb"]
 properties/0/path = NodePath(".:position")
@@ -63,9 +73,9 @@ position = Vector2(57, -191)
 
 [node name="BlindnessOverlay" type="CanvasLayer" parent="." unique_id=153963704]
 layer = 100
-visible = false
 
 [node name="Darkness" type="ColorRect" parent="BlindnessOverlay" unique_id=1556433882]
+material = SubResource("ShaderMaterial_fr5pv")
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -75,7 +85,6 @@ color = Color(0, 0, 0, 1)
 script = ExtResource("9_iulmd")
 
 [node name="BlindWorld" type="Sprite2D" parent="." unique_id=77734226]
-visible = false
 top_level = true
 z_index = 10
 texture = ExtResource("9_1hl5r")
