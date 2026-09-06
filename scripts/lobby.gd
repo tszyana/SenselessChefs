@@ -112,7 +112,7 @@ func sync_ready_states(states: Dictionary) -> void:
 	GameState.player_states = states
 	update_player_list()
 	
-@rpc("authority", "reliable")
+@rpc("authority", "reliable", "call_local")
 func sync_player_states(states: Dictionary) -> void:
 	GameState.player_states = states
 	update_player_list()
