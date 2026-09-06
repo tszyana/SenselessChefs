@@ -26,8 +26,8 @@ shape = SubResource("RectangleShape2D_twnsb")
 interact_name = "Oven"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=233335410]
-position = Vector2(56, 25)
-scale = Vector2(6.560094, 5.747325)
+position = Vector2(52, 10)
+scale = Vector2(-2.760215, 3.8240495)
 shape = SubResource("CapsuleShape2D_0wdwo")
 
 [node name="DropPoint" type="Marker2D" parent="." unique_id=1264392771]
