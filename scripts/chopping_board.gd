@@ -2,15 +2,15 @@ extends Node2D
 
 @onready var interactable: Area2D = $Interactable
 @onready var progress_bar: ProgressBar = $ProgressBar
-@onready var trash_drop_point: Marker2D = $TrashDropPoint
+@onready var drop_point: Marker2D = $DropPoint
 
 
 @export var chop_time := 1.5
 
 var ingredients = []
 const COMBOS = {
-	"chopped_apple": ["apple"],
-	"dough": ["flour", "egg", "salt"]
+	"cut_apples": ["apple"],
+	"pastry": ["flour", "egg", "salt"]
 }
 
 var current_combo_index := 0
@@ -81,7 +81,7 @@ func make_trash(item: Pickable) -> void:
 	item.update_sprite()
 	
 	item.reparent(get_parent())
-	item.position = trash_drop_point.global_position
+	item.position = drop_point.global_position
 	
 func make_result(result_name: String):
 	var result_item: Pickable = ingredients[0]	
@@ -91,6 +91,9 @@ func make_result(result_name: String):
 	
 	result_item.item_name = result_name
 	result_item.update_sprite()
+	
+	result_item.reparent(get_parent())
+	result_item.global_position = drop_point.global_position
 	
 	ingredients.clear()
 	ingredients.append(result_item)
