@@ -104,4 +104,3 @@ func make_result(result_name: String):
 	result_item.global_position = drop_point.global_position
 	
 	ingredients.clear()
-	ingredients.append(result_item)

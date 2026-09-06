@@ -107,7 +107,6 @@ func make_result(result_name: String):
 	
 	
 	ingredients.clear()
-	ingredients.append(result_item)
 
 func end_game() -> void:
 	print("GAME COMPLETE")

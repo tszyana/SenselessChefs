@@ -32,6 +32,7 @@ holding_sprite = ExtResource("2_evyjb")
 chopping_sprite = ExtResource("3_nqqjh")
 stirring_sprite = ExtResource("4_xxg4r")
 oven_sprite = ExtResource("5_evyjb")
+movement_sprite = ExtResource("2_dbby7")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1505591876]
 scale = Vector2(0.6, 0.6)

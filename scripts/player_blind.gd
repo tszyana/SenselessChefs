@@ -30,7 +30,7 @@ func _physics_process(delta: float) -> void:
 func update_action_sprite() -> void:
 	match state:
 		State.MOVE:
-			return
+			sprite.texture = movement_sprite
 		State.HOLD:
 			sprite.texture = holding_sprite
 		State.CHOP:
@@ -47,6 +47,7 @@ func remove_item() -> Pickable:
 	var item = held_item
 	held_item = null
 	carrying_item = false
+	state = State.MOVE
 	return item
 
 func update_vision() -> void:
@@ -76,9 +77,9 @@ func pickup_object() -> void:
 func drop_item() -> void:
 	held_item.reparent(kitchen)
 	held_item.global_position = global_position
+	state = State.MOVE
 	carrying_item = false
 	held_item = null
-	state = State.MOVE
 
 func _on_vision_area_area_entered(area: Area2D) -> void:
 	if area is Pickable:

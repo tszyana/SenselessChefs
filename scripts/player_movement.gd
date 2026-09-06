@@ -2,6 +2,7 @@ class_name PlayerMovement
 extends CharacterBody2D
 
 @onready var sprite: Sprite2D = $Sprite2D
+@export var movement_sprite: Texture2D
 
 const SPEED = 500.0
 var can_move := true
