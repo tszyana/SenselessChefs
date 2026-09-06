@@ -40,7 +40,7 @@ func _ready() -> void:
 	add_child(playback_player)
 
 	playback_stream.mix_rate = AudioServer.get_mix_rate()
-	playback_stream.buffer_length = 0.2
+	playback_stream.buffer_length = 0.3
 
 	playback_player.stream = playback_stream
 	playback_player.play()
@@ -108,6 +108,10 @@ func _process(_delta: float) -> void:
 func process_microphone() -> void:
 	if not mic_enabled:
 		mic.stop()
+		return
+	
+	if not Input.is_action_pressed("push_to_talk"):
+		audio_buffer.clear()
 		return
 		
 	if capture == null:
