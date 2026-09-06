@@ -221,7 +221,7 @@ Pour butter
 Bake"
 
 [node name="Timer" type="Timer" parent="." unique_id=1406045070]
-wait_time = 11.0
+wait_time = 100.0
 one_shot = true
 autostart = true
 script = SubResource("GDScript_v3ycp")
@@ -250,6 +250,14 @@ position = Vector2(1076, 75)
 
 [node name="Pickable" parent="." unique_id=1020376432 instance=ExtResource("12_k1jr4")]
 position = Vector2(860, 370)
+item_name = "apple"
+
+[node name="Pickable2" parent="." unique_id=253672139 instance=ExtResource("12_k1jr4")]
+position = Vector2(333, 467)
+item_name = "flour"
+
+[node name="Pickable3" parent="." unique_id=545221216 instance=ExtResource("12_k1jr4")]
+item_name = "trash"
 
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
