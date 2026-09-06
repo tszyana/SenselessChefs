@@ -121,6 +121,7 @@ func sync_ready_states(states: Dictionary) -> void:
 @rpc("authority", "reliable", "call_local")
 func sync_player_states(states: Dictionary, order: Array) -> void:
 	GameState.player_states = states
+	GameState.player_order = order
 	update_player_list()
 	
 @rpc("any_peer", "reliable")
