@@ -103,6 +103,10 @@ func _on_start_button_pressed() -> void:
 		print("Waiting for everyone to ready...")
 		return
 		
+	if GameState.player_order.size() != 3:
+		print("3 Players needed")
+		return
+		
 	start_game.rpc()
 	
 
@@ -112,7 +116,7 @@ func sync_ready_states(states: Dictionary) -> void:
 	GameState.player_states = states
 	update_player_list()
 	
-@rpc("authority", "reliable")
+@rpc("authority", "reliable", "call_local")
 func sync_player_states(states: Dictionary) -> void:
 	GameState.player_states = states
 	update_player_list()
@@ -133,7 +137,7 @@ func set_ready_on_server(ready: bool) -> void:
 	
 @rpc("any_peer", "call_local", "reliable")
 func start_game() -> void:
-	get_tree().change_scene_to_file("res://scenes/mic_test.tscn")
+	get_tree().change_scene_to_file("res://scenes/kitchen.tscn")
 	
 
 
