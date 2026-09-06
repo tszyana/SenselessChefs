@@ -9,6 +9,7 @@
 [ext_resource type="PackedScene" uid="uid://c4ttutrhtahdw" path="res://scenes/Interactables/stove.tscn" id="6_k1jr4"]
 [ext_resource type="PackedScene" uid="uid://bjaxlx2vuqd5t" path="res://scenes/Interactables/chopping_board.tscn" id="7_umms5"]
 [ext_resource type="PackedScene" uid="uid://c3e32iwluow42" path="res://scenes/Interactables/oven.tscn" id="8_ktc20"]
+[ext_resource type="PackedScene" uid="uid://blcvw5ymv0roj" path="res://scenes/mic_test.tscn" id="11_vpxcu"]
 [ext_resource type="PackedScene" uid="uid://eeslpywkmiwd" path="res://scenes/pickable.tscn" id="12_k1jr4"]
 
 [sub_resource type="GDScript" id="GDScript_bems3"]
@@ -257,6 +258,8 @@ item_name = "flour"
 [node name="Salt" parent="." unique_id=545221216 instance=ExtResource("12_k1jr4")]
 position = Vector2(863, 553)
 item_name = "salt"
+
+[node name="MicTest" parent="." unique_id=393791460 instance=ExtResource("11_vpxcu")]
 
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
