@@ -52,6 +52,7 @@ func _ready() -> void:
 	print("Playback mix rate: ", playback_stream.mix_rate)
 	
 func _process(_delta: float) -> void:
+	return
 	if playback_playback == null:
 		return
 
