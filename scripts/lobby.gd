@@ -1,6 +1,5 @@
 extends Control
 
-
 @onready var player_list: VBoxContainer = $VBoxContainer/PlayerList
 @onready var start_button: Button = $StartButton
 
@@ -11,7 +10,7 @@ func _ready() -> void:
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
 	
 	if multiplayer.is_server():
-		GameState.add_player(multiplayer.get_unique_id(), GameState.player_info)
+		GameState.add_player(multiplayer.get_unique_id())
 		GameState.set_player_role(multiplayer.get_unique_id())
 
 		update_player_list()
@@ -22,30 +21,32 @@ func _ready() -> void:
 func _on_peer_connected(id: int) -> void:
 	print("Player connected: ", id)
 	if multiplayer.is_server():
-		GameState.add_player(id, GameState.player_info)
+		GameState.add_player(id)
 		GameState.set_player_role(id)
-		sync_player_states.rpc(GameState.player_states, GameState.player_order)
+		sync_player_states.rpc(GameState.player_states)
 
 
 func _on_peer_disconnected(id: int) -> void:
 	print("Player disconnected: ", id)
 	if multiplayer.is_server():
 		GameState.remove_player(id)
-		sync_player_states.rpc(GameState.player_states, GameState.player_order)
+		sync_player_states.rpc(GameState.player_states)
 
 
 func update_player_list() -> void:
+	for child in player_list.get_children():
+		child.queue_free()
 
 	var players := multiplayer.get_peers()
 
 	# Add ourselves
-	add_player_to_list(multiplayer.get_unique_id(), GameState.get_nickname())
+	add_player_to_list(multiplayer.get_unique_id())
 
 	# Add everyone else
 	for id in players:
-		add_player_to_list(id, GameState.player_states[id]["nickname"])
+		add_player_to_list(id)
 
-func add_player_to_list(id: int, name: String) -> void:
+func add_player_to_list(id: int) -> void:
 	var label : Label
 	
 	print("Player states: ", GameState.player_states)
@@ -59,7 +60,7 @@ func add_player_to_list(id: int, name: String) -> void:
 	elif GameState.player_states[id]["role"] == GameState.Role.MUTE:
 		label = $MuteLabel
 		
-	label.text = name
+	label.text = "Player " + str(id)
 
 	if id == multiplayer.get_unique_id():
 		label.text += " (You)"
@@ -106,7 +107,7 @@ func _on_start_button_pressed() -> void:
 		#print("3 Players needed")
 		#return
 		
-	NetworkManager.start_game.rpc()
+	start_game.rpc()
 	
 
 
@@ -116,9 +117,8 @@ func sync_ready_states(states: Dictionary) -> void:
 	update_player_list()
 	
 @rpc("authority", "reliable", "call_local")
-func sync_player_states(states: Dictionary, order: Array) -> void:
+func sync_player_states(states: Dictionary) -> void:
 	GameState.player_states = states
-	GameState.player_order = order
 	update_player_list()
 	
 @rpc("any_peer", "reliable")
@@ -133,6 +133,11 @@ func set_ready_on_server(ready: bool) -> void:
 	update_player_list()
 	sync_ready_states.rpc(GameState.player_states)
 	
+
+	
+@rpc("any_peer", "call_local", "reliable")
+func start_game() -> void:
+	get_tree().change_scene_to_file("res://scenes/kitchen.tscn")
 
 
 func _on_back_button_pressed() -> void:
