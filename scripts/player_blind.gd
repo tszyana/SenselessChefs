@@ -64,7 +64,6 @@ func pickup_object() -> void:
 		)
 		if carrying_item:
 			drop_item()
-			state = State.MOVE
 		elif is_in_range and target_object:
 			state = State.HOLD
 			held_item = target_object
@@ -79,6 +78,7 @@ func drop_item() -> void:
 	held_item.global_position = global_position
 	carrying_item = false
 	held_item = null
+	state = State.MOVE
 
 func _on_vision_area_area_entered(area: Area2D) -> void:
 	if area is Pickable:
