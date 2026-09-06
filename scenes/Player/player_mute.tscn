@@ -39,20 +39,20 @@ shape = SubResource("CircleShape2D_vqp8a")
 replication_config = SubResource("SceneReplicationConfig_2xtqj")
 
 [node name="RecipeButtonAsset" type="TextureRect" parent="." unique_id=766482611]
-offset_left = 0.99999976
-offset_top = 601.0
-offset_right = 273.49997
-offset_bottom = 716.0
+offset_left = -34.000015
+offset_top = -166.99997
+offset_right = 238.49995
+offset_bottom = -51.99997
 scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_phf7w")
 expand_mode = 1
 
 [node name="RecipeButton" type="Button" parent="." unique_id=1931373018]
 z_index = 6
-offset_left = 6.0
-offset_top = 607.0
-offset_right = 102.0
-offset_bottom = 642.0
+offset_left = -26.000015
+offset_top = -162.00003
+offset_right = 69.999985
+offset_bottom = -127.00003
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("4_nftcr")
 text = "RECIPE"
@@ -61,9 +61,10 @@ flat = true
 [node name="RecipePanel" type="Panel" parent="." unique_id=320356980]
 visible = false
 z_index = 6
-offset_top = 370.0
-offset_right = 343.0
-offset_bottom = 650.0
+offset_left = -132.0
+offset_top = -402.0
+offset_right = 211.0
+offset_bottom = -122.0
 
 [node name="RecipeBox" type="TextureRect" parent="RecipePanel" unique_id=1771519486]
 layout_mode = 0
