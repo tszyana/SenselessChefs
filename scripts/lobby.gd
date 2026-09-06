@@ -10,6 +10,7 @@ func _ready() -> void:
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
 	
 	GameState.add_player(multiplayer.get_unique_id())
+	GameState.set_player_role(multiplayer.get_unique_id())
 
 	update_player_list()
 	
@@ -20,6 +21,7 @@ func _on_peer_connected(id: int) -> void:
 	print("Player connected: ", id)
 	if multiplayer.is_server():
 		GameState.add_player(id)
+		GameState.set_player_role(id)
 	update_player_list()
 
 func _on_peer_disconnected(id: int) -> void:
@@ -72,7 +74,7 @@ func _on_ready_button_pressed() -> void:
 	#GameState.player_states[multiplayer.get_unique_id()] = is_ready
 
 	if multiplayer.is_server():
-		GameState.player_states[multiplayer.get_unique_id()] = is_ready
+		GameState.player_states[multiplayer.get_unique_id()]["ready"] = is_ready
 		update_player_list()
 		sync_ready_states.rpc(GameState.player_states)
 	else:
