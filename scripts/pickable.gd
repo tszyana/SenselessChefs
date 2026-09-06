@@ -1,12 +1,13 @@
 extends Area2D
 class_name Pickable
 
-@export var item_name: String = ""
+@export var item_name: String = "":
+	set(value):
+		item_name = value
+		if is_inside_tree():
+			update_sprite()
 
 @onready var sprite_2d: Sprite2D = $Sprite2D
-
-func _ready():
-	update_sprite()
 
 func update_sprite():
 	match item_name:

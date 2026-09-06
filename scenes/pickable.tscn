@@ -6,6 +6,8 @@
 [sub_resource type="CircleShape2D" id="CircleShape2D_sqblf"]
 radius = 7.515612
 
+[sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_tr2q0"]
+
 [node name="Pickable" type="Area2D" unique_id=253672139]
 script = ExtResource("1_tr2q0")
 item_name = "pickable"
@@ -17,3 +19,6 @@ texture = ExtResource("2_tr2q0")
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1044167228]
 scale = Vector2(5.698154, 4.667206)
 shape = SubResource("CircleShape2D_sqblf")
+
+[node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=1739494175]
+replication_config = SubResource("SceneReplicationConfig_tr2q0")
