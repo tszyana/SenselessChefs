@@ -40,13 +40,13 @@ func update_player_list() -> void:
 	var players := multiplayer.get_peers()
 
 	# Add ourselves
-	add_player_to_list(multiplayer.get_unique_id())
+	add_player_to_list(multiplayer.get_unique_id(), GameState.get_nickname())
 
 	# Add everyone else
-	for id in players:
-		add_player_to_list(id)
+	for id in GameState.player_states.keys():
+		add_player_to_list(id, GameState.player_states[id]["nickname"])
 
-func add_player_to_list(id: int) -> void:
+func add_player_to_list(id: int, name: String) -> void:
 	var label : Label
 	
 	print("Player states: ", GameState.player_states)
@@ -60,7 +60,7 @@ func add_player_to_list(id: int) -> void:
 	elif GameState.player_states[id]["role"] == GameState.Role.MUTE:
 		label = $VBoxContainer2/HBoxContainer2/MuteLabel
 		
-	label.text = "Player " + str(id)
+	label.text = name
 
 	if id == multiplayer.get_unique_id():
 		label.text += " (You)"
@@ -107,7 +107,7 @@ func _on_start_button_pressed() -> void:
 		#print("3 Players needed")
 		#return
 		
-	start_game.rpc()
+	NetworkManager.start_game.rpc()
 	
 
 
@@ -133,11 +133,6 @@ func set_ready_on_server(ready: bool) -> void:
 	update_player_list()
 	sync_ready_states.rpc(GameState.player_states)
 	
-
-	
-@rpc("any_peer", "call_local", "reliable")
-func start_game() -> void:
-	get_tree().change_scene_to_file("res://scenes/kitchen.tscn")
 
 
 func _on_back_button_pressed() -> void:
