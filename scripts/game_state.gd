@@ -22,7 +22,7 @@ func _ready() -> void:
 	nickname_changed.connect(_on_nickname_changed)
 	
 
-func add_player(player_id: int) -> void:
+func add_player(player_id: int, player_info: Dictionary) -> void:
 	player_states[player_id] = player_info
 	
 	player_order.append(player_id)

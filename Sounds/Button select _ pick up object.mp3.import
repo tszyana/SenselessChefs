@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://mbu31f4s7dfd"
+path="res://.godot/imported/Button select _ pick up object.mp3-82f3766080e56b23689cbca5c0b2fa3a.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Button select _ pick up object.mp3"
+dest_files=["res://.godot/imported/Button select _ pick up object.mp3-82f3766080e56b23689cbca5c0b2fa3a.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
