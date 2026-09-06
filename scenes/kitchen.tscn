@@ -9,8 +9,6 @@
 [ext_resource type="PackedScene" uid="uid://c4ttutrhtahdw" path="res://scenes/Interactables/stove.tscn" id="6_k1jr4"]
 [ext_resource type="PackedScene" uid="uid://bjaxlx2vuqd5t" path="res://scenes/Interactables/chopping_board.tscn" id="7_umms5"]
 [ext_resource type="PackedScene" uid="uid://c3e32iwluow42" path="res://scenes/Interactables/oven.tscn" id="8_ktc20"]
-[ext_resource type="PackedScene" uid="uid://bpsuiablx8xpi" path="res://scenes/sink.tscn" id="9_bs8bs"]
-[ext_resource type="PackedScene" uid="uid://grn3wb4xmjdy" path="res://scenes/fridge.tscn" id="10_88wuv"]
 [ext_resource type="PackedScene" uid="uid://eeslpywkmiwd" path="res://scenes/pickable.tscn" id="12_k1jr4"]
 
 [sub_resource type="GDScript" id="GDScript_bems3"]
@@ -229,10 +227,6 @@ script = SubResource("GDScript_v3ycp")
 [node name="Island" type="Node2D" parent="." unique_id=344153715]
 
 [node name="Counter" parent="Island" unique_id=785632966 instance=ExtResource("5_vpxcu")]
-
-[node name="Sink" parent="." unique_id=828168198 instance=ExtResource("9_bs8bs")]
-
-[node name="Fridge" parent="." unique_id=54958283 instance=ExtResource("10_88wuv")]
 
 [node name="Interactables" type="Node2D" parent="." unique_id=1134897768]
 
