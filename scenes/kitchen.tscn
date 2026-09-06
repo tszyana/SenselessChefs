@@ -67,7 +67,7 @@ size = Vector2(145, 1043.5)
 size = Vector2(212, 442)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twnsb"]
-size = Vector2(61.984833, 526.38873)
+size = Vector2(61.984833, 545.5303)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_25ren"]
 size = Vector2(44.89647, 353)
@@ -76,7 +76,10 @@ size = Vector2(44.89647, 353)
 size = Vector2(40.298584, 298.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8ixu5"]
-size = Vector2(96.09607, 394)
+size = Vector2(96.09607, 567.21844)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bh1ot"]
+size = Vector2(18, 1169)
 
 [node name="Kitchen" type="Node2D" unique_id=1947100178]
 script = ExtResource("1_g3o0j")
@@ -495,7 +498,7 @@ position = Vector2(720, 346)
 
 [node name="Ingredients" type="Node2D" parent="." unique_id=843869042]
 
-[node name="Egg" parent="Ingredients" unique_id=1710925994 instance=ExtResource("12_k1jr4")]
+[node name="Egg" parent="Ingredients" unique_id=1470648083 instance=ExtResource("12_k1jr4")]
 position = Vector2(482, 318)
 item_name = "egg"
 
@@ -503,7 +506,7 @@ item_name = "egg"
 position = Vector2(486, 293)
 item_name = "egg"
 
-[node name="Apple" parent="Ingredients" unique_id=1277508334 instance=ExtResource("12_k1jr4")]
+[node name="Apple" parent="Ingredients" unique_id=853992707 instance=ExtResource("12_k1jr4")]
 position = Vector2(672, 245)
 item_name = "apple"
 
@@ -511,7 +514,7 @@ item_name = "apple"
 position = Vector2(661, 217)
 item_name = "apple"
 
-[node name="Flour" parent="Ingredients" unique_id=431568665 instance=ExtResource("12_k1jr4")]
+[node name="Flour" parent="Ingredients" unique_id=738480724 instance=ExtResource("12_k1jr4")]
 position = Vector2(672, 291)
 item_name = "flour"
 
@@ -523,7 +526,7 @@ item_name = "flour"
 position = Vector2(637, 306)
 item_name = "flour"
 
-[node name="Salt" parent="Ingredients" unique_id=664756529 instance=ExtResource("12_k1jr4")]
+[node name="Salt" parent="Ingredients" unique_id=457091022 instance=ExtResource("12_k1jr4")]
 position = Vector2(654, 358)
 item_name = "salt"
 
@@ -574,7 +577,7 @@ position = Vector2(580, 280)
 shape = SubResource("RectangleShape2D_d6t4w")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="InvisBoundary/StaticBody2D" unique_id=1440864390]
-position = Vector2(200.09637, 389.7594)
+position = Vector2(197.05952, 398.8356)
 rotation = 0.3228859
 shape = SubResource("RectangleShape2D_twnsb")
 
@@ -589,10 +592,15 @@ rotation = -0.17627823
 shape = SubResource("RectangleShape2D_r3xp1")
 
 [node name="CollisionShape2D6" type="CollisionShape2D" parent="InvisBoundary/StaticBody2D" unique_id=2076426682]
-position = Vector2(1060.4167, 448.749)
-rotation = -0.34906584
+position = Vector2(1035.0107, 378.9465)
+rotation = -0.34906578
 scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_8ixu5")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="InvisBoundary/StaticBody2D" unique_id=197993538]
+position = Vector2(586, 655)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_bh1ot")
 
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

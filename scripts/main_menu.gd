@@ -10,5 +10,6 @@ func _on_host_button_pressed() -> void:
 	
 func _on_join_button_pressed() -> void:
 	print("JOIN GAME BUTTON PRESSED")
-	NetworkManager.join_game("172.16.137.228")
+	GameState.set_nickname(nicknameEdit.text)
+	NetworkManager.join_game(NetworkManager.DEFAULT_SERVER_IP)
 	get_tree().change_scene_to_file("res://scenes/lobby.tscn")
