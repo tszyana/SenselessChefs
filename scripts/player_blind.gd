@@ -28,7 +28,7 @@ var user_id : int
 func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
 		process_movement()
-		pickup_object()
+		pickup_object.rpc()
 		move_and_slide()
 		update_player_proxy()
 	
@@ -63,6 +63,7 @@ func update_player_proxy() -> void:
 	player_proxy.texture = sprite_2d.texture
 	player_proxy.flip_h = sprite_2d.flip_h
 
+@rpc("any_peer", "call_local", "reliable")
 func pickup_object() -> void:
 	if Input.is_action_just_pressed("pickup"):
 		$PickupSound.play()
