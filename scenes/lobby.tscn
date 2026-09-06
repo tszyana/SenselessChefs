@@ -64,45 +64,45 @@ texture = ExtResource("5_yad6j")
 
 [node name="DeafBean" type="TextureRect" parent="." unique_id=717894586]
 layout_mode = 0
-offset_left = 488.0
+offset_left = 480.0
 offset_top = 275.0
-offset_right = 646.0
+offset_right = 638.0
 offset_bottom = 562.0
 texture = ExtResource("3_omrgh")
 expand_mode = 1
 
 [node name="MuteBean" type="TextureRect" parent="." unique_id=433465115]
 layout_mode = 0
-offset_left = 722.0
+offset_left = 747.0
 offset_top = 275.0
-offset_right = 880.0
+offset_right = 905.0
 offset_bottom = 562.0
 texture = ExtResource("4_ncsg4")
 expand_mode = 1
 
 [node name="BlindBean" type="TextureRect" parent="." unique_id=323936537]
 layout_mode = 0
-offset_left = 255.0
+offset_left = 200.0
 offset_top = 275.0
-offset_right = 413.0
+offset_right = 358.0
 offset_bottom = 562.0
 texture = ExtResource("5_07nfq")
 expand_mode = 1
 
 [node name="BlindNickname" type="TextureRect" parent="." unique_id=2123565012]
 layout_mode = 0
-offset_left = 463.0
+offset_left = 437.0
 offset_top = 521.0
-offset_right = 670.0
+offset_right = 687.0
 offset_bottom = 572.0
 texture = ExtResource("6_oipnb")
 expand_mode = 1
 
 [node name="DeafNickname" type="TextureRect" parent="." unique_id=1349235630]
 layout_mode = 0
-offset_left = 236.0
+offset_left = 160.0
 offset_top = 521.0
-offset_right = 443.0
+offset_right = 410.0
 offset_bottom = 572.0
 texture = ExtResource("6_oipnb")
 expand_mode = 1
@@ -111,7 +111,7 @@ expand_mode = 1
 layout_mode = 0
 offset_left = 701.0
 offset_top = 521.0
-offset_right = 908.0
+offset_right = 951.0
 offset_bottom = 572.0
 texture = ExtResource("6_oipnb")
 expand_mode = 1
@@ -171,34 +171,35 @@ offset_right = 92.0
 offset_bottom = 61.0
 flat = true
 
-[node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1663495985]
+[node name="BlindLabel" type="Label" parent="." unique_id=410737504]
 layout_mode = 0
-offset_left = 245.0
-offset_top = 494.0
-offset_right = 892.0
-offset_bottom = 559.0
-theme_override_constants/separation = 29
-alignment = 2
-
-[node name="HBoxContainer2" type="HBoxContainer" parent="VBoxContainer2" unique_id=765452672]
-layout_mode = 2
-theme_override_constants/separation = 138
-alignment = 1
-
-[node name="BlindLabel" type="Label" parent="VBoxContainer2/HBoxContainer2" unique_id=410737504]
-layout_mode = 2
+offset_left = 176.0
+offset_top = 531.0
+offset_right = 397.0
+offset_bottom = 564.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Blind holder"
+horizontal_alignment = 1
 
-[node name="DeafLabel" type="Label" parent="VBoxContainer2/HBoxContainer2" unique_id=1805761885]
-layout_mode = 2
+[node name="DeafLabel" type="Label" parent="." unique_id=1805761885]
+layout_mode = 0
+offset_left = 453.0
+offset_top = 532.0
+offset_right = 669.0
+offset_bottom = 560.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Deaf holder"
+horizontal_alignment = 1
 
-[node name="MuteLabel" type="Label" parent="VBoxContainer2/HBoxContainer2" unique_id=1831099995]
-layout_mode = 2
+[node name="MuteLabel" type="Label" parent="." unique_id=1831099995]
+layout_mode = 0
+offset_left = 713.0
+offset_top = 531.0
+offset_right = 932.0
+offset_bottom = 563.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Mute holder"
+horizontal_alignment = 1
 
 [connection signal="pressed" from="ReadyButton" to="." method="_on_ready_button_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
