@@ -13,7 +13,7 @@ func _ready() -> void:
 		GameState.add_player(multiplayer.get_unique_id())
 		GameState.set_player_role(multiplayer.get_unique_id())
 
-	update_player_list()
+		update_player_list()
 	
 	# Only let the host press the start button
 	start_button.disabled = not multiplayer.is_server()
