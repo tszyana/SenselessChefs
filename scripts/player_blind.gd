@@ -88,7 +88,7 @@ func pickup_object() -> void:
 			is_in_range = false
 			
 @rpc("any_peer", "call_local", "reliable")
-func add_item(item):
+func add_item(item: Pickable):
 	item.reparent(hand_position)
 
 func drop_item() -> void:
