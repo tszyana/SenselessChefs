@@ -9,6 +9,7 @@
 [ext_resource type="Texture2D" uid="uid://cebiquewu2ugd" path="res://scenes/Images/Lobby/Blind bean selection again lol.png" id="5_07nfq"]
 [ext_resource type="Texture2D" uid="uid://badn80oq5shv" path="res://scenes/Images/Lobby/Back button.png" id="5_yad6j"]
 [ext_resource type="Texture2D" uid="uid://t86rgcykw774" path="res://scenes/Images/Lobby/Nickname thibg again.png" id="6_oipnb"]
+[ext_resource type="FontFile" uid="uid://c22iag4yc2gdq" path="res://Caveat-VariableFont_wght.ttf" id="10_m1sns"]
 [ext_resource type="AudioStream" uid="uid://mbu31f4s7dfd" path="res://Sounds/Button_pickup.mp3" id="10_oipnb"]
 [ext_resource type="AudioStream" uid="uid://bs7p73iu5bye1" path="res://Sounds/Start game sound.mp3" id="10_yad6j"]
 
@@ -124,11 +125,13 @@ offset_left = 382.0
 offset_top = 12.0
 offset_right = 719.0
 offset_bottom = 184.0
+theme_override_constants/separation = -28
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1456625464]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 26
+theme_override_fonts/font = ExtResource("10_m1sns")
+theme_override_font_sizes/font_size = 38
 text = "Prepping the kitchen...
 "
 horizontal_alignment = 1
@@ -136,6 +139,8 @@ horizontal_alignment = 1
 [node name="Label2" type="Label" parent="VBoxContainer" unique_id=1065773422]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_m1sns")
+theme_override_font_sizes/font_size = 27
 text = "Waiting for players..."
 horizontal_alignment = 1
 
@@ -151,6 +156,8 @@ offset_right = 626.0
 offset_bottom = 642.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.21568628, 0.11764706, 0.03137255, 1)
+theme_override_fonts/font = ExtResource("10_m1sns")
+theme_override_font_sizes/font_size = 27
 text = "Ready"
 flat = true
 
@@ -162,6 +169,8 @@ offset_right = 643.0
 offset_bottom = 215.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_colors/font_hover_pressed_color = Color(0.21568628, 0.11764706, 0.03137255, 1)
+theme_override_fonts/font = ExtResource("10_m1sns")
+theme_override_font_sizes/font_size = 30
 text = "Start"
 flat = true
 
@@ -180,6 +189,8 @@ offset_top = 531.0
 offset_right = 397.0
 offset_bottom = 564.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_m1sns")
+theme_override_font_sizes/font_size = 24
 text = "Blind holder"
 horizontal_alignment = 1
 
@@ -190,6 +201,8 @@ offset_top = 532.0
 offset_right = 669.0
 offset_bottom = 560.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_m1sns")
+theme_override_font_sizes/font_size = 24
 text = "Deaf holder"
 horizontal_alignment = 1
 
@@ -200,6 +213,8 @@ offset_top = 531.0
 offset_right = 932.0
 offset_bottom = 563.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("10_m1sns")
+theme_override_font_sizes/font_size = 24
 text = "Mute holder"
 horizontal_alignment = 1
 
