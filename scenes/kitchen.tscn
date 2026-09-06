@@ -256,7 +256,7 @@ item_name = "apple"
 position = Vector2(333, 467)
 item_name = "flour"
 
-[node name="Pickable3" parent="." unique_id=545221216 instance=ExtResource("12_k1jr4")]
+[node name="Trash" parent="." unique_id=545221216 instance=ExtResource("12_k1jr4")]
 item_name = "trash"
 
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
