@@ -30,6 +30,9 @@ func _process(delta):
 		state = State.HAPPY
 	if Input.is_action_just_pressed("mad"):
 		state = State.MAD
+	if Input.is_action_just_pressed("up") or Input.is_action_just_pressed("down") or Input.is_action_just_pressed("left") or Input.is_action_just_pressed("right"):
+		$Sprite2D.texture = preload("res://scenes/Images/Kitchen/Mute potato.png")
+		state = null
 
 func update_gesture_sprite() -> void:
 	match state:
