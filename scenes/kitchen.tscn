@@ -469,10 +469,6 @@ position = Vector2(363, 436)
 
 [node name="BlindPlayer" parent="Players" unique_id=1426497895 instance=ExtResource("3_c621a")]
 position = Vector2(352, 190)
-holding_sprite = null
-chopping_sprite = null
-stirring_sprite = null
-oven_sprite = null
 
 [node name="Egg" parent="." unique_id=253672139 instance=ExtResource("12_k1jr4")]
 position = Vector2(661, 515)
