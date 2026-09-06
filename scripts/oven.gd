@@ -72,7 +72,7 @@ func _on_interact():
 		make_result(result_name)
 		
 		if result_name == "apple_pie":
-			end_game()
+			end_game.rpc()
 		
 		#print("Completed")
 		
@@ -110,6 +110,7 @@ func make_result(result_name: String):
 	
 	ingredients.clear()
 
+@rpc("any_peer", "call_local", "reliable")
 func end_game() -> void:
 	print("GAME COMPLETE")
 	# show end screen... end_screen.show() or smth
