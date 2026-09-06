@@ -8,6 +8,7 @@ extends Node2D
 @onready var deaf = $Players/DeafPlayer
 @onready var mute = $Players/MutePlayer
 @onready var blind = $Players/BlindPlayer
+@onready var recipe_button = $Control/RecipeButton
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
@@ -30,6 +31,8 @@ func _ready() -> void:
 
 			GameState.Role.MUTE:
 				mute.set_multiplayer_authority(player_id)
+				if multiplayer.get_unique_id() == player_id:
+					recipe_button.disabled = false
 				
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
