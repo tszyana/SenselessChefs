@@ -54,7 +54,7 @@ func setup_characters(blind : CharacterBody2D, deaf : CharacterBody2D, mute : Ch
 		
 	elif myRole == Role.DEAF:
 		sprite = deaf
-		VoiceChat.sound_enabled = false
+		#VoiceChat.sound_enabled = false
 
 		print("im deaf")
 	
