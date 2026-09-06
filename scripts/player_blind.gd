@@ -20,20 +20,19 @@ extends PlayerMovement
 @onready var player_proxy: Sprite2D = $PlayerVisibleLayer/PlayerProxy
 
 enum State { MOVE, HOLD, CHOP, STIR, BAKE }
-var state = State.MOVE
+@export var state: State = State.MOVE 
 var carrying_item: bool = false
 var held_item: Pickable = null
 var user_id : int
 
 func _physics_process(delta: float) -> void:
-	if not is_multiplayer_authority():
-		return
+	if is_multiplayer_authority():
+		process_movement()
+		pickup_object()
+		move_and_slide()
+		update_player_proxy()
 	
-	process_movement()
 	update_action_sprite()
-	pickup_object()
-	move_and_slide()
-	update_player_proxy()
 
 func update_action_sprite() -> void:
 	match state:

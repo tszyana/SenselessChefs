@@ -38,6 +38,9 @@ properties/1/replication_mode = 1
 properties/2/path = NodePath("Sprite2D:flip_h")
 properties/2/spawn = true
 properties/2/replication_mode = 1
+properties/3/path = NodePath(".:state")
+properties/3/spawn = true
+properties/3/replication_mode = 1
 
 [node name="BlindPlayer" type="CharacterBody2D" unique_id=102776357 groups=["player_blind"]]
 script = ExtResource("1_gsrh2")
