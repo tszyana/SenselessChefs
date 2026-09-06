@@ -465,7 +465,6 @@ position = Vector2(1037, 339)
 position = Vector2(811, 193)
 
 [node name="DeafPlayer" parent="Players" unique_id=2124090561 instance=ExtResource("2_jtesv")]
-visible = false
 position = Vector2(363, 436)
 
 [node name="BlindPlayer" parent="Players" unique_id=1426497895 instance=ExtResource("3_c621a")]
