@@ -26,6 +26,7 @@
 [ext_resource type="Texture2D" uid="uid://dwrdnktetq8aw" path="res://scenes/Images/Kitchen/Pause.png" id="18_3fy06"]
 [ext_resource type="PackedScene" uid="uid://4j578japq3xm" path="res://scenes/completion_screen.tscn" id="24_fr5pv"]
 [ext_resource type="AudioStream" uid="uid://mbu31f4s7dfd" path="res://Sounds/Button_pickup.mp3" id="25_k0mf2"]
+[ext_resource type="Script" path="res://scenes/completion_screen.gd" id="26_ls4fu"]
 
 [sub_resource type="GDScript" id="GDScript_bems3"]
 script/source = "extends Label
@@ -189,6 +190,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("18_3fy06")
 
 [node name="RecipeButtonAsset" type="TextureRect" parent="." unique_id=94760782]
+visible = false
 offset_left = 0.99999976
 offset_top = 601.0
 offset_right = 273.49997
@@ -382,6 +384,7 @@ text = "Main Menu"
 flat = true
 
 [node name="RecipeButton" type="Button" parent="Control" unique_id=1458892778]
+visible = false
 z_index = 6
 layout_mode = 0
 offset_left = 6.0
@@ -565,6 +568,7 @@ item_name = "potato"
 
 [node name="CompletionScreen" parent="." unique_id=1013272756 instance=ExtResource("24_fr5pv")]
 visible = false
+script = ExtResource("26_ls4fu")
 
 [node name="InvisBoundary" type="Node2D" parent="." unique_id=1588431414]
 

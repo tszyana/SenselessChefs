@@ -3,6 +3,7 @@ extends PlayerMovement
 
 enum State { POINT, HAPPY, MAD, ONE, TWO, THREE, FOUR, MOVE }
 @export var state: State = State.MOVE
+@onready var recipe_popup = $Control/RecipePanel
 
 func _ready():
 	# $RecipeButton.show()
@@ -58,3 +59,11 @@ func update_gesture_sprite() -> void:
 			pass
 		State.MOVE:
 			$Sprite2D.texture = preload("res://scenes/Images/Kitchen/Mute potato.png")
+
+
+func _on_recipe_button_pressed() -> void:
+	$ButtonSound.play()
+	recipe_popup.visible = true
+func _on_close_button_pressed() -> void:
+	$ButtonSound.play()
+	recipe_popup.visible = false
