@@ -24,19 +24,17 @@ func _on_peer_connected(id: int) -> void:
 	if multiplayer.is_server():
 		GameState.add_player(id, GameState.player_info)
 		GameState.set_player_role(id)
-		sync_player_states.rpc(GameState.player_states)
+		sync_player_states.rpc(GameState.player_states, GameState.player_order)
 
 
 func _on_peer_disconnected(id: int) -> void:
 	print("Player disconnected: ", id)
 	if multiplayer.is_server():
 		GameState.remove_player(id)
-		sync_player_states.rpc(GameState.player_states)
+		sync_player_states.rpc(GameState.player_states, GameState.player_order)
 
 
 func update_player_list() -> void:
-	for child in player_list.get_children():
-		child.queue_free()
 
 	var players := multiplayer.get_peers()
 
