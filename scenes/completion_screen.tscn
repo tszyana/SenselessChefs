@@ -1,5 +1,6 @@
 [gd_scene format=3 uid="uid://4j578japq3xm"]
 
+[ext_resource type="Script" uid="uid://dm5acjp8tqy4b" path="res://scenes/completion_screen.gd" id="1_0xhlp"]
 [ext_resource type="Texture2D" uid="uid://ddocpv6ly3hke" path="res://scenes/Images/CompletionScreen/Grey_screen_lower_opacity.png" id="1_qq586"]
 [ext_resource type="Texture2D" uid="uid://c2mjbf0ww163u" path="res://scenes/Images/CompletionScreen/Handwritten_final_pieee.png" id="2_qq586"]
 [ext_resource type="Texture2D" uid="uid://badn80oq5shv" path="res://scenes/Images/Lobby/Back button.png" id="3_rb74c"]
@@ -9,6 +10,7 @@ layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+script = ExtResource("1_0xhlp")
 
 [node name="Panel" type="Panel" parent="." unique_id=1305607]
 layout_mode = 0
