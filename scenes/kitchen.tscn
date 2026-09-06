@@ -51,6 +51,7 @@ script = ExtResource("1_g3o0j")
 [node name="Players" type="Node2D" parent="." unique_id=1408460873]
 
 [node name="MutePlayer" parent="Players" unique_id=102776357 instance=ExtResource("1_01sk3")]
+visible = false
 position = Vector2(811, 193)
 
 [node name="DeafPlayer" parent="Players" unique_id=1982512972 instance=ExtResource("2_jtesv")]
@@ -58,7 +59,6 @@ visible = false
 position = Vector2(363, 436)
 
 [node name="BlindPlayer" parent="Players" unique_id=1426497895 instance=ExtResource("3_c621a")]
-visible = false
 position = Vector2(318, 186)
 
 [node name="Control" type="Control" parent="." unique_id=751850616]
@@ -221,7 +221,7 @@ Pour butter
 Bake"
 
 [node name="Timer" type="Timer" parent="." unique_id=1406045070]
-wait_time = 11.0
+wait_time = 100.0
 one_shot = true
 autostart = true
 script = SubResource("GDScript_v3ycp")
@@ -250,6 +250,14 @@ position = Vector2(1076, 75)
 
 [node name="Pickable" parent="." unique_id=1020376432 instance=ExtResource("12_k1jr4")]
 position = Vector2(860, 370)
+item_name = "apple"
+
+[node name="Pickable2" parent="." unique_id=253672139 instance=ExtResource("12_k1jr4")]
+position = Vector2(333, 467)
+item_name = "flour"
+
+[node name="Pickable3" parent="." unique_id=545221216 instance=ExtResource("12_k1jr4")]
+item_name = "trash"
 
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]

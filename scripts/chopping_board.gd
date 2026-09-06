@@ -1,6 +1,7 @@
 extends Node2D
 
 @onready var interactable: Area2D = $Interactable
+@onready var progress_bar: ProgressBar = $ProgressBar
 
 @export var chop_time := 1.5
 
@@ -16,8 +17,13 @@ var current_ingredient_index := 0
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
 	interactable.interact = _on_interact
+	progress_bar.hide()
 
 func _on_interact():
+	if current_combo_index >= COMBOS.size():
+		print("All recipes are completed")
+		return
+		
 	# if player is holding object??
 	var player = get_tree().get_first_node_in_group("player_blind")
 	
@@ -31,51 +37,58 @@ func _on_interact():
 	var combo = COMBOS.values()[current_combo_index]
 	var expected_ingredient = combo[current_ingredient_index]
 	
-	if item.item_name != expected_ingredient:
-		item.reparent(self)
-		item.position = Vector2.ZERO
-		make_result(item, "trash")
+	# wrong ingredient
+	if item.item_name != expected_ingredient:		
+		make_trash(item)
+		print("Wrong ingredient doofus")
 		return
 	
 	# if correct, then move item to chopping board
 	item.reparent(self)
 	item.position = Vector2.ZERO
-	
 	ingredients.append(item.item_name)
+	
+	current_ingredient_index += 1
+	
+	# update progress bar
+	progress_bar.max_value = combo.size()
+	progress_bar.value = current_ingredient_index
+	progress_bar.show()
 		
-	player.can_move = false
-	interactable.is_interactable = false
-	
-	print("Chopping", item.item_name) # placeholder for sprite change??
-	
-	await get_tree().create_timer(chop_time).timeout
+	# recipe is complete!
+	if current_ingredient_index >= combo.size():
+		player.can_move = false
+		interactable.is_interactable = false
 		
-	check_recipe(item)
-	
-	player.can_move = true
-	interactable.is_interactable = true
-	
-func check_recipe(item: Pickable):
-	var names = ingredients.duplicate()
-	names.sort()
-	
-	for result in COMBOS:
-		var recipe = COMBOS[result].duplicate()
-		recipe.sort()
+		print("Chopping", item.item_name) # placeholder for sprite change??
+		await get_tree().create_timer(chop_time).timeout
 		
-		if names == recipe:
-			make_result(item, result)
-			return
-	if ingredients.size() >= 3:
-		make_result(item, "trash")
+		var result_name = COMBOS.keys()[current_combo_index]
+		make_result(result_name)
+		print("Chopped apples")
 		
-func make_result(item: Pickable, result_name: String):
-	item.item_name = result_name
-	item.get_node("Sprite2D").texture = null
+		current_combo_index += 1
+		current_ingredient_index = 0
+		progress_bar.hide()
+		
+		player.can_move = true
+		interactable.is_interactable = true
 	
-	for ingredient in get_children():
-		if ingredient is Pickable and ingredient != item:
-			ingredient.queue_free()
+func make_trash(item: Pickable) -> void:
+	item.item_name = "trash"
+	item.update_sprite()
+	
+	item.reparent(self)
+	item.position = Vector2.ZERO
+	
+func make_result(result_name: String):
+	var result_item: Pickable = ingredients[0]	
+	
+	for i in range(1, ingredients.size()):
+		ingredients[i].queue_free()
+	
+	result_item.item_name = result_name
+	result_item.update_sprite()
 	
 	ingredients.clear()
-	ingredients.append(result_name)
+	ingredients.append(result_item)

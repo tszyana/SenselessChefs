@@ -26,3 +26,7 @@ interact_name = "Chopping Board"
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1742688929]
 scale = Vector2(9.736896, 7.3192387)
 shape = SubResource("CircleShape2D_0wdwo")
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=392024652]
+offset_right = 4.0
+offset_bottom = 27.0
