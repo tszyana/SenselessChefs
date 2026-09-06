@@ -27,5 +27,6 @@ func update_gesture_sprite() -> void:
 			pass
 
 func _ready():
-	$RecipeButton.show()
+	#$RecipeButton.show()
+	pass
 	

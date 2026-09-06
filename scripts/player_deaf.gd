@@ -6,4 +6,5 @@ func _physics_process(delta: float) -> void:
 	move_and_slide()
 	
 func _ready():
-	$RecipeButton.hide()
+	#$RecipeButton.hide()
+	pass

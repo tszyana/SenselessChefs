@@ -30,6 +30,12 @@ func update_action_sprite() -> void:
 func get_item() -> Pickable:
 	return held_item
 
+func remove_item() -> Pickable:
+	var item = held_item
+	held_item = null
+	carrying_item = false
+	return item
+
 func update_vision() -> void:
 	pass # for the blind thing
 
@@ -51,10 +57,6 @@ func drop_item() -> void:
 	carrying_item = false
 	held_item = null
 	
-	
-
-func delete_item() -> void:
-	pass
 
 func _on_vision_area_area_entered(area: Area2D) -> void:
 	if area is Pickable:
@@ -68,4 +70,5 @@ func _on_vision_area_area_exited(area: Area2D) -> void:
 		target_object = null
 		
 func _ready():
-	$RecipeButton.hide()
+	#$RecipeButton.hide()
+	pass
