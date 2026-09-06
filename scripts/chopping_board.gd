@@ -23,7 +23,14 @@ func _ready() -> void:
 
 func _on_interact():
 	var player = get_tree().get_first_node_in_group("player_blind")
+	if not player.is_multiplayer_authority():
+		return
+	
+	_do_interact.rpc(player.get_path())
 
+@rpc("any_peer", "call_local", "reliable")
+func _do_interact(player_path: NodePath):
+	var player = get_node(player_path)
 	if current_combo_index >= COMBOS.size():
 		#print("All recipes are completed")
 		player.message_bubble.show_message()
@@ -86,8 +93,6 @@ func _on_interact():
 		interactable.is_interactable = true
 	
 func make_trash(item: Pickable) -> void:
-	item.item_name = "trash"
-	item.update_sprite()
 	$Trash.play()
 	item.reparent(get_parent())
 	item.position = drop_point.global_position

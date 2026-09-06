@@ -79,6 +79,7 @@ func pickup_object() -> void:
 		elif is_in_range and target_object:
 			state = State.HOLD
 			held_item = target_object
+			held_item.set_multiplayer_authority(get_multiplayer_authority())
 			held_item.reparent(hand_position)
 			held_item.position = Vector2.ZERO
 			carrying_item = true
