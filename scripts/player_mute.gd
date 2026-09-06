@@ -5,11 +5,12 @@ enum State { POINT, HAPPY, MAD, ONE, TWO, THREE, FOUR }
 var state = null
 
 func _ready():
-	VoiceChat.mic_enabled = false
 	# $RecipeButton.show()
-	pass
+	print("auth user id: ", get_multiplayer_authority())
 
 func _physics_process(delta: float) -> void:
+	if not is_multiplayer_authority():
+		return
 	process_movement()
 	move_and_slide()
 	update_gesture_sprite()

@@ -16,8 +16,11 @@ enum State { MOVE, HOLD, CHOP, STIR, BAKE }
 var state = State.MOVE
 var carrying_item: bool = false
 var held_item: Pickable = null
+var user_id : int
 
 func _physics_process(delta: float) -> void:
+	if not is_multiplayer_authority():
+		return
 	process_movement()
 	update_action_sprite()
 	pickup_object()
@@ -92,4 +95,7 @@ func _on_vision_area_area_exited(area: Area2D) -> void:
 		
 func _ready():
 	#$RecipeButton.hide()
-	pass
+	print("auth user id: ", get_multiplayer_authority())
+	
+
+	
