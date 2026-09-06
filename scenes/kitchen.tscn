@@ -61,7 +61,7 @@ func _process(delta: float) -> void:
 load_path = "res://.godot/imported/Blind potat holding.png-1a5003d91b9af23924dd13163f2f472f.ctex"
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_vqp8a"]
-size = Vector2(145, 1043.5)
+size = Vector2(137.5, 1043.5)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_d6t4w"]
 size = Vector2(212, 442)
@@ -79,7 +79,7 @@ size = Vector2(40.298584, 298.5)
 size = Vector2(96.09607, 567.21844)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bh1ot"]
-size = Vector2(18, 1169)
+size = Vector2(17, 1169)
 
 [node name="Kitchen" type="Node2D" unique_id=1947100178]
 script = ExtResource("1_g3o0j")
@@ -568,7 +568,7 @@ visible = false
 [node name="StaticBody2D" type="StaticBody2D" parent="InvisBoundary" unique_id=1700253672]
 
 [node name="CollisionShape2D2" type="CollisionShape2D" parent="InvisBoundary/StaticBody2D" unique_id=1078014308]
-position = Vector2(630.25, 75)
+position = Vector2(630.25, 71.25)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_vqp8a")
 
@@ -598,7 +598,7 @@ scale = Vector2(0.99999994, 0.99999994)
 shape = SubResource("RectangleShape2D_8ixu5")
 
 [node name="CollisionShape2D7" type="CollisionShape2D" parent="InvisBoundary/StaticBody2D" unique_id=197993538]
-position = Vector2(586, 655)
+position = Vector2(586, 655.5)
 rotation = 1.5707964
 shape = SubResource("RectangleShape2D_bh1ot")
 

@@ -15,7 +15,7 @@
 size = Vector2(155.43445, 29.383886)
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_d5da6"]
-radius = 61.0
+radius = 36.0
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_evyjb"]
 properties/0/path = NodePath(".:position")
@@ -52,7 +52,7 @@ shape = SubResource("RectangleShape2D_1hl5r")
 position = Vector2(4, 7)
 
 [node name="BoundaryCollision" type="CollisionShape2D" parent="." unique_id=33897987]
-position = Vector2(-7, 52)
+position = Vector2(-7, 78)
 shape = SubResource("CircleShape2D_d5da6")
 
 [node name="HandPosition" type="Marker2D" parent="." unique_id=674018565]
