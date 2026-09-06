@@ -22,12 +22,16 @@ func _on_peer_connected(id: int) -> void:
 	if multiplayer.is_server():
 		GameState.add_player(id)
 		GameState.set_player_role(id)
+		NetworkManager.sync_player_states.rpc(GameState.player_states)
+
 	update_player_list()
 
 func _on_peer_disconnected(id: int) -> void:
 	print("Player disconnected: ", id)
 	if multiplayer.is_server():
 		GameState.remove_player(id)
+		NetworkManager.sync_player_states.rpc(GameState.player_states)
+
 	update_player_list()
 
 func update_player_list() -> void:
@@ -62,7 +66,7 @@ func add_player_to_list(id: int) -> void:
 	if id == multiplayer.get_unique_id():
 		label.text += " (You)"
 		
-	if not GameState.player_states[id]["ready"]:
+	if GameState.player_states[id]["ready"]:
 		label.text += " - READY"
 	else:
 		label.text += " - NOT READY"

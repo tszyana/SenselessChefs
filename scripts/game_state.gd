@@ -8,7 +8,7 @@ enum Role {
 
 var player_states := {}
 var nickname : String
-var playerNum := 0
+var player_order := []
 
 func _ready() -> void:
 	print("GameState initialized!")
@@ -21,6 +21,8 @@ func add_player(player_id: int) -> void:
 		"nickname": ""
 	}
 	
+	player_order.append(player_id)
+	
 	print("Added player ", player_id)
 	
 func remove_player(player_id: int) -> void:
@@ -28,12 +30,9 @@ func remove_player(player_id: int) -> void:
 
 	print("GameState: Removed player ", player_id)
 	
-	if playerNum > 0:
-		playerNum -= 1
 		
 func set_player_role(id: int) -> void:
-	player_states[id]["role"] = playerNum
-	playerNum += 1
+	player_states[id]["role"] = player_order.find(id)
 	
 func set_nickname(name: String) -> void:
 	nickname = name
