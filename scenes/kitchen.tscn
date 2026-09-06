@@ -430,15 +430,12 @@ offset_top = 42.0
 offset_right = 335.0
 offset_bottom = 273.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Slice apples at chopping board
-Melt butter at stove
-Add flour and water to butter
-Simmer then remove pot
-Get dish and roll pastry at chopping board
-Place apples
-Place lattice
-Pour butter
-Bake"
+text = "(MUST BE EXACT ORDER):
+put flour, egg, salt on chopping board
+put apple on chopping board 
+put butter on stove 
+put melted_butter, flour, water on stove 
+put filled_bowl, cut_apples, pastry in oven"
 
 [node name="Timer" type="Timer" parent="." unique_id=1406045070]
 wait_time = 300.0
