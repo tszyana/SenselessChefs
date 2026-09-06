@@ -59,7 +59,10 @@ func remove_item() -> Pickable:
 	return item
 
 func update_player_proxy() -> void:
-	pass # for the blind thing
+	var canvas_transform := get_viewport().get_canvas_transform()
+	player_proxy.position = canvas_transform * sprite_2d.global_position
+	player_proxy.texture = sprite_2d.texture
+	player_proxy.flip_h = sprite_2d.flip_h
 
 func pickup_object() -> void:
 	if Input.is_action_just_pressed("pickup"):
@@ -112,7 +115,8 @@ func _ready():
 		darkness.player = self
 		blindness_overlay.visible = true
 		blind_world_layer.visible = true
+		player_layer.visible = true 
 	else:
 		blindness_overlay.visible = false
 		blind_world_layer.visible = false
-	print(blind_world.is_visible_in_tree())
+		player_layer.visible = false
