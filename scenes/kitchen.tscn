@@ -471,19 +471,19 @@ position = Vector2(363, 436)
 position = Vector2(352, 190)
 
 [node name="Egg" parent="." unique_id=253672139 instance=ExtResource("12_k1jr4")]
-position = Vector2(661, 515)
+position = Vector2(488, 369)
 item_name = "egg"
 
 [node name="Apple" parent="." unique_id=1020376432 instance=ExtResource("12_k1jr4")]
-position = Vector2(784, 159)
+position = Vector2(668, 204)
 item_name = "apple"
 
 [node name="Flour" parent="." unique_id=1281105868 instance=ExtResource("12_k1jr4")]
-position = Vector2(406, 379)
+position = Vector2(507, 217)
 item_name = "flour"
 
 [node name="Salt" parent="." unique_id=545221216 instance=ExtResource("12_k1jr4")]
-position = Vector2(814, 373)
+position = Vector2(686, 344)
 item_name = "salt"
 
 [node name="MicTest" parent="." unique_id=393791460 instance=ExtResource("11_vpxcu")]
