@@ -87,9 +87,9 @@ func pickup_object() -> void:
 			carrying_item = true
 			is_in_range = false
 			
-@rpc("authority", "call_local", "reliable")
+@rpc("any_peer", "call_local", "reliable")
 func add_item(item):
-	held_item.reparent(hand_position)
+	item.reparent(hand_position)
 
 func drop_item() -> void:
 	held_item.reparent(kitchen)
