@@ -16,6 +16,21 @@ func _ready() -> void:
 		deaf,
 		mute
 	)
+	
+	for player_id in GameState.player_order:
+		var role = GameState.player_states[player_id]["role"]
+
+		match role:
+			GameState.Role.BLIND:
+				blind.set_multiplayer_authority(player_id)
+
+			GameState.Role.DEAF:
+				deaf.set_multiplayer_authority(player_id)
+
+			GameState.Role.MUTE:
+				mute.set_multiplayer_authority(player_id)
+				
+	mute.set_multiplayer_authority(3)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta) -> void:

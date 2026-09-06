@@ -103,9 +103,9 @@ func _on_start_button_pressed() -> void:
 		print("Waiting for everyone to ready...")
 		return
 		
-	if GameState.player_order.size() != 3:
-		print("3 Players needed")
-		return
+	#if GameState.player_order.size() != 3:
+		#print("3 Players needed")
+		#return
 		
 	start_game.rpc()
 	

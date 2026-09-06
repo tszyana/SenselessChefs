@@ -57,6 +57,7 @@ func _process(_delta: float) -> void:
 
 	if not sound_enabled:
 		return
+		
 	var available := playback_playback.get_frames_available()
 	
 	#if Engine.get_process_frames() % 60 == 0:
