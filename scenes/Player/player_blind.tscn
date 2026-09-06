@@ -10,8 +10,8 @@
 [ext_resource type="PackedScene" uid="uid://d4ndqv2dxs67x" path="res://scenes/message_bubble.tscn" id="8_evyjb"]
 [ext_resource type="Texture2D" uid="uid://b6t0b7ytgjnx6" path="res://scenes/Images/Kitchen/blind kitchen.png" id="9_1hl5r"]
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0wdwo"]
-radius = 131.03435
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1hl5r"]
+size = Vector2(89.56239, 29.383886)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_gsrh2"]
 
@@ -41,14 +41,17 @@ texture = ExtResource("2_dbby7")
 [node name="VisionArea" type="Area2D" parent="." unique_id=915287116]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="VisionArea" unique_id=48018900]
-scale = Vector2(0.7595028, 0.7979644)
-shape = SubResource("CircleShape2D_0wdwo")
+position = Vector2(67, -18)
+rotation = -3.1415925
+scale = Vector2(1.2995832, -1.871725)
+shape = SubResource("RectangleShape2D_1hl5r")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=815507105]
 scale = Vector2(6.0400004, 6.2799993)
 shape = SubResource("RectangleShape2D_gsrh2")
 
 [node name="InteractingComponent" parent="." unique_id=605448658 instance=ExtResource("3_sfju2")]
+position = Vector2(57, -3)
 
 [node name="HandPosition" type="Marker2D" parent="." unique_id=674018565]
 position = Vector2(0, -81)

@@ -460,21 +460,67 @@ position = Vector2(363, 436)
 position = Vector2(352, 190)
 holding_sprite = SubResource("CompressedTexture2D_fr5pv")
 
-[node name="Egg" parent="." unique_id=253672139 instance=ExtResource("12_k1jr4")]
-position = Vector2(464, 384)
+[node name="Ingredients" type="Node2D" parent="." unique_id=843869042]
+
+[node name="Egg" parent="Ingredients" unique_id=253672139 instance=ExtResource("12_k1jr4")]
+position = Vector2(482, 318)
 item_name = "egg"
 
-[node name="Apple" parent="." unique_id=1020376432 instance=ExtResource("12_k1jr4")]
-position = Vector2(676, 176)
+[node name="Egg2" parent="Ingredients" unique_id=1660858788 instance=ExtResource("12_k1jr4")]
+position = Vector2(486, 293)
+item_name = "egg"
+
+[node name="Apple" parent="Ingredients" unique_id=1020376432 instance=ExtResource("12_k1jr4")]
+position = Vector2(672, 245)
 item_name = "apple"
 
-[node name="Flour" parent="." unique_id=1281105868 instance=ExtResource("12_k1jr4")]
-position = Vector2(485, 197)
+[node name="Apple2" parent="Ingredients" unique_id=550084808 instance=ExtResource("12_k1jr4")]
+position = Vector2(661, 217)
+item_name = "apple"
+
+[node name="Flour" parent="Ingredients" unique_id=1281105868 instance=ExtResource("12_k1jr4")]
+position = Vector2(672, 291)
 item_name = "flour"
 
-[node name="Salt" parent="." unique_id=545221216 instance=ExtResource("12_k1jr4")]
-position = Vector2(686, 382)
+[node name="Flour2" parent="Ingredients" unique_id=842143383 instance=ExtResource("12_k1jr4")]
+position = Vector2(671, 322)
+item_name = "flour"
+
+[node name="Flour3" parent="Ingredients" unique_id=61839995 instance=ExtResource("12_k1jr4")]
+position = Vector2(637, 306)
+item_name = "flour"
+
+[node name="Salt" parent="Ingredients" unique_id=545221216 instance=ExtResource("12_k1jr4")]
+position = Vector2(654, 358)
 item_name = "salt"
+
+[node name="Salt2" parent="Ingredients" unique_id=2134629689 instance=ExtResource("12_k1jr4")]
+position = Vector2(678, 367)
+item_name = "salt"
+
+[node name="Butter" parent="Ingredients" unique_id=2137825650 instance=ExtResource("12_k1jr4")]
+position = Vector2(481, 367)
+item_name = "butter"
+
+[node name="Butter2" parent="Ingredients" unique_id=1913737223 instance=ExtResource("12_k1jr4")]
+position = Vector2(529, 370)
+item_name = "butter"
+
+[node name="Water" parent="Ingredients" unique_id=318132919 instance=ExtResource("12_k1jr4")]
+position = Vector2(495, 239)
+item_name = "water"
+
+[node name="Water2" parent="Ingredients" unique_id=390111104 instance=ExtResource("12_k1jr4")]
+position = Vector2(495, 210)
+item_name = "water"
+
+[node name="Banana" parent="Ingredients" unique_id=592148799 instance=ExtResource("12_k1jr4")]
+position = Vector2(578, 267)
+item_name = "banana"
+
+[node name="Potato" parent="Ingredients" unique_id=212591153 instance=ExtResource("12_k1jr4")]
+position = Vector2(567, 207)
+item_name = "potato"
 
 [node name="MicTest" parent="." unique_id=393791460 instance=ExtResource("11_vpxcu")]
 

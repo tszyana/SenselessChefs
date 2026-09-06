@@ -7,8 +7,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_25ren"]
 size = Vector2(236.625, 296)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0wdwo"]
-radius = 12.873578
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mlgeb"]
+size = Vector2(12.220917, 7.2917614)
 
 [node name="Stove" type="Node2D" unique_id=1013248238]
 script = ExtResource("1_t2o1f")
@@ -27,9 +27,9 @@ shape = SubResource("RectangleShape2D_25ren")
 interact_name = "Stove"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1305977749]
-position = Vector2(87.999985, -22)
-scale = Vector2(5.005014, 7.6662583)
-shape = SubResource("CircleShape2D_0wdwo")
+position = Vector2(95.64768, 53.999996)
+scale = Vector2(13.640928, -33.736702)
+shape = SubResource("RectangleShape2D_mlgeb")
 
 [node name="DropPoint" type="Marker2D" parent="." unique_id=1376980112]
 position = Vector2(219, 20)

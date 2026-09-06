@@ -7,8 +7,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3xp1"]
 size = Vector2(113, 130)
 
-[sub_resource type="CircleShape2D" id="CircleShape2D_0wdwo"]
-radius = 7.658658
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyirk"]
+size = Vector2(16.07283, 23.964142)
 
 [node name="ChoppingBoard" type="Node2D" unique_id=1312146754]
 script = ExtResource("1_1wcpl")
@@ -26,9 +26,9 @@ shape = SubResource("RectangleShape2D_r3xp1")
 interact_name = "Chopping Board"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1742688929]
-position = Vector2(-49, 37.000008)
+position = Vector2(-59.999996, 83)
 scale = Vector2(10.374077, 8.020543)
-shape = SubResource("CircleShape2D_0wdwo")
+shape = SubResource("RectangleShape2D_oyirk")
 
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=392024652]
 offset_right = 4.0
