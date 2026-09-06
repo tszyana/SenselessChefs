@@ -17,7 +17,7 @@ func _ready() -> void:
 		mute
 	)
 	
-	for player_id in GameState.player_order:
+	for player_id in GameState.player_states.keys():
 		var role = GameState.player_states[player_id]["role"]
 
 		match role:
@@ -30,7 +30,6 @@ func _ready() -> void:
 			GameState.Role.MUTE:
 				mute.set_multiplayer_authority(player_id)
 				
-	mute.set_multiplayer_authority(3)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta) -> void:
