@@ -1,0 +1,19 @@
+[remap]
+
+importer="mp3"
+type="AudioStreamMP3"
+uid="uid://6a60k16tjeuc"
+path="res://.godot/imported/Fun trash sound.mp3-74057790be6a901ec5ed1747b62c0c5d.mp3str"
+
+[deps]
+
+source_file="res://Sounds/Fun trash sound.mp3"
+dest_files=["res://.godot/imported/Fun trash sound.mp3-74057790be6a901ec5ed1747b62c0c5d.mp3str"]
+
+[params]
+
+loop=false
+loop_offset=0
+bpm=0
+beat_count=0
+bar_beats=4
