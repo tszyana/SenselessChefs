@@ -94,3 +94,8 @@ func relay_voice_data(sender_id: int, audio_data: PackedByteArray) -> void:
 		if peer_id != sender_id:
 			#print("Sending voice to Player ", peer_id)
 			receive_voice_data.rpc_id(peer_id, sender_id, audio_data)
+			
+			
+@rpc("authority", "reliable")
+func sync_player_states(states: Dictionary) -> void:
+	GameState.player_states = states

@@ -1,6 +1,10 @@
 [gd_scene format=3 uid="uid://ca11sgdjsd3vm"]
 
 [ext_resource type="Script" uid="uid://c340c6qrtwae6" path="res://scripts/main_menu.gd" id="1_l6cm7"]
+[ext_resource type="Texture2D" uid="uid://bo1b7ctel6jyj" path="res://scenes/Images/MainMenu/Main menu bgg.png" id="2_8ln24"]
+[ext_resource type="Texture2D" uid="uid://3mf5almf6u0j" path="res://scenes/Images/MainMenu/Enter nickname box.png" id="3_rtw2f"]
+[ext_resource type="Texture2D" uid="uid://dk44hamhcifsu" path="res://scenes/Images/MainMenu/Game title words.png" id="4_oa1go"]
+[ext_resource type="Texture2D" uid="uid://byvgkiltmoa7q" path="res://scenes/Images/MainMenu/Host _ join game button.png" id="5_tbmy8"]
 
 [node name="MainMenu" type="Control" unique_id=148188947]
 layout_mode = 3
@@ -12,44 +16,89 @@ grow_vertical = 2
 script = ExtResource("1_l6cm7")
 metadata/_edit_lock_ = true
 
-[node name="NicknameEdit" type="LineEdit" parent="." unique_id=995277565]
+[node name="Background" type="TextureRect" parent="." unique_id=606812467]
+z_index = -1
 layout_mode = 0
-offset_left = 430.0
-offset_top = 394.0
-offset_right = 725.0
-offset_bottom = 432.0
+offset_right = 1151.0
+offset_bottom = 648.0
+texture = ExtResource("2_8ln24")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="NicknameBox" type="TextureRect" parent="." unique_id=669045291]
+layout_mode = 0
+offset_left = 369.0
+offset_top = 407.0
+offset_right = 809.0
+offset_bottom = 490.0
+texture = ExtResource("3_rtw2f")
+expand_mode = 1
+
+[node name="Title" type="TextureRect" parent="." unique_id=1484109585]
+layout_mode = 0
+offset_left = 295.0
+offset_top = 60.0
+offset_right = 885.0
+offset_bottom = 164.0
+texture = ExtResource("4_oa1go")
+expand_mode = 1
+
+[node name="Join" type="TextureRect" parent="." unique_id=2114711779]
+layout_mode = 0
+offset_left = 351.0
+offset_top = 504.0
+offset_right = 560.0
+offset_bottom = 604.0
+texture = ExtResource("5_tbmy8")
+expand_mode = 1
+
+[node name="NicknameEdit" type="LineEdit" parent="." unique_id=995277565]
+z_index = 7
+layout_mode = 0
+offset_left = 384.0
+offset_top = 419.0
+offset_right = 798.0
+offset_bottom = 479.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 28
 placeholder_text = "Enter a nickname"
 alignment = 1
 max_length = 15
+flat = true
 
-[node name="HBoxContainer" type="HBoxContainer" parent="." unique_id=1293846868]
+[node name="Host" type="TextureRect" parent="." unique_id=954376211]
 layout_mode = 0
-offset_left = 420.0
-offset_top = 451.0
-offset_right = 730.0
-offset_bottom = 504.0
-theme_override_constants/separation = 24
-alignment = 1
+offset_left = 626.0
+offset_top = 505.0
+offset_right = 829.0
+offset_bottom = 603.0
+texture = ExtResource("5_tbmy8")
+expand_mode = 1
 
-[node name="HostButton" type="Button" parent="HBoxContainer" unique_id=1025908368]
-layout_mode = 2
+[node name="HostButton" type="Button" parent="." unique_id=1025908368]
+layout_mode = 0
+offset_left = 362.0
+offset_top = 515.0
+offset_right = 548.0
+offset_bottom = 596.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.21568628, 0.11764706, 0.03137255, 1)
+theme_override_font_sizes/font_size = 26
 text = "Host Game"
+flat = true
 
-[node name="JoinButton" type="Button" parent="HBoxContainer" unique_id=70823392]
-layout_mode = 2
-text = "Join Game"
-
-[node name="Label" type="Label" parent="." unique_id=875503240]
+[node name="JoinButton" type="Button" parent="." unique_id=70823392]
 layout_mode = 0
-offset_left = 349.0
-offset_top = 67.0
-offset_right = 804.0
-offset_bottom = 276.0
-theme_override_font_sizes/font_size = 40
-text = "NOT OVERCOOKED
-(SENSELESS CHEFS)"
-horizontal_alignment = 1
-vertical_alignment = 1
+offset_left = 641.0
+offset_top = 515.0
+offset_right = 819.0
+offset_bottom = 596.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0.21568628, 0.11764706, 0.03137255, 1)
+theme_override_font_sizes/font_size = 26
+text = "Join Game"
+flat = true
 
-[connection signal="pressed" from="HBoxContainer/HostButton" to="." method="_on_host_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="JoinButton" to="." method="_on_join_button_pressed"]

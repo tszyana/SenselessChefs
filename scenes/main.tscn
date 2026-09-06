@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://cpgmhnkb8fdmf"]
 
-[ext_resource type="PackedScene" uid="uid://bkrucl6g84xoa" path="res://scenes/player_mute.tscn" id="1_sugp2"]
-[ext_resource type="PackedScene" uid="uid://de2ugp7o5yyaa" path="res://scenes/player_deaf.tscn" id="2_jyhfs"]
-[ext_resource type="PackedScene" uid="uid://bn2k5w2cgyjes" path="res://scenes/player_blind.tscn" id="3_tbgi4"]
+[ext_resource type="PackedScene" uid="uid://bkrucl6g84xoa" path="res://scenes/Player/player_mute.tscn" id="1_sugp2"]
+[ext_resource type="PackedScene" uid="uid://de2ugp7o5yyaa" path="res://scenes/Player/player_deaf.tscn" id="2_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://bn2k5w2cgyjes" path="res://scenes/Player/player_blind.tscn" id="3_tbgi4"]
 
 [node name="Main" type="Node2D" unique_id=1947100178]
 
