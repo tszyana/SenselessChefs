@@ -32,3 +32,7 @@ shape = SubResource("CapsuleShape2D_0wdwo")
 
 [node name="DropPoint" type="Marker2D" parent="." unique_id=1264392771]
 position = Vector2(116, 31)
+
+[node name="ProgressBar" type="ProgressBar" parent="." unique_id=284775931]
+offset_right = 4.0
+offset_bottom = 27.0

@@ -67,7 +67,7 @@ func _on_interact():
 		
 		var result_name = COMBOS.keys()[current_combo_index]
 		make_result(result_name)
-		print("Chopped apples")
+		print("Completed")
 		
 		current_combo_index += 1
 		current_ingredient_index = 0

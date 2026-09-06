@@ -3,6 +3,7 @@ extends PlayerMovement
 
 func _ready():
 	# $RecipeButton.hide()
+	VoiceChat.sound_enabled = false
 	pass
 	
 

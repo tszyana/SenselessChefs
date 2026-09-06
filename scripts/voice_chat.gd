@@ -13,6 +13,9 @@ var chunk_size := int(AudioServer.get_mix_rate() * CHUNK_DURATION)
 var audio_buffer: Array[Vector2] = []
 var voice_buffer: Array[float] = []
 
+var sound_enabled := true
+var mic_enabled := true
+
 
 func setup(microphone_player: AudioStreamPlayer) -> void:
 	mic = microphone_player
@@ -52,6 +55,8 @@ func _process(_delta: float) -> void:
 	if playback_playback == null:
 		return
 
+	if not sound_enabled:
+		return
 	var available := playback_playback.get_frames_available()
 	
 	#if Engine.get_process_frames() % 60 == 0:
@@ -67,6 +72,9 @@ func _process(_delta: float) -> void:
 		available -= 1
 	
 func process_microphone() -> void:
+	if not mic_enabled:
+		return
+		
 	if capture == null:
 		return
 

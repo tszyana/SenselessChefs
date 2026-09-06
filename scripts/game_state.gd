@@ -9,6 +9,7 @@ enum Role {
 var player_states := {}
 var nickname : String
 var player_order := []
+var sprite : CharacterBody2D
 
 func _ready() -> void:
 	print("GameState initialized!")
@@ -43,5 +44,22 @@ func get_nickname() -> String:
 	else:
 		return ""
 		
+func setup_characters(blind : CharacterBody2D, deaf : CharacterBody2D, mute : CharacterBody2D) -> void:
+	var myId := multiplayer.get_unique_id()
+	var myRole : int = player_states[myId]["role"]
+	
+	if myRole == Role.BLIND:
+		sprite = blind
+		print("im blind")
+		
+	elif myRole == Role.DEAF:
+		sprite = deaf
+		print("im deaf")
+	
+	elif myRole == Role.MUTE:
+		sprite = mute
+		print("im mute")
+	
 
+	
 	

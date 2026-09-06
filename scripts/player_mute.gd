@@ -5,6 +5,7 @@ enum State { POINT, HAPPY, MAD, ONE, TWO, THREE, FOUR, NEUTRAL }
 var state = State.NEUTRAL
 
 func _ready():
+	VoiceChat.mic_enabled = false
 	# $RecipeButton.show()
 	pass
 

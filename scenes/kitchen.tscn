@@ -77,6 +77,13 @@ offset_right = 530.0
 offset_bottom = 988.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("4_bs8bs")
+[node name="MutePlayer" parent="Players" unique_id=102776357 instance=ExtResource("1_01sk3")]
+unique_name_in_owner = true
+position = Vector2(811, 193)
+
+[node name="DeafPlayer" parent="Players" unique_id=1982512972 instance=ExtResource("2_jtesv")]
+unique_name_in_owner = true
+position = Vector2(363, 436)
 
 [node name="TimerBox" type="TextureRect" parent="." unique_id=316662884]
 offset_left = 434.0

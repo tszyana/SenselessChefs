@@ -5,10 +5,17 @@ extends Node2D
 @onready var timer_popup = $Control/TimerPopup
 @onready var pause_popup = $Control/PausePanel
 @onready var recipe_popup = $Control/RecipePanel
+@onready var deaf = $Players/DeafPlayer
+@onready var mute = $Players/MutePlayer
+@onready var blind = $Players/BlindPlayer
 	
 # Called when the node enters the scene tree for the first time.
 func _ready() -> void:
-	pass # Replace with function body.
+	GameState.setup_characters(
+		blind,
+		deaf,
+		mute
+	)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(_delta) -> void:
