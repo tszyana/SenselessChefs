@@ -52,7 +52,6 @@ func _ready() -> void:
 	print("Playback mix rate: ", playback_stream.mix_rate)
 	
 func _process(_delta: float) -> void:
-	return
 	if playback_playback == null:
 		return
 
@@ -75,6 +74,7 @@ func _process(_delta: float) -> void:
 	
 func process_microphone() -> void:
 	if not mic_enabled:
+		mic.stop()
 		return
 		
 	if capture == null:
@@ -100,13 +100,13 @@ func process_microphone() -> void:
 			var pcm_data := audio_chunk_to_pcm(chunk)
 
 			if multiplayer.is_server():
-				print("I am HOST - sending voice directly to clients")
+				#print("I am HOST - sending voice directly to clients")
 				NetworkManager.relay_voice_data(
 				multiplayer.get_unique_id(),
 				pcm_data
 			)
 			else:
-				print("I am CLIENT - sending voice to server")
+				#print("I am CLIENT - sending voice to server")
 				NetworkManager.send_voice_data.rpc(pcm_data)
 
 
