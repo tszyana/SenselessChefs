@@ -2,6 +2,8 @@ extends Node2D
 
 @onready var interactable: Area2D = $Interactable
 @onready var progress_bar: ProgressBar = $ProgressBar
+@onready var trash_drop_point: Marker2D = $TrashDropPoint
+
 
 @export var chop_time := 1.5
 
@@ -46,7 +48,7 @@ func _on_interact():
 	# if correct, then move item to chopping board
 	item.reparent(self)
 	item.position = Vector2.ZERO
-	ingredients.append(item.item_name)
+	ingredients.append(item)
 	
 	current_ingredient_index += 1
 	
@@ -78,8 +80,8 @@ func make_trash(item: Pickable) -> void:
 	item.item_name = "trash"
 	item.update_sprite()
 	
-	item.reparent(self)
-	item.position = Vector2.ZERO
+	item.reparent(get_parent())
+	item.position = trash_drop_point.global_position
 	
 func make_result(result_name: String):
 	var result_item: Pickable = ingredients[0]	

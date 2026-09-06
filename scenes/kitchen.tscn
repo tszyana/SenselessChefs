@@ -242,11 +242,11 @@ position = Vector2(72, 232)
 [node name="TrashCan" parent="Interactables" unique_id=1430967741 instance=ExtResource("5_v3ycp")]
 position = Vector2(1076, 75)
 
-[node name="Pickable" parent="." unique_id=1020376432 instance=ExtResource("12_k1jr4")]
+[node name="Apple" parent="." unique_id=1020376432 instance=ExtResource("12_k1jr4")]
 position = Vector2(860, 370)
 item_name = "apple"
 
-[node name="Pickable2" parent="." unique_id=253672139 instance=ExtResource("12_k1jr4")]
+[node name="Flour" parent="." unique_id=253672139 instance=ExtResource("12_k1jr4")]
 position = Vector2(333, 467)
 item_name = "flour"
 
