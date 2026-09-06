@@ -3,6 +3,8 @@
 [ext_resource type="PackedScene" uid="uid://cd3cbra8hqnsd" path="res://scenes/Interactables/interactable.tscn" id="1_eirmq"]
 [ext_resource type="Script" uid="uid://50i4g6oj07wk" path="res://scripts/stove.gd" id="1_t2o1f"]
 [ext_resource type="Texture2D" uid="uid://bl1mu7frshdn5" path="res://scenes/Images/Kitchen/Stove.png" id="2_oyirk"]
+[ext_resource type="AudioStream" uid="uid://cnwv73bcvo81g" path="res://Sounds/Boiling water sound.mp3" id="4_won77"]
+[ext_resource type="AudioStream" uid="uid://6a60k16tjeuc" path="res://Sounds/Fun trash sound.mp3" id="5_p4ku3"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_25ren"]
 size = Vector2(236.625, 296)
@@ -37,3 +39,9 @@ position = Vector2(219, 20)
 [node name="ProgressBar" type="ProgressBar" parent="." unique_id=1181071361]
 offset_right = 4.0
 offset_bottom = 27.0
+
+[node name="StoveAudio" type="AudioStreamPlayer" parent="." unique_id=2099681317]
+stream = ExtResource("4_won77")
+
+[node name="TrashAudio" type="AudioStreamPlayer" parent="." unique_id=1031611408]
+stream = ExtResource("5_p4ku3")

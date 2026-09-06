@@ -3,6 +3,8 @@
 [ext_resource type="Script" uid="uid://dd21pkgnjli31" path="res://scripts/chopping_board.gd" id="1_1wcpl"]
 [ext_resource type="PackedScene" uid="uid://cd3cbra8hqnsd" path="res://scenes/Interactables/interactable.tscn" id="2_1wcpl"]
 [ext_resource type="Texture2D" uid="uid://c2jb70n5acjcf" path="res://scenes/Images/Kitchen/Cutting board.png" id="2_uftcw"]
+[ext_resource type="AudioStream" uid="uid://24rmedb573pg" path="res://Sounds/chopping sound.mp3" id="4_k15kk"]
+[ext_resource type="AudioStream" uid="uid://6a60k16tjeuc" path="res://Sounds/Fun trash sound.mp3" id="5_hw2ax"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3xp1"]
 size = Vector2(113, 130)
@@ -36,3 +38,9 @@ offset_bottom = 27.0
 
 [node name="DropPoint" type="Marker2D" parent="." unique_id=271997393]
 position = Vector2(-143, 31)
+
+[node name="ChoppityChopChop" type="AudioStreamPlayer" parent="." unique_id=2088330561]
+stream = ExtResource("4_k15kk")
+
+[node name="Trash" type="AudioStreamPlayer" parent="." unique_id=865219739]
+stream = ExtResource("5_hw2ax")

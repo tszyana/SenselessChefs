@@ -63,6 +63,10 @@ func setup_characters(blind : CharacterBody2D, deaf : CharacterBody2D, mute : Ch
 		VoiceChat.mic_enabled = false
 
 		print("im mute")
+
+		
+
+	
 	
 
 	

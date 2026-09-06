@@ -12,4 +12,5 @@ func _process(delta: float) -> void:
 
 
 func _on_to_menu_pressed() -> void:
+	$ButtonSound.play()
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

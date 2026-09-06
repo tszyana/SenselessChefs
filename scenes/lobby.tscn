@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://cebiquewu2ugd" path="res://scenes/Images/Lobby/Blind bean selection again lol.png" id="5_07nfq"]
 [ext_resource type="Texture2D" uid="uid://badn80oq5shv" path="res://scenes/Images/Lobby/Back button.png" id="5_yad6j"]
 [ext_resource type="Texture2D" uid="uid://t86rgcykw774" path="res://scenes/Images/Lobby/Nickname thibg again.png" id="6_oipnb"]
+[ext_resource type="AudioStream" uid="uid://mbu31f4s7dfd" path="res://Sounds/Button_pickup.mp3" id="10_oipnb"]
+[ext_resource type="AudioStream" uid="uid://bs7p73iu5bye1" path="res://Sounds/Start game sound.mp3" id="10_yad6j"]
 
 [node name="Lobby" type="Control" unique_id=1403267576]
 layout_mode = 3
@@ -200,6 +202,12 @@ offset_bottom = 563.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Mute holder"
 horizontal_alignment = 1
+
+[node name="StartAudio" type="AudioStreamPlayer" parent="." unique_id=5197751]
+stream = ExtResource("10_yad6j")
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="." unique_id=1606958759]
+stream = ExtResource("10_oipnb")
 
 [connection signal="pressed" from="ReadyButton" to="." method="_on_ready_button_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
