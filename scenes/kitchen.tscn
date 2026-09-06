@@ -13,6 +13,7 @@
 [ext_resource type="Texture2D" uid="uid://c71vosplqqaj3" path="res://scenes/Images/Kitchen/Mute icon.png" id="5_k0mf2"]
 [ext_resource type="PackedScene" uid="uid://7hlc4mek7gko" path="res://scenes/Interactables/trash_can.tscn" id="5_v3ycp"]
 [ext_resource type="PackedScene" uid="uid://dmd8rymf6026l" path="res://scenes/counter.tscn" id="5_vpxcu"]
+[ext_resource type="FontFile" uid="uid://c22iag4yc2gdq" path="res://Caveat-VariableFont_wght.ttf" id="6_1gswy"]
 [ext_resource type="PackedScene" uid="uid://c4ttutrhtahdw" path="res://scenes/Interactables/stove.tscn" id="6_k1jr4"]
 [ext_resource type="Texture2D" uid="uid://t86rgcykw774" path="res://scenes/Images/Lobby/Nickname thibg again.png" id="7_k1cyo"]
 [ext_resource type="PackedScene" uid="uid://bjaxlx2vuqd5t" path="res://scenes/Interactables/chopping_board.tscn" id="7_umms5"]
@@ -140,16 +141,19 @@ alignment = 1
 [node name="BlindLabel" type="Label" parent="Control2/HBoxContainer" unique_id=2089083079]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_1gswy")
 text = "BLIND"
 
 [node name="DeafLabel" type="Label" parent="Control2/HBoxContainer" unique_id=333487144]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_1gswy")
 text = "DEAF"
 
 [node name="MuteLabel" type="Label" parent="Control2/HBoxContainer" unique_id=813909466]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_1gswy")
 text = "MUTE"
 
 [node name="Floor" type="TextureRect" parent="Control2" unique_id=1096887720]
@@ -212,6 +216,8 @@ offset_top = 40.0
 offset_right = 643.0
 offset_bottom = 89.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_1gswy")
+theme_override_font_sizes/font_size = 26
 text = "Timer Placeholder
 "
 horizontal_alignment = 1
@@ -260,7 +266,8 @@ offset_top = 55.0
 offset_right = 220.0
 offset_bottom = 90.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 25
+theme_override_fonts/font = ExtResource("6_1gswy")
+theme_override_font_sizes/font_size = 37
 text = "Time up!"
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Control/TimerPopup" unique_id=1247174414]
@@ -274,12 +281,16 @@ theme_override_constants/separation = 34
 [node name="RestartButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=406307531]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_1gswy")
+theme_override_font_sizes/font_size = 19
 text = "Restart"
 flat = true
 
 [node name="MainMenuButton" type="Button" parent="Control/TimerPopup/VBoxContainer" unique_id=1429031911]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_1gswy")
+theme_override_font_sizes/font_size = 18
 text = "Main Menu"
 flat = true
 
@@ -319,9 +330,11 @@ offset_top = 44.0
 offset_right = 293.0
 offset_bottom = 125.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 28
+theme_override_fonts/font = ExtResource("6_1gswy")
+theme_override_font_sizes/font_size = 35
 text = "GAME PAUSED
 "
+horizontal_alignment = 1
 
 [node name="Resume" type="TextureRect" parent="Control/PausePanel" unique_id=2079473307]
 layout_mode = 0
@@ -353,6 +366,8 @@ theme_override_constants/separation = 81
 process_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_1gswy")
+theme_override_font_sizes/font_size = 17
 text = "Resume Game
 "
 flat = true
@@ -361,6 +376,8 @@ flat = true
 process_mode = 2
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_1gswy")
+theme_override_font_sizes/font_size = 20
 text = "Main Menu"
 flat = true
 
@@ -372,6 +389,7 @@ offset_top = 607.0
 offset_right = 102.0
 offset_bottom = 642.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_1gswy")
 text = "RECIPE"
 flat = true
 
@@ -420,16 +438,20 @@ offset_top = 16.0
 offset_right = 238.0
 offset_bottom = 49.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_1gswy")
+theme_override_font_sizes/font_size = 22
 text = "Apple Pie Recipe"
 horizontal_alignment = 1
 
 [node name="IngredientLabel" type="Label" parent="Control/RecipePanel" unique_id=479594431]
 layout_mode = 0
 offset_left = 9.0
-offset_top = 42.0
+offset_top = 50.0
 offset_right = 335.0
-offset_bottom = 273.0
+offset_bottom = 281.0
 theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_fonts/font = ExtResource("6_1gswy")
+theme_override_font_sizes/font_size = 23
 text = "(MUST BE EXACT ORDER):
 put flour, egg, salt on chopping board
 put apple on chopping board 
@@ -474,7 +496,7 @@ position = Vector2(811, 193)
 position = Vector2(355, 480)
 
 [node name="BlindPlayer" parent="Players" unique_id=1426497895 instance=ExtResource("3_c621a")]
-position = Vector2(508, 529)
+position = Vector2(284, 528)
 holding_sprite = SubResource("CompressedTexture2D_fr5pv")
 
 [node name="Ingredients" type="Node2D" parent="." unique_id=843869042]

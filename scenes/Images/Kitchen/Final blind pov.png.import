@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://b6t0b7ytgjnx6"
-path="res://.godot/imported/blind kitchen.png-c6d1b3fad1ce3f5947075588619d0d46.ctex"
+uid="uid://bqps4hnvdlexu"
+path="res://.godot/imported/Final blind pov.png-78476b8ed843053530dd4e01aee56825.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://scenes/Images/Kitchen/blind kitchen.png"
-dest_files=["res://.godot/imported/blind kitchen.png-c6d1b3fad1ce3f5947075588619d0d46.ctex"]
+source_file="res://scenes/Images/Kitchen/Final blind pov.png"
+dest_files=["res://.godot/imported/Final blind pov.png-78476b8ed843053530dd4e01aee56825.ctex"]
 
 [params]
 
