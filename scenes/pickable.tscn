@@ -1,17 +1,19 @@
 [gd_scene format=3 uid="uid://eeslpywkmiwd"]
 
 [ext_resource type="Script" uid="uid://kf08dj82ua66" path="res://scripts/pickable.gd" id="1_tr2q0"]
-[ext_resource type="Texture2D" uid="uid://cq05kg8a0kkrb" path="res://icon.svg" id="2_ue70n"]
+[ext_resource type="Texture2D" uid="uid://chrd8ljswo33m" path="res://scenes/Images/Kitchen/Foodness/Empty bowl_.png" id="2_tr2q0"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_sqblf"]
+radius = 7.515612
 
 [node name="Pickable" type="Area2D" unique_id=253672139]
 script = ExtResource("1_tr2q0")
 item_name = "pickable"
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=356093545]
-texture = ExtResource("2_ue70n")
+scale = Vector2(0.75, 0.75)
+texture = ExtResource("2_tr2q0")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1044167228]
-scale = Vector2(2.0355973, 1.9829978)
+scale = Vector2(5.698154, 4.667206)
 shape = SubResource("CircleShape2D_sqblf")

@@ -7,8 +7,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_twnsb"]
 size = Vector2(96.5, 172.75)
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_0wdwo"]
-height = 35.899086
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_oyirk"]
+size = Vector2(14.999328, 43.784073)
 
 [node name="Oven" type="Node2D" unique_id=936247304]
 script = ExtResource("1_mlgeb")
@@ -26,9 +26,10 @@ shape = SubResource("RectangleShape2D_twnsb")
 interact_name = "Oven"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=233335410]
-position = Vector2(56, 25)
-scale = Vector2(6.560094, 5.747325)
-shape = SubResource("CapsuleShape2D_0wdwo")
+position = Vector2(106.00699, 17.500004)
+rotation = -3.1415925
+scale = Vector2(10.401399, -3.4487426)
+shape = SubResource("RectangleShape2D_oyirk")
 
 [node name="DropPoint" type="Marker2D" parent="." unique_id=1264392771]
 position = Vector2(116, 31)

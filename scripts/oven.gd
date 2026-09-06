@@ -64,7 +64,7 @@ func _on_interact():
 		interactable.is_interactable = false
 		
 		#print("Baking ", item.item_name) # placeholder for sprite change??
-		player.state = player.state.BAKE
+		player.state = player.State.BAKE
 		await get_tree().create_timer(bake_time).timeout
 		
 		var result_name = COMBOS.keys()[current_combo_index]
@@ -107,7 +107,6 @@ func make_result(result_name: String):
 	
 	
 	ingredients.clear()
-	ingredients.append(result_item)
 
 func end_game() -> void:
 	print("GAME COMPLETE")

@@ -57,6 +57,30 @@ func _process(delta: float) -> void:
 	pass
 "
 
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fr5pv"]
+load_path = "res://.godot/imported/Blind potat holding.png-1a5003d91b9af23924dd13163f2f472f.ctex"
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqp8a"]
+size = Vector2(145, 1043.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6t4w"]
+size = Vector2(212, 442)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twnsb"]
+size = Vector2(61.984833, 545.5303)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25ren"]
+size = Vector2(44.89647, 353)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3xp1"]
+size = Vector2(40.298584, 298.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ixu5"]
+size = Vector2(96.09607, 567.21844)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_bh1ot"]
+size = Vector2(18, 1169)
+
 [node name="Kitchen" type="Node2D" unique_id=1947100178]
 script = ExtResource("1_g3o0j")
 
@@ -307,15 +331,6 @@ offset_bottom = 178.0
 texture = ExtResource("7_k1cyo")
 expand_mode = 1
 
-[node name="Restart" type="TextureRect" parent="Control/PausePanel" unique_id=849233980]
-layout_mode = 0
-offset_left = 98.0
-offset_top = 193.0
-offset_right = 279.0
-offset_bottom = 235.0
-texture = ExtResource("7_k1cyo")
-expand_mode = 1
-
 [node name="Main" type="TextureRect" parent="Control/PausePanel" unique_id=57404824]
 layout_mode = 0
 offset_left = 98.0
@@ -331,7 +346,7 @@ offset_left = 118.0
 offset_top = 142.0
 offset_right = 261.0
 offset_bottom = 278.0
-theme_override_constants/separation = 25
+theme_override_constants/separation = 81
 
 [node name="ResumeButton" type="Button" parent="Control/PausePanel/VBoxContainer" unique_id=838727722]
 process_mode = 2
@@ -339,13 +354,6 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Resume Game
 "
-flat = true
-
-[node name="RestartButton2" type="Button" parent="Control/PausePanel/VBoxContainer" unique_id=406916995]
-process_mode = 2
-layout_mode = 2
-theme_override_colors/font_color = Color(0, 0, 0, 1)
-text = "Restart"
 flat = true
 
 [node name="MainMenuButton2" type="Button" parent="Control/PausePanel/VBoxContainer" unique_id=1837142842]
@@ -432,7 +440,7 @@ Pour butter
 Bake"
 
 [node name="Timer" type="Timer" parent="." unique_id=1406045070]
-wait_time = 100.0
+wait_time = 300.0
 one_shot = true
 autostart = true
 script = SubResource("GDScript_v3ycp")
@@ -465,37 +473,137 @@ position = Vector2(1037, 339)
 position = Vector2(811, 193)
 
 [node name="DeafPlayer" parent="Players" unique_id=2124090561 instance=ExtResource("2_jtesv")]
-position = Vector2(363, 436)
+position = Vector2(355, 480)
 
 [node name="BlindPlayer" parent="Players" unique_id=1426497895 instance=ExtResource("3_c621a")]
-position = Vector2(352, 190)
+position = Vector2(508, 529)
+holding_sprite = SubResource("CompressedTexture2D_fr5pv")
 
 [node name="Egg" parent="." unique_id=253672139 instance=ExtResource("12_k1jr4")]
-position = Vector2(661, 515)
+position = Vector2(459, 338)
 item_name = "egg"
 
 [node name="Apple" parent="." unique_id=1020376432 instance=ExtResource("12_k1jr4")]
-position = Vector2(784, 159)
+position = Vector2(705, 208)
 item_name = "apple"
 
 [node name="Flour" parent="." unique_id=1281105868 instance=ExtResource("12_k1jr4")]
-position = Vector2(406, 379)
+position = Vector2(479, 202)
 item_name = "flour"
 
 [node name="Salt" parent="." unique_id=545221216 instance=ExtResource("12_k1jr4")]
-position = Vector2(814, 373)
+position = Vector2(720, 346)
+
+[node name="Ingredients" type="Node2D" parent="." unique_id=843869042]
+
+[node name="Egg" parent="Ingredients" unique_id=1470648083 instance=ExtResource("12_k1jr4")]
+position = Vector2(482, 318)
+item_name = "egg"
+
+[node name="Egg2" parent="Ingredients" unique_id=1660858788 instance=ExtResource("12_k1jr4")]
+position = Vector2(486, 293)
+item_name = "egg"
+
+[node name="Apple" parent="Ingredients" unique_id=853992707 instance=ExtResource("12_k1jr4")]
+position = Vector2(672, 245)
+item_name = "apple"
+
+[node name="Apple2" parent="Ingredients" unique_id=550084808 instance=ExtResource("12_k1jr4")]
+position = Vector2(661, 217)
+item_name = "apple"
+
+[node name="Flour" parent="Ingredients" unique_id=738480724 instance=ExtResource("12_k1jr4")]
+position = Vector2(672, 291)
+item_name = "flour"
+
+[node name="Flour2" parent="Ingredients" unique_id=842143383 instance=ExtResource("12_k1jr4")]
+position = Vector2(671, 322)
+item_name = "flour"
+
+[node name="Flour3" parent="Ingredients" unique_id=61839995 instance=ExtResource("12_k1jr4")]
+position = Vector2(637, 306)
+item_name = "flour"
+
+[node name="Salt" parent="Ingredients" unique_id=457091022 instance=ExtResource("12_k1jr4")]
+position = Vector2(654, 358)
 item_name = "salt"
+
+[node name="Salt2" parent="Ingredients" unique_id=2134629689 instance=ExtResource("12_k1jr4")]
+position = Vector2(678, 367)
+item_name = "salt"
+
+[node name="Butter" parent="Ingredients" unique_id=2137825650 instance=ExtResource("12_k1jr4")]
+position = Vector2(481, 367)
+item_name = "butter"
+
+[node name="Butter2" parent="Ingredients" unique_id=1913737223 instance=ExtResource("12_k1jr4")]
+position = Vector2(529, 370)
+item_name = "butter"
+
+[node name="Water" parent="Ingredients" unique_id=318132919 instance=ExtResource("12_k1jr4")]
+position = Vector2(495, 239)
+item_name = "water"
+
+[node name="Water2" parent="Ingredients" unique_id=390111104 instance=ExtResource("12_k1jr4")]
+position = Vector2(495, 210)
+item_name = "water"
+
+[node name="Banana" parent="Ingredients" unique_id=592148799 instance=ExtResource("12_k1jr4")]
+position = Vector2(578, 267)
+item_name = "banana"
+
+[node name="Potato" parent="Ingredients" unique_id=212591153 instance=ExtResource("12_k1jr4")]
+position = Vector2(567, 207)
+item_name = "potato"
 
 [node name="MicTest" parent="." unique_id=393791460 instance=ExtResource("11_vpxcu")]
 
 [node name="CompletionScreen" parent="." unique_id=1013272756 instance=ExtResource("24_fr5pv")]
 visible = false
 
+[node name="InvisBoundary" type="Node2D" parent="." unique_id=1588431414]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="InvisBoundary" unique_id=1700253672]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="InvisBoundary/StaticBody2D" unique_id=1078014308]
+position = Vector2(630.25, 75)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_vqp8a")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="InvisBoundary/StaticBody2D" unique_id=2111997347]
+position = Vector2(580, 280)
+shape = SubResource("RectangleShape2D_d6t4w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisBoundary/StaticBody2D" unique_id=1440864390]
+position = Vector2(197.05952, 398.8356)
+rotation = 0.3228859
+shape = SubResource("RectangleShape2D_twnsb")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="InvisBoundary/StaticBody2D" unique_id=1964528866]
+position = Vector2(481.02484, 246.36067)
+rotation = 0.17627822
+shape = SubResource("RectangleShape2D_25ren")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="InvisBoundary/StaticBody2D" unique_id=304026146]
+position = Vector2(675.946, 275.07837)
+rotation = -0.17627823
+shape = SubResource("RectangleShape2D_r3xp1")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="InvisBoundary/StaticBody2D" unique_id=2076426682]
+position = Vector2(1035.0107, 378.9465)
+rotation = -0.34906578
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_8ixu5")
+
+[node name="CollisionShape2D7" type="CollisionShape2D" parent="InvisBoundary/StaticBody2D" unique_id=197993538]
+position = Vector2(586, 655)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_bh1ot")
+
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="Control/PauseButton" to="." method="_on_pause_button_pressed"]
 [connection signal="pressed" from="Control/PausePanel/VBoxContainer/ResumeButton" to="." method="_on_resume_button_pressed"]
-[connection signal="pressed" from="Control/PausePanel/VBoxContainer/RestartButton2" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Control/PausePanel/VBoxContainer/MainMenuButton2" to="." method="_on_main_menu_button_pressed"]
 [connection signal="pressed" from="Control/RecipeButton" to="." method="_on_recipe_button_pressed"]
 [connection signal="pressed" from="Control/RecipePanel/CloseButton" to="." method="_on_close_button_pressed"]

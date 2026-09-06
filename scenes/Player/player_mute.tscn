@@ -3,7 +3,8 @@
 [ext_resource type="Script" uid="uid://bkmkatvx4bi6o" path="res://scripts/player_mute.gd" id="1_oafx3"]
 [ext_resource type="Texture2D" uid="uid://1kfv0hdb45p" path="res://scenes/Images/Kitchen/Mute potato.png" id="2_2xtqj"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_0wdwo"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_vqp8a"]
+radius = 63.07139
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_2xtqj"]
 properties/0/path = NodePath(".:position")
@@ -23,9 +24,9 @@ script = ExtResource("1_oafx3")
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_2xtqj")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1744599076]
-scale = Vector2(6.0400004, 6.2799993)
-shape = SubResource("RectangleShape2D_0wdwo")
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=313374674]
+position = Vector2(-7, 51)
+shape = SubResource("CircleShape2D_vqp8a")
 
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=523702272]
 replication_config = SubResource("SceneReplicationConfig_2xtqj")
