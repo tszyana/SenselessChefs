@@ -2,6 +2,7 @@
 
 [ext_resource type="Script" uid="uid://co7xoccvh2rpq" path="res://scripts/trash_can.gd" id="1_5w0rd"]
 [ext_resource type="PackedScene" uid="uid://cd3cbra8hqnsd" path="res://scenes/Interactables/interactable.tscn" id="1_e4c1l"]
+[ext_resource type="Texture2D" uid="uid://b3qd6y3ccmjkb" path="res://scenes/Images/Kitchen/Trash.png" id="2_a6ngj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_bems3"]
 size = Vector2(103, 103)
@@ -13,6 +14,7 @@ radius = 96.0205
 script = ExtResource("1_5w0rd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=312497366]
+texture = ExtResource("2_a6ngj")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2020991871]
 
