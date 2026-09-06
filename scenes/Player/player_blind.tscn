@@ -45,6 +45,7 @@ position = Vector2(57, -191)
 
 [node name="BlindnessOverlay" type="CanvasLayer" parent="." unique_id=153963704]
 layer = 100
+visible = false
 
 [node name="Darkness" type="ColorRect" parent="BlindnessOverlay" unique_id=1556433882]
 anchors_preset = 15
