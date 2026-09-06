@@ -18,15 +18,18 @@ func _ready() -> void:
 	progress_bar.hide()
 
 func _on_interact():
+	var player = get_tree().get_first_node_in_group("player_blind")
+
 	if current_combo_index >= COMBOS.size():
-		print("All recipes are completed")
+		#print("All recipes are completed")
+		player.message_bubble.show_message()
 		return
 		
 	# if player is holding object??
-	var player = get_tree().get_first_node_in_group("player_blind")
 	
 	if not player.carrying_item:
-		print("Not holding anything u dummy")
+		#print("not carrying anything")
+		player.message_bubble.show_message()
 		return
 	
 	var item = player.remove_item()	
@@ -38,7 +41,8 @@ func _on_interact():
 	# wrong ingredient
 	if item.item_name != expected_ingredient:		
 		make_trash(item)
-		print("Wrong ingredient doofus")
+		#print("Wrong ingredient doofus")
+		player.message_bubble.show_message()
 		return
 	
 	# if correct, then move item to chopping board
@@ -58,7 +62,7 @@ func _on_interact():
 		player.can_move = false
 		interactable.is_interactable = false
 		
-		print("Baking ", item.item_name) # placeholder for sprite change??
+		#print("Baking ", item.item_name) # placeholder for sprite change??
 		player.state = player.state.BAKE
 		await get_tree().create_timer(bake_time).timeout
 		
@@ -68,7 +72,7 @@ func _on_interact():
 		if result_name == "apple_pie":
 			end_game()
 		
-		print("Completed")
+		#print("Completed")
 		
 		current_combo_index += 1
 		current_ingredient_index = 0

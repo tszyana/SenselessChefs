@@ -1,0 +1,10 @@
+[gd_scene format=3 uid="uid://d4ndqv2dxs67x"]
+
+[ext_resource type="Script" uid="uid://cxwall6stmkg7" path="res://scripts/message_bubble.gd" id="1_6h6s8"]
+[ext_resource type="Texture2D" uid="uid://1nlxtkbgfhk7" path="res://scenes/Images/Kitchen/Bubbles/X bubble.png" id="1_dowyy"]
+
+[node name="MessageBubble" type="Node2D" unique_id=196493097]
+script = ExtResource("1_6h6s8")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=1156467254]
+texture = ExtResource("1_dowyy")

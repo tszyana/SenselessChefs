@@ -11,11 +11,11 @@ func _on_interact():
 	var player = get_tree().get_first_node_in_group("player_blind")
 	
 	if not player.carrying_item:
-		print("Nothing to throw u dummy")
+		#print("Nothing to throw u dummy")
+		player.message_bubble.show_message()
 		return
 	else:
-		print("Tossing into da trash")
+		#print("Tossing into da trash")
 		# get the pickable thing and delete it
-		player.carrying_item = false
-
-	interactable.is_interactable = false
+		var item = player.remove_item()
+		item.queue_free()

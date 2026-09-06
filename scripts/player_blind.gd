@@ -4,6 +4,7 @@ extends PlayerMovement
 @onready var hand_position: Marker2D = $HandPosition
 @onready var kitchen: Node2D = $"../.."
 @onready var sprite_2d: Sprite2D = $Sprite2D
+@onready var message_bubble: MessageBubble = $MessageBubble
 
 @export var holding_sprite: Texture2D
 @export var chopping_sprite: Texture2D
