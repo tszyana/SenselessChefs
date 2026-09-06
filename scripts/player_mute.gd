@@ -1,8 +1,8 @@
 # mute player
 extends PlayerMovement
 
-enum State { POINT, HAPPY, MAD, ONE, TWO, THREE, FOUR, NEUTRAL }
-var state = State.NEUTRAL
+enum State { POINT, HAPPY, MAD, ONE, TWO, THREE, FOUR }
+var state = null
 
 func _ready():
 	VoiceChat.mic_enabled = false
@@ -29,8 +29,6 @@ func _process(delta):
 		state = State.HAPPY
 	if Input.is_action_just_pressed("mad"):
 		state = State.MAD
-	if Input.is_action_just_pressed("neutral"):
-		state = State.NEUTRAL
 
 func update_gesture_sprite() -> void:
 	match state:
@@ -54,7 +52,4 @@ func update_gesture_sprite() -> void:
 			pass
 		State.FOUR:
 			#$Sprite2D.texture = preload("res://scenes/Images/four.png")
-			pass
-		State.NEUTRAL:
-			#$Sprite2D.texture = preload("res://scenes/Images/neutral.jpeg")
 			pass
