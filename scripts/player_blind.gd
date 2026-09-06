@@ -13,7 +13,8 @@ extends PlayerMovement
 
 @onready var darkness: ColorRect = $BlindnessOverlay/Darkness
 @onready var blindness_overlay: CanvasLayer = $BlindnessOverlay
-@onready var blind_world: Sprite2D = $BlindWorld
+@onready var blind_world_layer: CanvasLayer = $BlindWorldLayer
+@onready var blind_world: Sprite2D = $BlindWorldLayer/BlindWorld
 
 enum State { MOVE, HOLD, CHOP, STIR, BAKE }
 var state = State.MOVE
@@ -24,13 +25,7 @@ var user_id : int
 func _physics_process(delta: float) -> void:
 	if not is_multiplayer_authority():
 		return
-	if is_multiplayer_authority():
-		darkness.player = self
-		blindness_overlay.visible = true
-		kitchen.visible = true
-		blind_world.visible = true
-	else:
-		blindness_overlay.visible = false
+	
 	process_movement()
 	update_action_sprite()
 	pickup_object()
@@ -106,8 +101,14 @@ func _on_vision_area_area_exited(area: Area2D) -> void:
 		
 func _ready():
 	#$RecipeButton.hide()
-	blind_world.global_position = kitchen.global_position
 	print("auth user id: ", get_multiplayer_authority())
-	
-
-	
+	if is_multiplayer_authority():
+		var viewport_size = get_viewport().get_visible_rect().size
+		blind_world.global_position = viewport_size / 2
+		darkness.player = self
+		blindness_overlay.visible = true
+		blind_world_layer.visible = true
+	else:
+		blindness_overlay.visible = false
+		blind_world_layer.visible = false
+	print(blind_world.is_visible_in_tree())
