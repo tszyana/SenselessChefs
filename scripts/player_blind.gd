@@ -3,8 +3,15 @@ extends PlayerMovement
 
 @onready var hand_position: Marker2D = $HandPosition
 @onready var kitchen: Node2D = $"../.."
+@onready var sprite_2d: Sprite2D = $Sprite2D
 
-enum State { MOVE, HOLD, CHOP, STIR}
+@export var holding_sprite: Texture2D
+@export var chopping_sprite: Texture2D
+@export var stirring_sprite: Texture2D
+@export var oven_sprite: Texture2D
+
+
+enum State { MOVE, HOLD, CHOP, STIR, BAKE }
 var state = State.MOVE
 var carrying_item: bool = false
 var held_item: Pickable = null
@@ -22,13 +29,15 @@ func _physics_process(delta: float) -> void:
 func update_action_sprite() -> void:
 	match state:
 		State.MOVE:
-			pass
+			return
 		State.HOLD:
-			pass
+			sprite.texture = holding_sprite
 		State.CHOP:
-			pass
+			sprite.texture = chopping_sprite
 		State.STIR:
-			pass
+			sprite.texture = stirring_sprite
+		State.BAKE:
+			sprite.texture = oven_sprite
 
 func get_item() -> Pickable:
 	return held_item

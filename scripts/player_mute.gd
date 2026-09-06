@@ -1,8 +1,8 @@
 # mute player
 extends PlayerMovement
 
-enum State { POINT, HAPPY, MAD, ONE, TWO, THREE, FOUR, NEUTRAL }
-var state = State.NEUTRAL
+enum State { POINT, HAPPY, MAD, ONE, TWO, THREE, FOUR }
+var state = null
 
 func _ready():
 	# $RecipeButton.show()
@@ -30,20 +30,18 @@ func _process(delta):
 		state = State.HAPPY
 	if Input.is_action_just_pressed("mad"):
 		state = State.MAD
-	if Input.is_action_just_pressed("neutral"):
-		state = State.NEUTRAL
 
 func update_gesture_sprite() -> void:
 	match state:
 		State.POINT:
-			#$Sprite2D.texture = preload("res://scenes/Images/pointing.jpeg")
-			pass
+			$Sprite2D.texture = preload("res://scenes/Images/Gestures/Point_gesture.png")
+			#pass
 		State.HAPPY:
-			#$Sprite2D.texture = preload("res://scenes/Images/happy.jpeg")
-			pass
+			$Sprite2D.texture = preload("res://scenes/Images/Gestures/Happy_gesture.png")
+			#pass
 		State.MAD:
-			#$Sprite2D.texture = preload("res://scenes/Images/mad.jpeg")
-			pass
+			$Sprite2D.texture = preload("res://scenes/Images/Gestures/Angry_gesture.png")
+			#pass
 		State.ONE:
 			#$Sprite2D.texture = preload("res://scenes/Images/one.jpeg")
 			pass
@@ -55,7 +53,4 @@ func update_gesture_sprite() -> void:
 			pass
 		State.FOUR:
 			#$Sprite2D.texture = preload("res://scenes/Images/four.png")
-			pass
-		State.NEUTRAL:
-			#$Sprite2D.texture = preload("res://scenes/Images/neutral.jpeg")
 			pass

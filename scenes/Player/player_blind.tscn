@@ -2,7 +2,11 @@
 
 [ext_resource type="Script" uid="uid://cj52ugtxgj3r5" path="res://scripts/player_blind.gd" id="1_gsrh2"]
 [ext_resource type="Texture2D" uid="uid://dgoqlueoir064" path="res://scenes/Images/Kitchen/Blind potato.png" id="2_dbby7"]
+[ext_resource type="Texture2D" uid="uid://dgnjd2wjtweq1" path="res://scenes/Images/Gestures/Holding_gesture.png" id="2_qoov5"]
+[ext_resource type="Texture2D" uid="uid://c3a4gdw1tcmlm" path="res://scenes/Images/Gestures/Blind potato cut.png" id="3_nqqjh"]
 [ext_resource type="PackedScene" uid="uid://b6wyyexfj4133" path="res://scenes/Interactables/interacting_component.tscn" id="3_sfju2"]
+[ext_resource type="Texture2D" uid="uid://dojt14oroevpb" path="res://scenes/Images/Gestures/Blind potato cooking pot.png" id="4_xxg4r"]
+[ext_resource type="Texture2D" uid="uid://cqnkam8x6jtyf" path="res://scenes/Images/Gestures/Blind potato oven.png" id="5_evyjb"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_0wdwo"]
 radius = 131.03435
@@ -11,6 +15,10 @@ radius = 131.03435
 
 [node name="BlindPlayer" type="CharacterBody2D" unique_id=102776357 groups=["player_blind"]]
 script = ExtResource("1_gsrh2")
+holding_sprite = ExtResource("2_qoov5")
+chopping_sprite = ExtResource("3_nqqjh")
+stirring_sprite = ExtResource("4_xxg4r")
+oven_sprite = ExtResource("5_evyjb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1505591876]
 scale = Vector2(0.6, 0.6)

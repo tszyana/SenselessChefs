@@ -6,8 +6,11 @@
 [ext_resource type="Texture2D" uid="uid://dnkoxpdwti4i7" path="res://scenes/Images/Kitchen/Kitchen wall.png" id="2_umms5"]
 [ext_resource type="PackedScene" uid="uid://bn2k5w2cgyjes" path="res://scenes/Player/player_blind.tscn" id="3_c621a"]
 [ext_resource type="Texture2D" uid="uid://cgfwnv4ia4hbq" path="res://scenes/Images/Kitchen/Kitchen floor.png" id="3_ktc20"]
+[ext_resource type="Texture2D" uid="uid://d2cjk74vhr4fm" path="res://scenes/Images/Kitchen/Blind icon.png" id="3_n55t6"]
 [ext_resource type="Texture2D" uid="uid://dpiedg1ea86f6" path="res://scenes/Images/Kitchen/Left kitchen counter.png" id="4_bs8bs"]
+[ext_resource type="Texture2D" uid="uid://1ay8vgkua2a4" path="res://scenes/Images/Kitchen/Deaf icon.png" id="4_fr5pv"]
 [ext_resource type="Texture2D" uid="uid://d07ql8nfuwjh4" path="res://scenes/Images/Kitchen/Recipe paper.png" id="5_87bic"]
+[ext_resource type="Texture2D" uid="uid://c71vosplqqaj3" path="res://scenes/Images/Kitchen/Mute icon.png" id="5_k0mf2"]
 [ext_resource type="PackedScene" uid="uid://7hlc4mek7gko" path="res://scenes/Interactables/trash_can.tscn" id="5_v3ycp"]
 [ext_resource type="PackedScene" uid="uid://dmd8rymf6026l" path="res://scenes/counter.tscn" id="5_vpxcu"]
 [ext_resource type="PackedScene" uid="uid://c4ttutrhtahdw" path="res://scenes/Interactables/stove.tscn" id="6_k1jr4"]
@@ -20,6 +23,7 @@
 [ext_resource type="PackedScene" uid="uid://eeslpywkmiwd" path="res://scenes/pickable.tscn" id="12_k1jr4"]
 [ext_resource type="Texture2D" uid="uid://brmwivuxseei8" path="res://scenes/Images/Kitchen/Timer box.png" id="17_k1cyo"]
 [ext_resource type="Texture2D" uid="uid://dwrdnktetq8aw" path="res://scenes/Images/Kitchen/Pause.png" id="18_3fy06"]
+[ext_resource type="PackedScene" uid="uid://4j578japq3xm" path="res://scenes/completion_screen.tscn" id="24_fr5pv"]
 
 [sub_resource type="GDScript" id="GDScript_bems3"]
 script/source = "extends Label
@@ -56,13 +60,75 @@ func _process(delta: float) -> void:
 [node name="Kitchen" type="Node2D" unique_id=1947100178]
 script = ExtResource("1_g3o0j")
 
-[node name="KitchenWall" type="TextureRect" parent="." unique_id=1732125164]
+[node name="Control2" type="Control" parent="." unique_id=332867463]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="KitchenWall" type="TextureRect" parent="Control2" unique_id=1732125164]
+layout_mode = 0
 offset_right = 1920.0
 offset_bottom = 826.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_umms5")
 
-[node name="Floor" type="TextureRect" parent="." unique_id=1096887720]
+[node name="BlindIcon" type="TextureRect" parent="Control2" unique_id=1126917929]
+layout_mode = 0
+offset_left = 774.00006
+offset_top = 3.0
+offset_right = 905.00006
+offset_bottom = 150.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("3_n55t6")
+expand_mode = 1
+
+[node name="DeafIcon" type="TextureRect" parent="Control2" unique_id=678997718]
+layout_mode = 0
+offset_left = 873.0
+offset_top = 3.0
+offset_right = 1005.99994
+offset_bottom = 151.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("4_fr5pv")
+expand_mode = 1
+
+[node name="MuteIcon" type="TextureRect" parent="Control2" unique_id=916777773]
+layout_mode = 0
+offset_left = 971.00006
+offset_top = 2.0
+offset_right = 1100.0
+offset_bottom = 149.0
+scale = Vector2(0.6, 0.6)
+texture = ExtResource("5_k0mf2")
+expand_mode = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Control2" unique_id=1205409455]
+layout_mode = 0
+offset_left = 776.0
+offset_top = 57.0
+offset_right = 1046.0
+offset_bottom = 97.0
+theme_override_constants/separation = 56
+alignment = 1
+
+[node name="BlindLabel" type="Label" parent="Control2/HBoxContainer" unique_id=2089083079]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "BLIND"
+
+[node name="DeafLabel" type="Label" parent="Control2/HBoxContainer" unique_id=333487144]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "DEAF"
+
+[node name="MuteLabel" type="Label" parent="Control2/HBoxContainer" unique_id=813909466]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+text = "MUTE"
+
+[node name="Floor" type="TextureRect" parent="Control2" unique_id=1096887720]
+layout_mode = 0
 offset_left = 202.0
 offset_top = 260.0
 offset_right = 1537.0
@@ -70,7 +136,8 @@ offset_bottom = 908.0
 scale = Vector2(0.6, 0.6)
 texture = ExtResource("3_ktc20")
 
-[node name="LeftCounter" type="TextureRect" parent="." unique_id=1349405560]
+[node name="LeftCounter" type="TextureRect" parent="Control2" unique_id=1349405560]
+layout_mode = 0
 offset_left = 1.0
 offset_top = 136.0
 offset_right = 530.0
@@ -402,7 +469,7 @@ visible = false
 position = Vector2(363, 436)
 
 [node name="BlindPlayer" parent="Players" unique_id=1426497895 instance=ExtResource("3_c621a")]
-position = Vector2(251, 158)
+position = Vector2(352, 190)
 
 [node name="Egg" parent="." unique_id=253672139 instance=ExtResource("12_k1jr4")]
 position = Vector2(661, 515)
@@ -421,6 +488,9 @@ position = Vector2(814, 373)
 item_name = "salt"
 
 [node name="MicTest" parent="." unique_id=393791460 instance=ExtResource("11_vpxcu")]
+
+[node name="CompletionScreen" parent="." unique_id=1013272756 instance=ExtResource("24_fr5pv")]
+visible = false
 
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
