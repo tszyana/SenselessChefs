@@ -27,8 +27,8 @@ shape = SubResource("RectangleShape2D_25ren")
 interact_name = "Stove"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1305977749]
-position = Vector2(115, -21)
-scale = Vector2(0.6, 0.6)
+position = Vector2(87.999985, -22)
+scale = Vector2(5.005014, 7.6662583)
 shape = SubResource("CircleShape2D_0wdwo")
 
 [node name="DropPoint" type="Marker2D" parent="." unique_id=1376980112]
