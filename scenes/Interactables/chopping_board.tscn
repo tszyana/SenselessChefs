@@ -1,8 +1,8 @@
 [gd_scene format=3 uid="uid://bjaxlx2vuqd5t"]
 
 [ext_resource type="Script" uid="uid://dd21pkgnjli31" path="res://scripts/chopping_board.gd" id="1_1wcpl"]
-[ext_resource type="Texture2D" uid="uid://cq05kg8a0kkrb" path="res://icon.svg" id="1_csuan"]
 [ext_resource type="PackedScene" uid="uid://cd3cbra8hqnsd" path="res://scenes/Interactables/interactable.tscn" id="2_1wcpl"]
+[ext_resource type="Texture2D" uid="uid://c2jb70n5acjcf" path="res://scenes/Images/Kitchen/Cutting board.png" id="2_uftcw"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_r3xp1"]
 size = Vector2(113, 130)
@@ -13,7 +13,7 @@ size = Vector2(113, 130)
 script = ExtResource("1_1wcpl")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=711941699]
-texture = ExtResource("1_csuan")
+texture = ExtResource("2_uftcw")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1378833656]
 

@@ -2,7 +2,7 @@
 
 [ext_resource type="PackedScene" uid="uid://cd3cbra8hqnsd" path="res://scenes/Interactables/interactable.tscn" id="1_eirmq"]
 [ext_resource type="Script" uid="uid://50i4g6oj07wk" path="res://scripts/stove.gd" id="1_t2o1f"]
-[ext_resource type="Texture2D" uid="uid://cq05kg8a0kkrb" path="res://icon.svg" id="2_oyirk"]
+[ext_resource type="Texture2D" uid="uid://bl1mu7frshdn5" path="res://scenes/Images/Kitchen/Stove.png" id="2_oyirk"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_25ren"]
 size = Vector2(201.25, 176.5)
