@@ -1,5 +1,6 @@
 extends Control
 
+
 @onready var player_list: VBoxContainer = $VBoxContainer/PlayerList
 @onready var start_button: Button = $StartButton
 
@@ -10,7 +11,7 @@ func _ready() -> void:
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
 	
 	if multiplayer.is_server():
-		GameState.add_player(multiplayer.get_unique_id())
+		GameState.add_player(multiplayer.get_unique_id(), GameState.player_info)
 		GameState.set_player_role(multiplayer.get_unique_id())
 
 		update_player_list()
@@ -21,7 +22,7 @@ func _ready() -> void:
 func _on_peer_connected(id: int) -> void:
 	print("Player connected: ", id)
 	if multiplayer.is_server():
-		GameState.add_player(id)
+		GameState.add_player(id, GameState.player_info)
 		GameState.set_player_role(id)
 		sync_player_states.rpc(GameState.player_states)
 
@@ -43,7 +44,7 @@ func update_player_list() -> void:
 	add_player_to_list(multiplayer.get_unique_id(), GameState.get_nickname())
 
 	# Add everyone else
-	for id in GameState.player_states.keys():
+	for id in GameState.player_order:
 		add_player_to_list(id, GameState.player_states[id]["nickname"])
 
 func add_player_to_list(id: int, name: String) -> void:
@@ -117,8 +118,9 @@ func sync_ready_states(states: Dictionary) -> void:
 	update_player_list()
 	
 @rpc("authority", "reliable", "call_local")
-func sync_player_states(states: Dictionary) -> void:
+func sync_player_states(states: Dictionary, order: Array) -> void:
 	GameState.player_states = states
+	GameState.player_order = order
 	update_player_list()
 	
 @rpc("any_peer", "reliable")
