@@ -9,7 +9,7 @@ var player: Node2D
 func _ready() -> void:
 	material.set_shader_parameter("radius_px", radius_px)
 	material.set_shader_parameter("feather_px", feather_px)
-
+	
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta: float) -> void:

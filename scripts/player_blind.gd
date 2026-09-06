@@ -27,7 +27,7 @@ func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
 		darkness.player = self
 		blindness_overlay.visible = true
-		kitchen.visible = false
+		kitchen.visible = true
 		blind_world.visible = true
 	else:
 		blindness_overlay.visible = false

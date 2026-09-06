@@ -4,10 +4,6 @@ uniform vec2 light_pos_px = vec2(400.0, 300.0); // player's position in screen p
 uniform float radius_px : hint_range(0.0, 2000.0) = 120.0;
 uniform float feather_px : hint_range(0.0, 2000.0) = 60.0;
 
-void vertex() {
-	// Called for every vertex the material is visible on.
-}
-
 void fragment() {
 	float dist = distance(FRAGCOORD.xy, light_pos_px);
     float alpha = smoothstep(radius_px, radius_px + feather_px, dist);
