@@ -189,6 +189,7 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("18_3fy06")
 
 [node name="RecipeButtonAsset" type="TextureRect" parent="." unique_id=94760782]
+visible = false
 offset_left = 0.99999976
 offset_top = 601.0
 offset_right = 273.49997
@@ -382,6 +383,7 @@ text = "Main Menu"
 flat = true
 
 [node name="RecipeButton" type="Button" parent="Control" unique_id=1458892778]
+visible = false
 z_index = 6
 layout_mode = 0
 offset_left = 6.0
