@@ -16,13 +16,12 @@ func _ready() -> void:
 
 func add_player(player_id: int) -> void:
 	player_states[player_id] = {
-		"role": playerNum,
+		"role": -1,
 		"ready": false,
 		"nickname": ""
 	}
 	
 	print("Added player ", player_id)
-	playerNum += 1
 	
 func remove_player(player_id: int) -> void:
 	player_states.erase(player_id)
@@ -31,6 +30,10 @@ func remove_player(player_id: int) -> void:
 	
 	if playerNum > 0:
 		playerNum -= 1
+		
+func set_player_role(id: int) -> void:
+	player_states[id]["role"] = playerNum
+	playerNum += 1
 	
 func set_nickname(name: String) -> void:
 	nickname = name
