@@ -11,7 +11,8 @@ var capture: AudioEffectCapture
 var chunk_size := int(AudioServer.get_mix_rate() * CHUNK_DURATION)
 
 var audio_buffer: Array[Vector2] = []
-var voice_buffer: Array[float] = []
+var voice_buffer: PackedFloat32Array = PackedFloat32Array()
+var voice_buffer_position := 0
 
 var sound_enabled := true
 var mic_enabled := true
@@ -58,21 +59,21 @@ func _process(_delta: float) -> void:
 
 	if not sound_enabled:
 		return
-		
-	var available := playback_playback.get_frames_available()
-	
-	if Engine.get_process_frames() % 60 == 0:
-		print("Voice buffer: ", voice_buffer.size(), " samples")
 
-	#while available > 0 and voice_buffer.size() > 0:
-		#var sample: float = voice_buffer.pop_front()
-#
-		#playback_playback.push_frame(
-			#Vector2(sample, sample)
-		#)
-#
-		#available -= 1
-	
+	var available := playback_playback.get_frames_available()
+	var remaining := voice_buffer.size() - voice_buffer_position
+	var frames_to_push = min(available, remaining)
+
+	for i in range(frames_to_push):
+		var sample := voice_buffer[voice_buffer_position]
+		playback_playback.push_frame(Vector2(sample, sample))
+		voice_buffer_position += 1
+
+	# Remove already-played samples occasionally
+	if voice_buffer_position > 4096:
+		voice_buffer = voice_buffer.slice(voice_buffer_position)
+		voice_buffer_position = 0	
+		
 func process_microphone() -> void:
 	if not mic_enabled:
 		mic.stop()
@@ -155,8 +156,7 @@ func pcm_to_audio_samples(pcm_data: PackedByteArray) -> PackedFloat32Array:
 
 	
 func play_voice_samples(samples: PackedFloat32Array) -> void:
-	for sample in samples:
-		voice_buffer.append(sample)
+	voice_buffer.append_array(samples)
 
 func test_sound() -> void:
 	if playback_playback == null:
