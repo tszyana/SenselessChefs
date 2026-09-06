@@ -46,3 +46,7 @@ func _on_recipe_button_pressed() -> void:
 	recipe_popup.visible = true
 func _on_close_button_pressed() -> void:
 	recipe_popup.visible = false
+
+
+func _on_to_menu_pressed() -> void:
+	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

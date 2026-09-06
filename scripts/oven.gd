@@ -3,6 +3,7 @@ extends Node2D
 @onready var interactable: Area2D = $Interactable
 @onready var drop_point: Marker2D = $DropPoint
 @onready var progress_bar: ProgressBar = $ProgressBar
+@onready var completion_screen_ = preload("res://scenes/completion_screen.tscn")
 
 @export var bake_time := 3.0
 var ingredients := []
@@ -107,3 +108,5 @@ func make_result(result_name: String):
 func end_game() -> void:
 	print("GAME COMPLETE")
 	# show end screen... end_screen.show() or smth
+	completion_screen_.instantiate();
+	completion_screen_.show()
