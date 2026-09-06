@@ -21,7 +21,7 @@ extends PlayerMovement
 
 enum State { MOVE, HOLD, CHOP, STIR, BAKE }
 @export var state: State = State.MOVE 
-var carrying_item: bool = false
+@export var carrying_item: bool = false
 var held_item: Pickable = null
 var user_id : int
 

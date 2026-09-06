@@ -28,7 +28,7 @@ func _on_interact():
 	
 	_do_interact.rpc(player.get_path())
 
-@rpc("any_peer", "call_local", "reliable")
+@rpc("call_local", "reliable")
 func _do_interact(player_path: NodePath):
 	var player = get_node(player_path)
 	if current_combo_index >= COMBOS.size():
@@ -93,6 +93,7 @@ func _do_interact(player_path: NodePath):
 		interactable.is_interactable = true
 	
 func make_trash(item: Pickable) -> void:
+	item.item_name = "trash"
 	$Trash.play()
 	item.reparent(get_parent())
 	item.position = drop_point.global_position
