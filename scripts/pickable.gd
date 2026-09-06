@@ -34,5 +34,7 @@ func update_sprite():
 			sprite_2d.texture = preload("res://scenes/Images/Kitchen/Foodness/Salt.png")
 		"sugar": 
 			sprite_2d.texture = preload("res://scenes/Images/Kitchen/Foodness/Sugar.png")
+		"melted_butter": 
+			sprite_2d.texture = preload("res://scenes/Images/Kitchen/Foodness/Used pot.png")
 		"trash": 
-			sprite_2d.texture = preload("res://icon.svg")
+			sprite_2d.texture = preload("res://scenes/Images/Kitchen/Bubbles/Censored food.png")

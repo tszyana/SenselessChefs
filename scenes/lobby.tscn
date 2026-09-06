@@ -2,9 +2,12 @@
 
 [ext_resource type="Script" uid="uid://ogrfkyg2ish5" path="res://scripts/lobby.gd" id="1_o1atq"]
 [ext_resource type="Texture2D" uid="uid://oeo52xu42oix" path="res://scenes/Images/Lobby/Lobby bg.png" id="2_apkv3"]
+[ext_resource type="Texture2D" uid="uid://c0btn5nt77pow" path="res://scenes/Images/Lobby/Start button.png" id="3_07nfq"]
 [ext_resource type="Texture2D" uid="uid://cuthdq1tt7106" path="res://scenes/Images/Lobby/Deaf bean character selection.png" id="3_omrgh"]
 [ext_resource type="Texture2D" uid="uid://cjmyi8nfywjp1" path="res://scenes/Images/Lobby/Mute bean character selectionn…….png" id="4_ncsg4"]
+[ext_resource type="Texture2D" uid="uid://bnax6pwi7d6y8" path="res://scenes/Images/Lobby/Join code thing.png" id="4_oipnb"]
 [ext_resource type="Texture2D" uid="uid://cebiquewu2ugd" path="res://scenes/Images/Lobby/Blind bean selection again lol.png" id="5_07nfq"]
+[ext_resource type="Texture2D" uid="uid://badn80oq5shv" path="res://scenes/Images/Lobby/Back button.png" id="5_yad6j"]
 [ext_resource type="Texture2D" uid="uid://t86rgcykw774" path="res://scenes/Images/Lobby/Nickname thibg again.png" id="6_oipnb"]
 
 [node name="Lobby" type="Control" unique_id=1403267576]
@@ -22,6 +25,42 @@ offset_right = 1149.0
 offset_bottom = 648.0
 texture = ExtResource("2_apkv3")
 expand_mode = 1
+
+[node name="Start" type="TextureRect" parent="." unique_id=709123551]
+layout_mode = 0
+offset_left = 460.0
+offset_top = 155.0
+offset_right = 833.0
+offset_bottom = 287.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("3_07nfq")
+
+[node name="Waiting" type="TextureRect" parent="." unique_id=924048506]
+layout_mode = 0
+offset_left = 344.0
+offset_right = 1175.0
+offset_bottom = 320.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("4_oipnb")
+expand_mode = 1
+
+[node name="Ready" type="TextureRect" parent="." unique_id=895575817]
+layout_mode = 0
+offset_left = 631.0
+offset_top = 648.0
+offset_right = 1004.0
+offset_bottom = 811.0
+rotation = 3.1415927
+scale = Vector2(0.35, 0.35)
+texture = ExtResource("3_07nfq")
+
+[node name="Back" type="TextureRect" parent="." unique_id=2104697674]
+layout_mode = 0
+offset_top = 5.0
+offset_right = 196.0
+offset_bottom = 126.0
+scale = Vector2(0.5, 0.5)
+texture = ExtResource("5_yad6j")
 
 [node name="DeafBean" type="TextureRect" parent="." unique_id=717894586]
 layout_mode = 0
@@ -79,19 +118,22 @@ expand_mode = 1
 
 [node name="VBoxContainer" type="VBoxContainer" parent="." unique_id=1673287037]
 layout_mode = 0
-offset_left = 394.0
-offset_top = 31.0
-offset_right = 731.0
-offset_bottom = 203.0
+offset_left = 382.0
+offset_top = 12.0
+offset_right = 719.0
+offset_bottom = 184.0
 
 [node name="Label" type="Label" parent="VBoxContainer" unique_id=1456625464]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 26
 text = "Prepping the kitchen...
 "
 horizontal_alignment = 1
 
 [node name="Label2" type="Label" parent="VBoxContainer" unique_id=1065773422]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Waiting for players..."
 horizontal_alignment = 1
 
@@ -101,25 +143,33 @@ alignment = 1
 
 [node name="ReadyButton" type="Button" parent="." unique_id=1778019345]
 layout_mode = 0
-offset_left = 483.0
-offset_top = 598.0
-offset_right = 647.0
-offset_bottom = 629.0
+offset_left = 506.0
+offset_top = 600.0
+offset_right = 626.0
+offset_bottom = 642.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.21568628, 0.11764706, 0.03137255, 1)
 text = "Ready"
+flat = true
 
 [node name="StartButton" type="Button" parent="." unique_id=1349381747]
 layout_mode = 0
-offset_left = 465.0
-offset_top = 214.0
-offset_right = 654.0
-offset_bottom = 245.0
+offset_left = 463.0
+offset_top = 157.0
+offset_right = 643.0
+offset_bottom = 215.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0.21568628, 0.11764706, 0.03137255, 1)
 text = "Start"
+flat = true
 
 [node name="BackButton" type="Button" parent="." unique_id=1629837044]
 layout_mode = 0
-offset_right = 8.0
-offset_bottom = 8.0
-text = "BACK"
+offset_left = 9.0
+offset_top = 10.0
+offset_right = 92.0
+offset_bottom = 61.0
+flat = true
 
 [node name="VBoxContainer2" type="VBoxContainer" parent="." unique_id=1663495985]
 layout_mode = 0
@@ -137,14 +187,17 @@ alignment = 1
 
 [node name="BlindLabel" type="Label" parent="VBoxContainer2/HBoxContainer2" unique_id=410737504]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Blind holder"
 
 [node name="DeafLabel" type="Label" parent="VBoxContainer2/HBoxContainer2" unique_id=1805761885]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Deaf holder"
 
 [node name="MuteLabel" type="Label" parent="VBoxContainer2/HBoxContainer2" unique_id=1831099995]
 layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 text = "Mute holder"
 
 [connection signal="pressed" from="ReadyButton" to="." method="_on_ready_button_pressed"]
