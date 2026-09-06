@@ -62,14 +62,14 @@ func remove_multiplayer_peer():
 func start_game() -> void:
 	get_tree().change_scene_to_file("res://scenes/kitchen.tscn")
 
-# Every peer will call this when they have loaded the game scene.
-@rpc("any_peer", "call_local", "reliable")
-func player_loaded():
-	if multiplayer.is_server():
-		GameState.players_loaded += 1
-		if GameState.players_loaded == GameState.players_order.size():
-			start_game()
-			GameState.players_loaded = 0
+## Every peer will call this when they have loaded the game scene.
+#@rpc("any_peer", "call_local", "reliable")
+#func player_loaded():
+	#if multiplayer.is_server():
+		#GameState.players_loaded += 1
+		#if GameState.players_loaded == GameState.player_order.size():
+			#start_game()
+			#GameState.players_loaded = 0
 				
 @rpc("any_peer", "unreliable")
 func send_voice_data(audio_data: PackedByteArray) -> void:

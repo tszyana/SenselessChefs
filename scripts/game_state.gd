@@ -9,7 +9,7 @@ enum Role {
 }
 
 var player_states := {}
-var nickname : String = ""
+var nickname := ""
 var player_order := []
 var sprite : CharacterBody2D
 var player_info := {"role" : -1,

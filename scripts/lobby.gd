@@ -52,13 +52,13 @@ func add_player_to_list(id: int, name: String) -> void:
 	print("Player states: ", GameState.player_states)
 	print("Looking for ID: ", id)
 	if GameState.player_states[id]["role"] == GameState.Role.BLIND:
-		label = $VBoxContainer2/HBoxContainer2/BlindLabel
+		label = $BlindLabel
 		
 	elif GameState.player_states[id]["role"] == GameState.Role.DEAF:
-		label = $VBoxContainer2/HBoxContainer2/DeafLabel
+		label = $DeafLabel
 		
 	elif GameState.player_states[id]["role"] == GameState.Role.MUTE:
-		label = $VBoxContainer2/HBoxContainer2/MuteLabel
+		label = $MuteLabel
 		
 	label.text = name
 
