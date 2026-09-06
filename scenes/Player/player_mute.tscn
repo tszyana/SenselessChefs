@@ -39,12 +39,14 @@ shape = SubResource("CircleShape2D_vqp8a")
 replication_config = SubResource("SceneReplicationConfig_2xtqj")
 
 [node name="Control" type="Control" parent="." unique_id=586786491]
+visible = false
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
 
 [node name="RecipeButtonAsset" type="TextureRect" parent="Control" unique_id=766482611]
+visible = false
 layout_mode = 0
 offset_left = -34.000015
 offset_top = -166.99997
@@ -55,6 +57,7 @@ texture = ExtResource("3_phf7w")
 expand_mode = 1
 
 [node name="RecipeButton" type="Button" parent="Control" unique_id=1931373018]
+visible = false
 z_index = 6
 layout_mode = 0
 offset_left = -26.000015
