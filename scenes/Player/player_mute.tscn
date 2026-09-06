@@ -38,7 +38,14 @@ shape = SubResource("CircleShape2D_vqp8a")
 [node name="MultiplayerSynchronizer" type="MultiplayerSynchronizer" parent="." unique_id=523702272]
 replication_config = SubResource("SceneReplicationConfig_2xtqj")
 
-[node name="RecipeButtonAsset" type="TextureRect" parent="." unique_id=766482611]
+[node name="Control" type="Control" parent="." unique_id=586786491]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="RecipeButtonAsset" type="TextureRect" parent="Control" unique_id=766482611]
+layout_mode = 0
 offset_left = -34.000015
 offset_top = -166.99997
 offset_right = 238.49995
@@ -47,8 +54,9 @@ scale = Vector2(0.4, 0.4)
 texture = ExtResource("3_phf7w")
 expand_mode = 1
 
-[node name="RecipeButton" type="Button" parent="." unique_id=1931373018]
+[node name="RecipeButton" type="Button" parent="Control" unique_id=1931373018]
 z_index = 6
+layout_mode = 0
 offset_left = -26.000015
 offset_top = -162.00003
 offset_right = 69.999985
@@ -58,15 +66,16 @@ theme_override_fonts/font = ExtResource("4_nftcr")
 text = "RECIPE"
 flat = true
 
-[node name="RecipePanel" type="Panel" parent="." unique_id=320356980]
+[node name="RecipePanel" type="Panel" parent="Control" unique_id=320356980]
 visible = false
 z_index = 6
+layout_mode = 0
 offset_left = -132.0
 offset_top = -402.0
 offset_right = 211.0
 offset_bottom = -122.0
 
-[node name="RecipeBox" type="TextureRect" parent="RecipePanel" unique_id=1771519486]
+[node name="RecipeBox" type="TextureRect" parent="Control/RecipePanel" unique_id=1771519486]
 layout_mode = 0
 offset_left = -2.0
 offset_top = 2.0
@@ -76,7 +85,7 @@ scale = Vector2(0.5, 0.5)
 texture = ExtResource("5_jm30k")
 expand_mode = 1
 
-[node name="CloseAsset" type="TextureRect" parent="RecipePanel" unique_id=201754120]
+[node name="CloseAsset" type="TextureRect" parent="Control/RecipePanel" unique_id=201754120]
 layout_mode = 0
 offset_left = 3.0
 offset_top = 3.0
@@ -85,7 +94,7 @@ offset_bottom = 36.0
 texture = ExtResource("6_wy8h0")
 expand_mode = 1
 
-[node name="CloseButton" type="Button" parent="RecipePanel" unique_id=701690014]
+[node name="CloseButton" type="Button" parent="Control/RecipePanel" unique_id=701690014]
 layout_mode = 1
 anchors_preset = -1
 anchor_right = 1.8830001
@@ -96,7 +105,7 @@ offset_right = -600.33704
 offset_bottom = -1045.28
 flat = true
 
-[node name="Label" type="Label" parent="RecipePanel" unique_id=835453726]
+[node name="Label" type="Label" parent="Control/RecipePanel" unique_id=835453726]
 layout_mode = 0
 offset_left = 77.0
 offset_top = 16.0
@@ -108,7 +117,7 @@ theme_override_font_sizes/font_size = 22
 text = "Apple Pie Recipe"
 horizontal_alignment = 1
 
-[node name="IngredientLabel" type="Label" parent="RecipePanel" unique_id=506374282]
+[node name="IngredientLabel" type="Label" parent="Control/RecipePanel" unique_id=506374282]
 layout_mode = 0
 offset_left = 9.0
 offset_top = 50.0
@@ -124,5 +133,5 @@ put butter on stove
 put melted_butter, flour, water on stove 
 put filled_bowl, cut_apples, pastry in oven"
 
-[connection signal="pressed" from="RecipeButton" to="." method="_on_recipe_button_pressed"]
-[connection signal="pressed" from="RecipePanel/CloseButton" to="." method="_on_close_button_pressed"]
+[connection signal="pressed" from="Control/RecipeButton" to="." method="_on_recipe_button_pressed"]
+[connection signal="pressed" from="Control/RecipePanel/CloseButton" to="." method="_on_close_button_pressed"]
