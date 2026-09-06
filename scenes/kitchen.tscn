@@ -60,6 +60,24 @@ func _process(delta: float) -> void:
 [sub_resource type="CompressedTexture2D" id="CompressedTexture2D_fr5pv"]
 load_path = "res://.godot/imported/Blind potat holding.png-1a5003d91b9af23924dd13163f2f472f.ctex"
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqp8a"]
+size = Vector2(145, 1043.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_d6t4w"]
+size = Vector2(212, 442)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_twnsb"]
+size = Vector2(61.984833, 526.38873)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_25ren"]
+size = Vector2(44.89647, 353)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_r3xp1"]
+size = Vector2(40.298584, 298.5)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8ixu5"]
+size = Vector2(96.09607, 394)
+
 [node name="Kitchen" type="Node2D" unique_id=1947100178]
 script = ExtResource("1_g3o0j")
 
@@ -449,37 +467,69 @@ position = Vector2(1037, 339)
 [node name="Players" type="Node2D" parent="." unique_id=1408460873]
 
 [node name="MutePlayer" parent="Players" unique_id=1737388892 instance=ExtResource("1_01sk3")]
-visible = false
 position = Vector2(811, 193)
 
 [node name="DeafPlayer" parent="Players" unique_id=2124090561 instance=ExtResource("2_jtesv")]
-visible = false
-position = Vector2(363, 436)
+position = Vector2(355, 480)
 
 [node name="BlindPlayer" parent="Players" unique_id=1426497895 instance=ExtResource("3_c621a")]
-position = Vector2(352, 190)
+position = Vector2(508, 529)
 holding_sprite = SubResource("CompressedTexture2D_fr5pv")
 
 [node name="Egg" parent="." unique_id=253672139 instance=ExtResource("12_k1jr4")]
-position = Vector2(464, 384)
+position = Vector2(459, 338)
 item_name = "egg"
 
 [node name="Apple" parent="." unique_id=1020376432 instance=ExtResource("12_k1jr4")]
-position = Vector2(676, 176)
+position = Vector2(705, 208)
 item_name = "apple"
 
 [node name="Flour" parent="." unique_id=1281105868 instance=ExtResource("12_k1jr4")]
-position = Vector2(485, 197)
+position = Vector2(479, 202)
 item_name = "flour"
 
 [node name="Salt" parent="." unique_id=545221216 instance=ExtResource("12_k1jr4")]
-position = Vector2(686, 382)
+position = Vector2(720, 346)
 item_name = "salt"
 
 [node name="MicTest" parent="." unique_id=393791460 instance=ExtResource("11_vpxcu")]
 
 [node name="CompletionScreen" parent="." unique_id=1013272756 instance=ExtResource("24_fr5pv")]
 visible = false
+
+[node name="InvisBoundary" type="Node2D" parent="." unique_id=1588431414]
+
+[node name="StaticBody2D" type="StaticBody2D" parent="InvisBoundary" unique_id=1700253672]
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="InvisBoundary/StaticBody2D" unique_id=1078014308]
+position = Vector2(630.25, 75)
+rotation = 1.5707964
+shape = SubResource("RectangleShape2D_vqp8a")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="InvisBoundary/StaticBody2D" unique_id=2111997347]
+position = Vector2(580, 280)
+shape = SubResource("RectangleShape2D_d6t4w")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="InvisBoundary/StaticBody2D" unique_id=1440864390]
+position = Vector2(200.09637, 389.7594)
+rotation = 0.3228859
+shape = SubResource("RectangleShape2D_twnsb")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="InvisBoundary/StaticBody2D" unique_id=1964528866]
+position = Vector2(481.02484, 246.36067)
+rotation = 0.17627822
+shape = SubResource("RectangleShape2D_25ren")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="InvisBoundary/StaticBody2D" unique_id=304026146]
+position = Vector2(675.946, 275.07837)
+rotation = -0.17627823
+shape = SubResource("RectangleShape2D_r3xp1")
+
+[node name="CollisionShape2D6" type="CollisionShape2D" parent="InvisBoundary/StaticBody2D" unique_id=2076426682]
+position = Vector2(1060.4167, 448.749)
+rotation = -0.34906584
+scale = Vector2(0.99999994, 0.99999994)
+shape = SubResource("RectangleShape2D_8ixu5")
 
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/RestartButton" to="." method="_on_restart_button_pressed"]
 [connection signal="pressed" from="Control/TimerPopup/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
