@@ -63,8 +63,9 @@ func update_player_proxy() -> void:
 	player_proxy.texture = sprite_2d.texture
 	player_proxy.flip_h = sprite_2d.flip_h
 
-@rpc("any_peer", "call_local", "reliable")
 func pickup_object() -> void:
+	if not is_multiplayer_authority():
+		return
 	if Input.is_action_just_pressed("pickup"):
 		$PickupSound.play()
 		print(
@@ -81,11 +82,14 @@ func pickup_object() -> void:
 			state = State.HOLD
 			held_item = target_object
 			held_item.set_multiplayer_authority(get_multiplayer_authority())
-			held_item.reparent(hand_position)
+			add_item.rpc(held_item)
 			held_item.position = Vector2.ZERO
 			carrying_item = true
 			is_in_range = false
 			
+@rpc("authority", "call_local", "reliable")
+func add_item(item):
+	held_item.reparent(hand_position)
 
 func drop_item() -> void:
 	held_item.reparent(kitchen)
