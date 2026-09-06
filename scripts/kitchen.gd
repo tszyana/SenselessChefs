@@ -49,19 +49,24 @@ func _on_restart_button_pressed() -> void:
 
 # Pause button
 func _on_pause_button_pressed() -> void:
+	$ButtonSound.play()
 	get_tree().paused = true
 	pause_popup.visible = true
 # Resume button
 func _on_resume_button_pressed() -> void:
+	$ButtonSound.play()
 	get_tree().paused = false
 	pause_popup.visible = false
 
 # Recipe stuff
 func _on_recipe_button_pressed() -> void:
+	$ButtonSound.play()
 	recipe_popup.visible = true
 func _on_close_button_pressed() -> void:
+	$ButtonSound.play()
 	recipe_popup.visible = false
 
 
 func _on_to_menu_pressed() -> void:
+	$ButtonSound.play()
 	get_tree().change_scene_to_file("res://scenes/main_menu.tscn")

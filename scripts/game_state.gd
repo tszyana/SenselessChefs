@@ -63,6 +63,7 @@ func setup_characters(blind : CharacterBody2D, deaf : CharacterBody2D, mute : Ch
 		VoiceChat.mic_enabled = false
 
 		print("im mute")
+
 		
 func _on_nickname_changed():
 	player_info["nickname"] = nickname
