@@ -35,14 +35,14 @@ func _process(delta):
 func update_gesture_sprite() -> void:
 	match state:
 		State.POINT:
-			#$Sprite2D.texture = preload("res://scenes/Images/pointing.jpeg")
-			pass
+			$Sprite2D.texture = preload("res://scenes/Images/Gestures/Point_gesture.png")
+			#pass
 		State.HAPPY:
-			#$Sprite2D.texture = preload("res://scenes/Images/happy.jpeg")
-			pass
+			$Sprite2D.texture = preload("res://scenes/Images/Gestures/Happy_gesture.png")
+			#pass
 		State.MAD:
-			#$Sprite2D.texture = preload("res://scenes/Images/mad.jpeg")
-			pass
+			$Sprite2D.texture = preload("res://scenes/Images/Gestures/Angry_gesture.png")
+			#pass
 		State.ONE:
 			#$Sprite2D.texture = preload("res://scenes/Images/one.jpeg")
 			pass
