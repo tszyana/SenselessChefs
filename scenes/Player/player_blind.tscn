@@ -13,7 +13,8 @@
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_1hl5r"]
 size = Vector2(155.43445, 29.383886)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_gsrh2"]
+[sub_resource type="CircleShape2D" id="CircleShape2D_d5da6"]
+radius = 61.0
 
 [sub_resource type="SceneReplicationConfig" id="SceneReplicationConfig_evyjb"]
 properties/0/path = NodePath(".:position")
@@ -46,12 +47,12 @@ rotation = -3.1415925
 scale = Vector2(1.2995832, -1.871725)
 shape = SubResource("RectangleShape2D_1hl5r")
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=815507105]
-scale = Vector2(6.0400004, 6.2799993)
-shape = SubResource("RectangleShape2D_gsrh2")
-
 [node name="InteractingComponent" parent="." unique_id=605448658 instance=ExtResource("3_sfju2")]
 position = Vector2(4, 7)
+
+[node name="BoundaryCollision" type="CollisionShape2D" parent="." unique_id=33897987]
+position = Vector2(-7, 52)
+shape = SubResource("CircleShape2D_d5da6")
 
 [node name="HandPosition" type="Marker2D" parent="." unique_id=674018565]
 position = Vector2(0, -81)
