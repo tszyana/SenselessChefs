@@ -419,7 +419,7 @@ Pour butter
 Bake"
 
 [node name="Timer" type="Timer" parent="." unique_id=1406045070]
-wait_time = 100.0
+wait_time = 300.0
 one_shot = true
 autostart = true
 script = SubResource("GDScript_v3ycp")
