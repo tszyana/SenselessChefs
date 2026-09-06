@@ -14,7 +14,7 @@ radius = 96.0205
 script = ExtResource("1_5w0rd")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=312497366]
-scale = Vector2(0.78174603, 0.6734694)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_a6ngj")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=2020991871]

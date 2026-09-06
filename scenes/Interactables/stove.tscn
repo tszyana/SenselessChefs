@@ -28,7 +28,7 @@ interact_name = "Stove"
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Interactable" unique_id=1305977749]
 position = Vector2(115, -21)
-scale = Vector2(12.59965, 13.510416)
+scale = Vector2(0.6, 0.6)
 shape = SubResource("CircleShape2D_0wdwo")
 
 [node name="DropPoint" type="Marker2D" parent="." unique_id=1376980112]

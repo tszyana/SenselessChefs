@@ -14,7 +14,7 @@ height = 35.899086
 script = ExtResource("1_mlgeb")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=1558577367]
-scale = Vector2(0.6330275, 0.5895349)
+scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_mlgeb")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1622280451]
