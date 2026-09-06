@@ -6,9 +6,6 @@
 [ext_resource type="AudioStream" uid="uid://cjkia8t81otc" path="res://Sounds/Oven sound.mp3" id="4_lplek"]
 [ext_resource type="AudioStream" uid="uid://6a60k16tjeuc" path="res://Sounds/Fun trash sound.mp3" id="5_thfxn"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_twnsb"]
-size = Vector2(96.5, 172.75)
-
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oyirk"]
 size = Vector2(14.999328, 43.784073)
 
@@ -20,9 +17,6 @@ scale = Vector2(0.6, 0.6)
 texture = ExtResource("2_mlgeb")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=1622280451]
-
-[node name="OvenCollision" type="CollisionShape2D" parent="Area2D" unique_id=1168381113]
-shape = SubResource("RectangleShape2D_twnsb")
 
 [node name="Interactable" parent="." unique_id=630558511 instance=ExtResource("1_mpe5x")]
 interact_name = "Oven"
