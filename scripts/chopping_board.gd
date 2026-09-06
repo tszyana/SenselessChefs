@@ -9,8 +9,8 @@ extends Node2D
 
 var ingredients = []
 const COMBOS = {
-	"cut_apples": ["apple"],
-	"pastry": ["flour", "egg", "salt"]
+	"pastry": ["flour", "egg", "salt"],
+	"cut_apples": ["apple"]
 }
 
 var current_combo_index := 0
