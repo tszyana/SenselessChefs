@@ -46,6 +46,8 @@ func update_player_list() -> void:
 func add_player_to_list(id: int) -> void:
 	var label : Label
 	
+	print("Player states: ", GameState.player_states)
+	print("Looking for ID: ", id)
 	if GameState.player_states[id]["role"] == GameState.Role.BLIND:
 		label = $VBoxContainer2/HBoxContainer2/BlindLabel
 		
@@ -65,7 +67,6 @@ func add_player_to_list(id: int) -> void:
 	else:
 		label.text += " - NOT READY"
 
-	player_list.add_child(label)
 
 
 func _on_ready_button_pressed() -> void:
