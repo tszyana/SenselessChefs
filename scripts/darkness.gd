@@ -15,10 +15,6 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	if not player:
 		return
-	var cam := get_viewport().get_camera_2d()
-	var screen_pos: Vector2
-	if cam:
-		screen_pos = cam.unproject_position(player.global_position)
-	else:
-		screen_pos = player.global_position
+	var canvas_transform := get_viewport().get_canvas_transform()
+	var screen_pos: Vector2 = canvas_transform * player.global_position
 	material.set_shader_parameter("light_pos_px", screen_pos)
