@@ -82,7 +82,7 @@ func pickup_object() -> void:
 			state = State.HOLD
 			held_item = target_object
 			held_item.set_multiplayer_authority(get_multiplayer_authority())
-			add_item.rpc(held_item)
+			#add_item.rpc(held_item)
 			held_item.position = Vector2.ZERO
 			carrying_item = true
 			is_in_range = false
