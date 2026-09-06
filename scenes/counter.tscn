@@ -2,9 +2,6 @@
 
 [ext_resource type="Texture2D" uid="uid://ncn8l0ep6pxm" path="res://scenes/Images/Kitchen/Kitchen island.png" id="1_sc7mx"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_vqp8a"]
-size = Vector2(352, 418)
-
 [node name="Counter" type="Node2D" unique_id=785632966]
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=405243074]
@@ -13,8 +10,3 @@ scale = Vector2(0.6448801, 0.64726037)
 texture = ExtResource("1_sc7mx")
 
 [node name="Area2D" type="Area2D" parent="." unique_id=346445928]
-
-[node name="CounterCollision" type="CollisionShape2D" parent="Area2D" unique_id=1881610426]
-position = Vector2(1, -2)
-scale = Vector2(0.6, 0.6)
-shape = SubResource("RectangleShape2D_vqp8a")
