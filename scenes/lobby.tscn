@@ -81,23 +81,6 @@ text = "Deaf holder"
 layout_mode = 2
 text = "Mute holder"
 
-[node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer2" unique_id=892741498]
-layout_mode = 2
-theme_override_constants/separation = 173
-alignment = 1
-
-[node name="BeBlindButton" type="Button" parent="VBoxContainer2/HBoxContainer" unique_id=1710691519]
-layout_mode = 2
-text = "BLIND"
-
-[node name="BeDeafButton" type="Button" parent="VBoxContainer2/HBoxContainer" unique_id=1745104028]
-layout_mode = 2
-text = "DEAF"
-
-[node name="BeMuteButton" type="Button" parent="VBoxContainer2/HBoxContainer" unique_id=1831257890]
-layout_mode = 2
-text = "MUTE"
-
 [connection signal="pressed" from="ReadyButton" to="." method="_on_ready_button_pressed"]
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="BackButton" to="." method="_on_back_button_pressed"]

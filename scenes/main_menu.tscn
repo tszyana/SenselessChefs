@@ -12,7 +12,7 @@ grow_vertical = 2
 script = ExtResource("1_l6cm7")
 metadata/_edit_lock_ = true
 
-[node name="LineEdit" type="LineEdit" parent="." unique_id=995277565]
+[node name="NicknameEdit" type="LineEdit" parent="." unique_id=995277565]
 layout_mode = 0
 offset_left = 430.0
 offset_top = 394.0

@@ -54,8 +54,8 @@ func _process(_delta: float) -> void:
 
 	var available := playback_playback.get_frames_available()
 	
-	if Engine.get_process_frames() % 60 == 0:
-		print("Voice buffer: ", voice_buffer.size(), " samples")
+	#if Engine.get_process_frames() % 60 == 0:
+		#print("Voice buffer: ", voice_buffer.size(), " samples")
 
 	while available > 0 and voice_buffer.size() > 0:
 		var sample: float = voice_buffer.pop_front()
