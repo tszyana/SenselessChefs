@@ -4,13 +4,12 @@ extends Control
 @onready var start_button: Button = $StartButton
 
 var is_ready := false
-var players_ready := {}
 
 func _ready() -> void:
 	multiplayer.peer_connected.connect(_on_peer_connected)
 	multiplayer.peer_disconnected.connect(_on_peer_disconnected)
 	
-	players_ready[multiplayer.get_unique_id()] = false
+	GameState.add_player(multiplayer.get_unique_id())
 
 	update_player_list()
 	
@@ -19,10 +18,14 @@ func _ready() -> void:
 
 func _on_peer_connected(id: int) -> void:
 	print("Player connected: ", id)
+	if multiplayer.is_server():
+		GameState.add_player(id)
 	update_player_list()
 
 func _on_peer_disconnected(id: int) -> void:
 	print("Player disconnected: ", id)
+	if multiplayer.is_server():
+		GameState.remove_player(id)
 	update_player_list()
 
 func update_player_list() -> void:
@@ -39,13 +42,23 @@ func update_player_list() -> void:
 		add_player_to_list(id)
 
 func add_player_to_list(id: int) -> void:
-	var label := Label.new()
+	var label : Label
+	
+	if GameState.player_states[id]["role"] == GameState.Role.BLIND:
+		label = $VBoxContainer2/HBoxContainer2/BlindLabel
+		
+	elif GameState.player_states[id]["role"] == GameState.Role.DEAF:
+		label = $VBoxContainer2/HBoxContainer2/DeafLabel
+		
+	elif GameState.player_states[id]["role"] == GameState.Role.MUTE:
+		label = $VBoxContainer2/HBoxContainer2/MuteLabel
+		
 	label.text = "Player " + str(id)
 
 	if id == multiplayer.get_unique_id():
 		label.text += " (You)"
 		
-	if players_ready.get(id, false):
+	if not GameState.player_states[id]["ready"]:
 		label.text += " - READY"
 	else:
 		label.text += " - NOT READY"
@@ -54,23 +67,24 @@ func add_player_to_list(id: int) -> void:
 
 
 func _on_ready_button_pressed() -> void:
+
 	is_ready = !is_ready
-	players_ready[multiplayer.get_unique_id()] = is_ready
+	#GameState.player_states[multiplayer.get_unique_id()] = is_ready
 
 	if multiplayer.is_server():
-		players_ready[multiplayer.get_unique_id()] = is_ready
+		GameState.player_states[multiplayer.get_unique_id()] = is_ready
 		update_player_list()
-		sync_ready_states.rpc(players_ready)
+		sync_ready_states.rpc(GameState.player_states)
 	else:
 		set_ready_on_server.rpc_id(1, is_ready)
 		
 # Returns true if all players are ready
 func all_players_ready() -> bool:
 	for id in multiplayer.get_peers():
-		if not players_ready.get(id, false):
+		if not GameState.player_states[id]["ready"]:
 			return false
 
-	if not players_ready.get(multiplayer.get_unique_id(), false):
+	if not GameState.player_states[multiplayer.get_unique_id()]["ready"]:
 		return false
 
 	return true
@@ -89,7 +103,7 @@ func _on_start_button_pressed() -> void:
 
 @rpc("authority", "call_local", "reliable")
 func sync_ready_states(states: Dictionary) -> void:
-	players_ready = states
+	GameState.player_states = states
 	update_player_list()
 	
 @rpc("any_peer", "reliable")
@@ -99,10 +113,12 @@ func set_ready_on_server(ready: bool) -> void:
 
 	var player_id := multiplayer.get_remote_sender_id()
 
-	players_ready[player_id] = ready
+	GameState.player_states[player_id]["ready"] = ready
 
 	update_player_list()
-	sync_ready_states.rpc(players_ready)
+	sync_ready_states.rpc(GameState.player_states)
+	
+
 	
 @rpc("any_peer", "call_local", "reliable")
 func start_game() -> void:
