@@ -50,12 +50,15 @@ func setup_characters(blind : CharacterBody2D, deaf : CharacterBody2D, mute : Ch
 	
 	if myRole == Role.BLIND:
 		sprite = blind
+		print("im blind")
 		
 	elif myRole == Role.DEAF:
 		sprite = deaf
+		print("im deaf")
 	
 	elif myRole == Role.MUTE:
 		sprite = mute
+		print("im mute")
 	
 
 	
