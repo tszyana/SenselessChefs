@@ -19,7 +19,7 @@ func process_movement() -> void:
 	var direction := Input.get_vector("left", "right", "up", "down")
 	
 	velocity = direction * SPEED
-
+	
 	update_movement_sprite(direction)
 
 # updates sprite to match movement

@@ -61,6 +61,7 @@ func _on_interact():
 		interactable.is_interactable = false
 		
 		print("Stirring", item.item_name) # placeholder for sprite change??
+		player.state = player.State.STIR
 		await get_tree().create_timer(stir_time).timeout
 		
 		var result_name = COMBOS.keys()[current_combo_index]
@@ -72,6 +73,11 @@ func _on_interact():
 		progress_bar.hide()
 		
 		player.can_move = true
+		if player.carrying_item:
+			player.state = player.State.HOLD
+		else:
+			player.state = player.State.MOVE
+		
 		interactable.is_interactable = true
 	
 func make_trash(item: Pickable) -> void:

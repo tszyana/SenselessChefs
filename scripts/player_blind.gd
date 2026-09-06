@@ -51,7 +51,9 @@ func pickup_object() -> void:
 		)
 		if carrying_item:
 			drop_item()
+			state = State.MOVE
 		elif is_in_range and target_object:
+			state = State.HOLD
 			held_item = target_object
 			held_item.reparent(hand_position)
 			held_item.position = Vector2.ZERO
