@@ -28,7 +28,7 @@ var user_id : int
 func _physics_process(delta: float) -> void:
 	if is_multiplayer_authority():
 		process_movement()
-		pickup_object.rpc()
+		pickup_object()
 		move_and_slide()
 		update_player_proxy()
 	
