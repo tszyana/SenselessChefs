@@ -13,5 +13,5 @@ item_name = "pickable"
 texture = ExtResource("2_ue70n")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1044167228]
-scale = Vector2(10.479443, 9.690396)
+scale = Vector2(2.0355973, 1.9829978)
 shape = SubResource("CircleShape2D_sqblf")
