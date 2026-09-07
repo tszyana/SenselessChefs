@@ -19,6 +19,9 @@ extends PlayerMovement
 @onready var player_layer: CanvasLayer = $PlayerVisibleLayer
 @onready var player_proxy: Sprite2D = $PlayerVisibleLayer/PlayerProxy
 
+
+var current_item : Pickable
+
 enum State { MOVE, HOLD, CHOP, STIR, BAKE }
 @export var state: State = State.MOVE 
 @export var carrying_item: bool = false
@@ -81,11 +84,14 @@ func pickup_object() -> void:
 		elif is_in_range and target_object:
 			state = State.HOLD
 			held_item = target_object
-			held_item.set_multiplayer_authority(get_multiplayer_authority())
 			#add_item.rpc(held_item)
-			held_item.position = Vector2.ZERO
+			current_item = held_item
 			carrying_item = true
 			is_in_range = false
+			
+func _process(delta):
+	if current_item != null:
+		current_item.position = position
 			
 @rpc("any_peer", "call_local", "reliable")
 func add_item(item: Pickable):
